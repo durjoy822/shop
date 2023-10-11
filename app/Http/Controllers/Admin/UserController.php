@@ -10,4 +10,7 @@ class UserController extends Controller
     public function user() {
         return view('admin.user.index');
     }
+    public function userAdd() {
+        return view('admin.user.add');
+    }
 }

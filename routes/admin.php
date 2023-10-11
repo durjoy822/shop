@@ -12,6 +12,7 @@ Route::get('/dashboard', function () {
 
 Route::controller(UserController::class)->group(function () {
     Route::get('/user', 'user')->name('user');
+    Route::get('/user/add', 'userAdd')->name('user.add');
 });
 Route::controller(AuthController::class)->group(function () {
     Route::get('/login', 'login')->name('login');
