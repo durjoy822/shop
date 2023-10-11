@@ -19,7 +19,7 @@ user
                 User Data
             </div>
             <div>
-                <a href=""><button class="btn btn-info">Add user</button></a>
+                <a href="{{route('user.add')}}"><button class="btn btn-info">Add user</button></a>
             </div>
         </div>
       <div class="table-responsive p-3">
