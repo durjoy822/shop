@@ -8,6 +8,10 @@
   <script src="{{asset('admin')}}/vendor/datatables/jquery.dataTables.min.js"></script>
   <script src="{{asset('admin')}}/vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
+<!--image preview -->
+  <script src="{{asset('admin')}}/img-preview/imoViewer-min.js"></script>
+
+
   <!--Data table -->
   <script>
     $(document).ready(function () {
@@ -15,3 +19,14 @@
       $('#dataTableHover').DataTable(); // ID From dataTable with Hover
     });
   </script>
+
+<script>
+    $(function () {
+      $('#file-input').imoViewer({
+        'preview' : '#image-previewer',
+      })
+    });
+  </script>
+
+
+
