@@ -11,6 +11,16 @@ categories
       <li class="breadcrumb-item active" aria-current="page">Categories</li>
     </ol>
 </div>
+<!--session message-->
+@if(Session::has('message'))
+<div class="alert alert-block alert-success alert-dismissible" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <i class=" fa fa-check cool-green "></i>
+    {{ nl2br(Session::get('message')) }}
+  </div>
+@endif
 <!--table-->
 <div class="col-lg-12">
     <div class="card mb-4">
@@ -50,8 +60,14 @@ categories
                 </td>
                 <td>{{$category->name}}</td>
                 <td >
-                  <a href=""><i class="far fa-edit"></i></a>&nbsp;
-                  <a href=""><i class="far fa-trash-alt text-danger"></i></a>
+                  <a href="{{route('categories.edit',$category->id)}}"><i class="far fa-edit"></i></a>&nbsp;
+                  <form action="{{route('categories.destroy',$category->id)}}" method="post" class="d-inline">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" style="border: none; background-color: transparent;">
+                        <i class="far fa-trash-alt text-danger"></i>
+                    </button>
+                  </form>
                 </td>
               </tr>
             @endforeach

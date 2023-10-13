@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\CategoryRequest;
+use App\Services\Admin\CategoryService;
+use Illuminate\Support\Facades\Session;
 
 class CategoryController extends Controller
 {
@@ -29,9 +32,11 @@ class CategoryController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(CategoryRequest $request, CategoryService $categoryService)
     {
-        //
+        $categoryService->store($request);
+        Session::flash('message','Category Added Successfully!');
+        return redirect()->route('categories.index');
     }
 
     /**
@@ -45,24 +50,30 @@ class CategoryController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit($id)
     {
-        //
+        return view('admin.category.edit',[
+            'category'=>Category::find($id),
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, $id,  CategoryService $categoryService)
     {
-        //
+        $categoryService->update($request, $id);
+        Session::flash('message','Category Update Successfully!');
+        return redirect()->route('categories.index');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy( $id, categoryService $categoryService)
     {
-        //
+        $categoryService->delete($id);
+        Session::flash('message','Category Delete Successfully!');
+        return redirect()->route('categories.index');
     }
 }
