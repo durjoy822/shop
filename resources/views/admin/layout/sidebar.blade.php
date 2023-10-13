@@ -20,7 +20,7 @@
     <div class="sidebar-heading">
       Product
     </div>
-    <li class="nav-item">
+    {{-- <li class="nav-item">
       <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBootstrap"
         aria-expanded="true" aria-controls="collapseBootstrap">
         <i class="far fa-fw fa-window-maximize"></i>
@@ -37,7 +37,7 @@
           <a class="collapse-item" href="progress-bar.html">Progress Bars</a>
         </div>
       </div>
-    </li>
+    </li> --}}
     <li class="nav-item">
       <a class="nav-link" href="{{route('categories.index')}}">
         <i class="fas fa-fw fa-chart-area"></i>

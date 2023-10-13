@@ -16,7 +16,7 @@ categories
     <div class="card mb-4">
         <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
             <div class="m-0 h6 font-weight-bold text-primary">
-                User Data
+                Categories Data
             </div>
             <div>
                 <a href="{{route('categories.create')}}"><button class="btn btn-info">Add category</button></a>
@@ -27,50 +27,40 @@ categories
           <thead class="thead-light">
             <tr>
               <th>Sno</th>
-              <th>Name</th>
-              <th>Email</th>
-              <th>Role</th>
+              <th>Image</th>
+              <th>Category Name</th>
               <th>Action</th>
             </tr>
           </thead>
           <tfoot>
             <tr>
-              <th>Sno</th>
-              <th>Name</th>
-              <th>Email</th>
-              <th>Role</th>
-              <th>Action</th>
+                <th>Sno</th>
+                <th>Image</th>
+                <th>Category Name</th>
+                <th>Action</th>
             </tr>
           </tfoot>
           <tbody>
+            @if ($categories->count())
+            @foreach ($categories  as $index=>$category )
             <tr>
-              <td>1</td>
-              <td>Tiger Nixon</td>
-              <td>jone@gmail.com</td>
-              <td>
-                <button href="#" class="btn btn-sm btn-outline-info">Super Admin</button>
-            </td>
-              <td >
-                <a href=""><i class="fas fa-user-edit text-warning"></i></a>&nbsp;
-                <a href=""><i class="far fa-eye text-info"></i></a>&nbsp;
-                <a href=""><i class="far fa-trash-alt text-danger"></i></a>
-              </td>
-            </tr>
+                <td>{{$index + 1}}</td>
+                <td>
+                  <img src="{{asset($category->image)}}" style="border-radius: 100%;width:100px">
+                </td>
+                <td>{{$category->name}}</td>
+                <td >
+                  <a href=""><i class="far fa-edit"></i></a>&nbsp;
+                  <a href=""><i class="far fa-trash-alt text-danger"></i></a>
+                </td>
+              </tr>
+            @endforeach
+            @else
             <tr>
-              <td>2</td>
-              <td> Nixon</td>
-              <td>nixon@gmail.com</td>
-              <td>
-                <button href="#" class="btn btn-sm btn-outline-primary">Super Admin</button>
-                <button href="#" class="btn btn-sm btn-outline-info">Admin</button>
-                <button href="#" class="btn btn-sm btn-outline-warning">Author</button>
-            </td>
-              <td >
-                <a href=""><i class="fas fa-user-edit text-warning"></i></a>&nbsp;
-                <a href=""><i class="far fa-eye text-info"></i></a>&nbsp;
-                <a href=""><i class="far fa-trash-alt text-danger"></i></a>
-              </td>
+                <td colspan="4" class="text-primary "> Categories not found!</td>
             </tr>
+            @endif
+
 
           </tbody>
         </table>

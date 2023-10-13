@@ -28,7 +28,7 @@ categories create
                 </div>
                     <div class="row">
                         <div class="col-lg-8 pb-2">
-                            <input class="form-control " type="file" id="file-input">
+                            <input class="form-control " name="image" type="file" id="file-input">
                         </div>
                         <div class="col-lg-4 ">
                             <img src=""  alt="" class="col-8"  id="image-previewer"  >
