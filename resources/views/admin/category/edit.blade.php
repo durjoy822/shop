@@ -1,15 +1,15 @@
 @extends('admin.layout.master')
 @section('title')
-categories create
+categories edit
 @endsection
 @section('content')
 <div class="container-fluid" id="container-wrapper">
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <h1 class="h3 mb-0 text-gray-800">Categories Create</h1>
+    <h1 class="h3 mb-0 text-gray-800">Categories Edit</h1>
     <ol class="breadcrumb">
       <li class="breadcrumb-item"><a href="{{route('dashboard')}}">Dashboard</a></li>
       <li class="breadcrumb-item"><a href="./">categories</a></li>
-      <li class="breadcrumb-item active" aria-current="page">categories create</li>
+      <li class="breadcrumb-item active" aria-current="page">categories edit</li>
     </ol>
 </div>
     <div class="row " >
@@ -17,15 +17,16 @@ categories create
         <!-- Form Basic -->
         <div class="card mb-4">
             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-            <h6 class="m-0 font-weight-bold text-primary">Categories create </h6>
+            <h6 class="m-0 font-weight-bold text-primary">Categories edit </h6>
             </div>
             <div class="card-body">
-            <form action="{{route('categories.store')}}" method="post" enctype="multipart/form-data">
+            <form action="{{route('categories.update',$category->id)}}" method="post" enctype="multipart/form-data">
                 @csrf
+                @method('put')
 
                 <div class="form-group">
                 <label for="name">Category Name</label>
-                <input type="text" class="form-control" value="{{old('name')}}"  name="name" id="name"
+                <input type="text" class="form-control" value="{{$category->name}}" value="{{old('name')}}" name="name" id="name"
                     placeholder="Enter category name">
                     <div class="text-danger">@error('name') {{$message}} @enderror</div>
                 </div>
@@ -34,7 +35,7 @@ categories create
                             <input class="form-control " name="image" type="file" id="file-input">
                         </div>
                         <div class="col-lg-4 ">
-                            <img src=""  alt="" class="col-8"  id="image-previewer"  >
+                            <img src="{{asset($category->image)}}"  alt="" class="col-8"  id="image-previewer"  >
                         </div>
                     </div>
                     <button type="submit" class="btn btn-primary mt-3">Submit</button>
