@@ -29,7 +29,7 @@ categories
                 Categories Data
             </div>
             <div>
-                <a href="{{route('categories.create')}}"><button class="btn btn-info">Add category</button></a>
+                <a href="{{route('categories.create')}}"><button class="btn btn-info">Create category</button></a>
             </div>
         </div>
       <div class="table-responsive p-3">

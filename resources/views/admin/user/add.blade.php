@@ -39,6 +39,18 @@ user
                 <label for="exampleInputPassword1">Confirm Password</label>
                 <input type="Confirm password"  name="confirm_password" class="form-control" id="exampleInputPassword1" placeholder="Password">
                 </div>
+                <div class="form-group">
+                    <label for="select2Multiple">Role select</label>
+                    <select class="select2-multiple form-control"  name="states[]" multiple="multiple"
+                      id="select2Multiple">
+                      <option value=""  >Select  Role</option>
+                      <option value="Aceh">Admin</option>
+                      <option value="Sumatra Utara" selected>Super Admin</option>
+                      <option value="Sumatra Barat">Editor</option>
+                      <option value="Riau">Supervicher </option>
+                      <option value="Kepulauan Riau">User</option>
+                    </select>
+                  </div>
                 <div class="mb-2">
                     <div class="btn-group btn-group-toggle" data-toggle="buttons">
                         <label class="btn btn-secondary ">

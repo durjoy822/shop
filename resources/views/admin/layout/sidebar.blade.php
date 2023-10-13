@@ -45,5 +45,21 @@
       </a>
     </li>
     <hr class="sidebar-divider">
+    <div class="sidebar-heading">
+      Roles & permission
+    </div>
+    <li class="nav-item">
+      <a class="nav-link" href="">
+        <i class="fas fa-fw fa-chart-area"></i>
+        <span>Roles</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{route('user')}}">
+        <i class="fas fa-fw fa-chart-area"></i>
+        <span>User</span>
+      </a>
+    </li>
+    <hr class="sidebar-divider">
     <div class="version" id="version-ruangadmin"></div>
   </ul>
