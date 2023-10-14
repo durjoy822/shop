@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\SubcategoryController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\UserController;
 
@@ -37,6 +38,7 @@ Route::get('/roles/add',[DashboardController::class,'rolesAdd'])->name('roles.ad
 
 
 Route::resource('/categories', CategoryController::class);
+Route::resource('/subcategories',SubcategoryController::class);
 
 
 

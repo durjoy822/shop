@@ -32,7 +32,11 @@
 <!--select 2 for multiple select-->
   <script>
      $('.select2-multiple').select2();
+     $('.select2-single').select2();
   </script>
+
+
+
 
 
 
