@@ -20,24 +20,25 @@
                     <div class="text-center">
                       <h1 class="h4 text-gray-900 mb-4">Login</h1>
                     </div>
-                    <form class="user">
+                    <form action="{{route('login.check')}}" method="post" class="user">
+                        @csrf
                       <div class="form-group">
-                        <input type="email" class="form-control" id="exampleInputEmail" aria-describedby="emailHelp"
+                        <input type="email" class="form-control" name="email" value="{{$login->email}}" value="{{old('email')}}" id="exampleInputEmail" aria-describedby="emailHelp"
                           placeholder="Enter Email Address">
                       </div>
                       <div class="form-group">
-                        <input type="password" class="form-control" id="exampleInputPassword" placeholder="Password">
+                        <input type="password" name="password" value="12345678" class="form-control" id="exampleInputPassword" placeholder="Password">
                       </div>
                       <div class="form-group">
                         <div class="custom-control custom-checkbox small" style="line-height: 1.5rem;">
-                          <input type="checkbox" class="custom-control-input" id="customCheck">
+                          <input type="checkbox" name="remember_token" class="custom-control-input" id="customCheck">
                           <label class="custom-control-label" for="customCheck">Remember
                             Me</label>
                             <span class="float-right"><a href="{{route('forgot')}}">Forgot password</a></span>
                         </div>
                       </div>
                       <div class="form-group">
-                        <a href="index.html" class="btn btn-primary btn-block">Login</a>
+                        <button type="submit" class="btn btn-primary btn-block">Login</button>
                       </div>
                       <hr>
                       <a href="index.html" class="btn btn-google btn-block">
@@ -61,5 +62,17 @@
         </div>
       </div>
     </div>
+@include('admin.layout.script')
+
+<script>
+    @if(Session::has('success'))
+        toastr.options =
+        {
+            "closeButton" : true,
+            "progressBar" : true
+        }
+    toastr.success("{{ session('success') }}");
+    @endif
+</script>
   </body>
 </html>

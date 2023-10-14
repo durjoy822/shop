@@ -44,6 +44,28 @@
         <span>Categories</span>
       </a>
     </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{route('subcategories.index')}}">
+        <i class="fas fa-fw fa-chart-area"></i>
+        <span>Sub categories</span>
+      </a>
+    </li>
+    <hr class="sidebar-divider">
+    <div class="sidebar-heading">
+     User Roles & permission
+    </div>
+    <li class="nav-item">
+      <a class="nav-link" href="{{route('roles')}}">
+        <i class="fas fa-fw fa-chart-area"></i>
+        <span>Roles</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{route('user')}}">
+        <i class="fas fa-fw fa-chart-area"></i>
+        <span>User</span>
+      </a>
+    </li>
     <hr class="sidebar-divider">
     <div class="version" id="version-ruangadmin"></div>
   </ul>
