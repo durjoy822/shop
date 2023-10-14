@@ -32,6 +32,8 @@ Route::controller(AuthController::class)->group(function () {
 
 });
 
+Route::get('/roles',[DashboardController::class,'roles'])->name('roles');
+Route::get('/roles/add',[DashboardController::class,'rolesAdd'])->name('roles.add');
 
 
 Route::resource('/categories', CategoryController::class);

@@ -1,15 +1,15 @@
 @extends('admin.layout.master')
 @section('title')
-categories create
+roles create
 @endsection
 @section('content')
 <div class="container-fluid" id="container-wrapper">
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <h1 class="h3 mb-0 text-gray-800">Categories Create</h1>
+    <h1 class="h3 mb-0 text-gray-800">Roles Create</h1>
     <ol class="breadcrumb">
       <li class="breadcrumb-item"><a href="{{route('dashboard')}}">Dashboard</a></li>
-      <li class="breadcrumb-item"><a href="./">Categories</a></li>
-      <li class="breadcrumb-item active" aria-current="page">categories create</li>
+      <li class="breadcrumb-item"><a href="./">Roles</a></li>
+      <li class="breadcrumb-item active" aria-current="page">roles create</li>
     </ol>
 </div>
     <div class="row " >
@@ -17,7 +17,7 @@ categories create
         <!-- Form Basic -->
         <div class="card mb-4">
             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-            <h6 class="m-0 font-weight-bold text-primary">Categories create </h6>
+            <h6 class="m-0 font-weight-bold text-primary">Roles create </h6>
             </div>
             <div class="card-body">
             <form action="{{route('categories.store')}}" method="post" enctype="multipart/form-data">

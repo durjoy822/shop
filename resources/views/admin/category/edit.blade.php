@@ -8,7 +8,7 @@ categories edit
     <h1 class="h3 mb-0 text-gray-800">Categories Edit</h1>
     <ol class="breadcrumb">
       <li class="breadcrumb-item"><a href="{{route('dashboard')}}">Dashboard</a></li>
-      <li class="breadcrumb-item"><a href="./">categories</a></li>
+      <li class="breadcrumb-item"><a href="./">Categories</a></li>
       <li class="breadcrumb-item active" aria-current="page">categories edit</li>
     </ol>
 </div>
