@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Subcategory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class SubcategoryController extends Controller
 {
@@ -15,7 +16,7 @@ class SubcategoryController extends Controller
     public function index()
     {
         return view('admin.sub-category.index',[
-            'subcategories'=>Subcategory::latest()->get(), 
+            'subcategories'=>Subcategory::latest()->get(),
         ]);
     }
 
@@ -34,7 +35,18 @@ class SubcategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       $request->validate([
+        'name'=>'required'
+       ],[
+        'name.required'=>'Sub-category name field required',
+       ]);
+
+       $subcategory=new Subcategory();
+       $subcategory->category_id=$request->category_id;
+       $subcategory->name=$request->name;
+       $subcategory->save();
+       Session::flash('message','Subcategory add successfully!');
+       return redirect()->route('subcategories.index');
     }
 
     /**
@@ -48,9 +60,12 @@ class SubcategoryController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit($id)
     {
-        //
+        return view('admin.sub-category.edit',[
+            'subcategory'=>Subcategory::find($id),
+            'categories'=>Category::all(),
+        ]);
     }
 
     /**
@@ -58,7 +73,18 @@ class SubcategoryController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $request->validate([
+            'name'=>'required'
+           ],[
+            'name.required'=>'Sub-category name field required',
+           ]);
+
+           $subcategory=Subcategory::find($id);
+           $subcategory->category_id=$request->category_id;
+           $subcategory->name=$request->name;
+           $subcategory->save();
+           Session::flash('message','Subcategory updated successfully!');
+           return redirect()->route('subcategories.index');
     }
 
     /**
@@ -66,6 +92,9 @@ class SubcategoryController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        Subcategory::find($id)->delete();
+        Session::flash('message','Subcategory delete successfully!');
+        return redirect()->route('subcategories.index');
+
     }
 }

@@ -40,14 +40,20 @@
     </li> --}}
     <li class="nav-item">
       <a class="nav-link" href="{{route('categories.index')}}">
-        <i class="fas fa-fw fa-chart-area"></i>
+        <i class="fas fa-dice-d20"></i>
         <span>Categories</span>
       </a>
     </li>
     <li class="nav-item">
       <a class="nav-link" href="{{route('subcategories.index')}}">
-        <i class="fas fa-fw fa-chart-area"></i>
+        <i class="fas fa-dice-d6"></i>
         <span>Sub categories</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="">
+        <i class="fab fa-bandcamp"></i>
+        <span>Brand</span>
       </a>
     </li>
     <hr class="sidebar-divider">
@@ -56,13 +62,13 @@
     </div>
     <li class="nav-item">
       <a class="nav-link" href="{{route('roles')}}">
-        <i class="fas fa-fw fa-chart-area"></i>
+        <i class="fas fa-user-shield  "></i>
         <span>Roles</span>
       </a>
     </li>
     <li class="nav-item">
       <a class="nav-link" href="{{route('user')}}">
-        <i class="fas fa-fw fa-chart-area"></i>
+        <i class="fas fa-users-cog"></i>
         <span>User</span>
       </a>
     </li>
