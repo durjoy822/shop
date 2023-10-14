@@ -1,22 +1,15 @@
 @extends('admin.layout.master')
 @section('title')
-sub categories create
+sub categories edit
 @endsection
 @section('content')
-{{-- <Style>
-    .select2-search--dropdown .select2-search__field {
-    padding: 4px;
-    width: 68%;
-    box-sizing: border-box;
-}
-</Style> --}}
 <div class="container-fluid" id="container-wrapper">
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <h1 class="h3 mb-0 text-gray-800">Sub categories Create</h1>
+    <h1 class="h3 mb-0 text-gray-800">Sub categories edit</h1>
     <ol class="breadcrumb">
       <li class="breadcrumb-item"><a href="{{route('dashboard')}}">Dashboard</a></li>
       <li class="breadcrumb-item"><a href="./">Sub categories</a></li>
-      <li class="breadcrumb-item active" aria-current="page">Sub categories create</li>
+      <li class="breadcrumb-item active" aria-current="page">Sub categories edit</li>
     </ol>
 </div>
     <div class="row " >
@@ -24,24 +17,24 @@ sub categories create
         <!-- Form Basic -->
         <div class="card mb-4">
             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-            <h6 class="m-0 font-weight-bold text-primary">Sub categories create </h6>
+            <h6 class="m-0 font-weight-bold text-primary">Sub categories edit </h6>
             </div>
             <div class="card-body">
-            <form action="{{route('subcategories.store')}}" method="post">
+            <form action="{{route('subcategories.update',$subcategory->id)}}" method="post">
                 @csrf
-
+                @method('put')
                 <div class="form-group">
                     <label for="select2SinglePlaceholder">Select Category</label>
                     <select class="select2-single form-control" name="category_id" id="select2SinglePlaceholder">
                         <option value="">Select</option>
                         @foreach ($categories as $category)
-                        <option value="{{$category->id}}">{{$category->name}}</option>
+                        <option value="{{$category->id}}" {{$category->id==$subcategory->category_id?'selected':''}}>{{$category->name}}</option>
                         @endforeach
                     </select>
                 </div>
                 <div class="form-group">
                 <label for="name">Sub category Name</label>
-                <input type="text" class="form-control"  value="{{old('name')}}"  name="name" id="name"
+                <input type="text" class="form-control"  value="{{$subcategory->name}}" value="{{old('name')}}"  name="name" id="name"
                     placeholder="Enter sub category name">
                     <div class="text-danger">@error('name') {{$message}} @enderror</div>
                 </div>

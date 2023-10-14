@@ -6,7 +6,6 @@
     .card-hover:hover {
         background: aliceblue;
     }
-
     .card-hover {
         height: 235px;
     }
@@ -28,7 +27,7 @@
                         Roles Data
                     </div>
                     <div>
-                        <a href="{{ route('roles.add') }}"><button class="btn btn-info">Create roles</button></a>
+                        <a href=""><button class="btn btn-info">Create roles</button></a>
                     </div>
                 </div>
                 <div class="row px-3 py-3 ">
