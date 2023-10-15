@@ -43,10 +43,12 @@ user
             </tr>
           </tfoot>
           <tbody>
+            @if ($users->count()>0)
+            @foreach ($users as $index=>$user )
             <tr>
-              <td>1</td>
-              <td>Tiger Nixon</td>
-              <td>jone@gmail.com</td>
+              <td>{{$index +1}}</td>
+              <td>{{$user->name}}</td>
+              <td>{{$user->email}}</td>
               <td>
                 <button href="#" class="btn btn-sm btn-outline-info">Super Admin</button>
             </td>
@@ -56,7 +58,9 @@ user
                 <a href=""><i class="far fa-trash-alt text-danger"></i></a>
               </td>
             </tr>
-            <tr>
+            @endforeach
+            @endif
+            {{-- <tr>
               <td>2</td>
               <td> Nixon</td>
               <td>nixon@gmail.com</td>
@@ -70,7 +74,7 @@ user
                 <a href=""><i class="far fa-eye text-info"></i></a>&nbsp;
                 <a href=""><i class="far fa-trash-alt text-danger"></i></a>
               </td>
-            </tr>
+            </tr> --}}
 
           </tbody>
         </table>

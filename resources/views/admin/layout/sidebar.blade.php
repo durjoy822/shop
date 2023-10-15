@@ -73,8 +73,8 @@
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="">
-        <i class="fas fa-users-cog"></i>
+      <a class="nav-link" href="{{route('optimize')}}">
+        <i class="fas fa-rocket"></i>
         <span>Optimize</span>
       </a>
     </li>

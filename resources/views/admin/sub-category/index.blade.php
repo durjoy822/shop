@@ -71,7 +71,7 @@ sub categories
             @endforeach
             @else
             <tr>
-                <td colspan="4" class="text-primary "> Categories not found!</td>
+                <td colspan="4" class="text-primary "> Sub categories not found!</td>
             </tr>
             @endif
           </tbody>
