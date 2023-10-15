@@ -10,9 +10,8 @@ use App\Http\Controllers\Admin\UserController;
 
 
 
-// Route::get('/dashboard', function () {
-//     return view('admin/dashboard');
-// });
+
+
 
 Route::middleware(user::class)->group(function () {
 Route::get('/dashboard',[DashboardController::class,'dashboard'])->name('dashboard');
@@ -38,7 +37,6 @@ Route::controller(AuthController::class)->group(function () {
 
 Route::resource('/categories', CategoryController::class);
 Route::resource('/subcategories',SubcategoryController::class);
-Route::resource('/roles',RoleController::class);
 
 
 
