@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\SubcategoryController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\UserController;
@@ -33,12 +34,11 @@ Route::controller(AuthController::class)->group(function () {
 
 });
 
-Route::get('/roles',[DashboardController::class,'roles'])->name('roles');
-Route::get('/roles/add',[DashboardController::class,'rolesAdd'])->name('roles.add');
 
 
 Route::resource('/categories', CategoryController::class);
 Route::resource('/subcategories',SubcategoryController::class);
+Route::resource('/roles',RoleController::class);
 
 
 

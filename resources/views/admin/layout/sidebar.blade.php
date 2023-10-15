@@ -58,18 +58,24 @@
     </li>
     <hr class="sidebar-divider">
     <div class="sidebar-heading">
-     User Roles & permission
+    Settings
     </div>
     <li class="nav-item">
-      <a class="nav-link" href="{{route('roles')}}">
+        <a class="nav-link" href="{{route('user')}}">
+          <i class="fas fa-users-cog"></i>
+          <span>User settings</span>
+        </a>
+      </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{route('roles.index')}}">
         <i class="fas fa-user-shield  "></i>
-        <span>Roles</span>
+        <span>Roles settings</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="{{route('user')}}">
+      <a class="nav-link" href="">
         <i class="fas fa-users-cog"></i>
-        <span>User</span>
+        <span>Optimize</span>
       </a>
     </li>
     <hr class="sidebar-divider">

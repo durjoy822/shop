@@ -27,7 +27,7 @@
                         Roles Data
                     </div>
                     <div>
-                        <a href=""><button class="btn btn-info">Create roles</button></a>
+                        <a href="{{route('roles.create')}}"><button class="btn btn-info">Create roles</button></a>
                     </div>
                 </div>
                 <div class="row px-3 py-3 ">
