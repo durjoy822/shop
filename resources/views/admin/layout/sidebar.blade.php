@@ -51,7 +51,7 @@
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="">
+      <a class="nav-link" href="{{route('brands.index')}}">
         <i class="fab fa-bandcamp"></i>
         <span>Brand</span>
       </a>

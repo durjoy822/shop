@@ -26,7 +26,7 @@ class SubcategoryFactory extends Factory
         $subcategory = $this->faker->randomElement([
             'Bed',
             'Electronic light',
-            'Rolex watch',
+            'Brand watches',
             'Fan',
             'Samsung',
         ]);

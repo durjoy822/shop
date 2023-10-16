@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Brand;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -9,6 +10,8 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  */
 class BrandFactory extends Factory
 {
+    protected $model = Brand::class;
+
     /**
      * Define the model's default state.
      *
@@ -16,8 +19,33 @@ class BrandFactory extends Factory
      */
     public function definition(): array
     {
-        return [
-            //
+        $brands = [
+            [
+                'name'  => 'Soney',
+                'image' => 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-VmWOQT7W0nGDzQLTTi1Qg6WZcXQK1SB7vykynPHajpd-uByhCYY7o9OjNGb6dMFOTkc&usqp=CAU',
+            ],
+            [
+                'name'  => 'Home Goods',
+                'image' => 'https://www.mytwintiers.com/wp-content/uploads/sites/89/2019/01/homegoods3-1200x750_1546480805322_66414360_ver1.0.png',
+            ],
+            [
+                'name'  => 'Rolex',
+                'image' => 'https://i.pinimg.com/originals/13/8c/fe/138cfe29ca2076fec5b0664482b0830e.jpg',
+            ],
+            [
+                'name'  => 'Kitchen Aid',
+                'image' => 'https://www.wdix.co.uk/media/1995/kitchenaid.jpg',
+            ],
+            [
+                'name'  => 'Apple',
+                'image' => 'https://www.tailorbrands.com/wp-content/uploads/2021/01/apple_logo_1977.jpg',
+            ],
         ];
+
+        // Pick a random brand from the array
+        $brand = $this->faker->randomElement($brands);
+
+        return $brand;
     }
+
 }
