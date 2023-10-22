@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\SubcategoryController;
+use App\Http\Controllers\Admin\UnitController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\UserController;
 
@@ -37,6 +38,4 @@ Route::controller(AuthController::class)->group(function () {
 
 Route::resource('/categories', CategoryController::class);
 Route::resource('/subcategories',SubcategoryController::class);
-
-
-
+Route::resource('/units',UnitController::class);

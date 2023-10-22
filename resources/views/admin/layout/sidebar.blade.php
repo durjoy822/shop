@@ -56,6 +56,13 @@
         <span>Brand</span>
       </a>
     </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{route('units.index')}}">
+        <i class="fab fa-bandcamp"></i>
+        <span>Unit</span>
+      </a>
+    </li>
+    </li>
     <hr class="sidebar-divider">
     <div class="sidebar-heading">
     Settings
