@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             SubcategorySeeder::class,
             RolePermissionSeeder::class,
+            BrandSeeder::class,
 
         ]);
 
