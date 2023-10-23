@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Unit;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class UnitController extends Controller
 {
@@ -14,7 +15,7 @@ class UnitController extends Controller
     public function index()
     {
         return view('admin.unit.index',[
-            'units'=>Unit::latest()->get(), 
+            'units'=>Unit::latest()->get(),
         ]);
     }
 
@@ -23,7 +24,7 @@ class UnitController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.unit.add');
     }
 
     /**
@@ -31,7 +32,15 @@ class UnitController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name'=>'required',
+        ]);
+
+        $unit=new Unit();
+        $unit->name=$request->name;
+        $unit->save();
+        Session::flash('message','Unit store successfully');
+        return redirect()->route('units.index');
     }
 
     /**
@@ -45,9 +54,11 @@ class UnitController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit( $id)
     {
-        //
+        return view('admin.unit.edit',[
+            'unit'=> Unit::find($id),
+        ]);
     }
 
     /**
@@ -55,7 +66,15 @@ class UnitController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $request->validate([
+            'name'=>'required',
+        ]);
+
+        $unit=Unit::find($id);
+        $unit->name=$request->name;
+        $unit->save();
+        Session::flash('message','Unit updated successfully');
+        return redirect()->route('units.index');
     }
 
     /**
@@ -63,6 +82,9 @@ class UnitController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $unit=Unit::find($id)->delete();
+        Session::flash('message','Unit Delete Successfully');
+        return back(); 
+
     }
 }

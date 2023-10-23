@@ -29,7 +29,7 @@ categories
                 Categories Data
             </div>
             <div>
-                <a href="{{route('categories.create')}}"><button class="btn btn-info">Create category</button></a>
+                <a href="{{route('units.create')}}"><button class="btn btn-info">Create category</button></a>
             </div>
         </div>
       <div class="table-responsive p-3">
@@ -55,8 +55,8 @@ categories
                 <td>{{$index + 1}}</td>
                 <td>{{$unit->name}}</td>
                 <td>
-                  <a href="{{route('categories.edit',$category->id)}}"><i class="far fa-edit"></i></a>&nbsp;
-                  <form action="{{route('categories.destroy',$category->id)}}" method="post" class="d-inline">
+                  <a href="{{route('units.edit',$unit->id)}}"><i class="far fa-edit"></i></a>&nbsp;
+                  <form action="{{route('units.destroy',$unit->id)}}" method="post" class="d-inline">
                     @csrf
                     @method('DELETE')
                     <button type="submit" style="border: none; background-color: transparent;">
@@ -71,8 +71,6 @@ categories
                 <td colspan="4" class="text-primary "> Units not found!</td>
             </tr>
             @endif
-
-
           </tbody>
         </table>
       </div>
