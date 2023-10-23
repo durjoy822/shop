@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AuthController;
+use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\RoleController;
@@ -38,4 +39,11 @@ Route::controller(AuthController::class)->group(function () {
 
 Route::resource('/categories', CategoryController::class);
 Route::resource('/subcategories',SubcategoryController::class);
+<<<<<<< HEAD
 Route::resource('/units',UnitController::class);
+=======
+Route::resource('/brands',BrandController::class);
+
+
+
+>>>>>>> e2a653fad78d65b024190dbb160f80f1823c57c6
