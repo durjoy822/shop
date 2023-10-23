@@ -19,15 +19,15 @@ class UnitFactory extends Factory
 
     public function definition(): array
     {
-        return [
+        // return [
             $unit = [
                 'Kg',
                 'pis',
-            ]
+            ];
 
-        ];
+        // ];
         return [
             'name'  => $this->faker->unique()->randomElement($unit),
-        ]; 
+        ];
     }
 }
