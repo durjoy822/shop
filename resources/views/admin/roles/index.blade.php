@@ -31,14 +31,15 @@
                     </div>
                 </div>
                 <div class="row px-3 py-3 ">
+                @foreach($roles as $role)
                     <div class="col-md-4 py-2">
                         <div class="card ">
                             <div class="card-hover">
                                 <div class="card-heading  pt-3 text-center">
-                                    <h2>Super Admin</h2>
+                                    <h2>{{$role->name}}</h2>
                                 </div>
                                 <div class="card-body py-2 text-center ">
-                                    <p class="m-0">This is a Super Admin</p>
+                                    <p class="m-0">{{$role->description}}</p>
                                 </div>
                                 <div class="py-2 px-2 text-center">
                                     <a href=""><i class="far fa-edit"></i></a>&nbsp;
@@ -53,50 +54,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4 py-2">
-                        <div class="card ">
-                            <div class="card-hover">
-                                <div class="card-heading  pt-3 text-center">
-                                    <h2>Admin</h2>
-                                </div>
-                                <div class="card-body py-2 text-center ">
-                                    <p class="m-0">This is a Admiin</p>
-                                </div>
-                                <div class="py-2 px-2 text-center">
-                                    <a href=""><i class="far fa-edit"></i></a>&nbsp;
-                                    <form action="" method="post" class="d-inline">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" style="border: none; background-color: transparent;">
-                                            <i class="far fa-trash-alt text-danger"></i>
-                                        </button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 py-2">
-                        <div class="card ">
-                            <div class="card-hover">
-                                <div class="card-heading  pt-3 text-center">
-                                    <h2>Editor</h2>
-                                </div>
-                                <div class="card-body py-2 text-center ">
-                                    <p class="m-0">This is a Editor</p>
-                                </div>
-                                <div class="py-2 px-2 text-center">
-                                    <a href=""><i class="far fa-edit"></i></a>&nbsp;
-                                    <form action="" method="post" class="d-inline">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" style="border: none; background-color: transparent;">
-                                            <i class="far fa-trash-alt text-danger"></i>
-                                        </button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                @endforeach
                 </div>
             </div>
         </div>

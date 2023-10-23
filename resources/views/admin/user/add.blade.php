@@ -39,9 +39,9 @@ user
                 <label for="exampleInputPassword1">Confirm Password</label>
                 <input type="Confirm password"  name="confirm_password" class="form-control" id="exampleInputPassword1" placeholder="Password">
                 </div>
-                <div class="form-group">
+                <div class="form-group overflow-hidden">
                     <label for="select2Multiple">Role select</label>
-                    <select class="select2-multiple form-control"  name="states[]" multiple="multiple"
+                    <select class="select2-multiple form-control  overflow-hidden"  name="states[]" multiple="multiple"
                       id="select2Multiple">
                       <option value=""  >Select  Role</option>
                       <option value="Aceh">Admin</option>
