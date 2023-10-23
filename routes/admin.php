@@ -39,11 +39,5 @@ Route::controller(AuthController::class)->group(function () {
 
 Route::resource('/categories', CategoryController::class);
 Route::resource('/subcategories',SubcategoryController::class);
-<<<<<<< HEAD
 Route::resource('/units',UnitController::class);
-=======
 Route::resource('/brands',BrandController::class);
-
-
-
->>>>>>> e2a653fad78d65b024190dbb160f80f1823c57c6
