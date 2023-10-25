@@ -62,6 +62,12 @@
         <span>Unit</span>
       </a>
     </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{route('products.index')}}">
+        <i class="fas fa-project-diagram"></i>
+        <span>Product</span>
+      </a>
+    </li>
     </li>
     <hr class="sidebar-divider">
     <div class="sidebar-heading">
