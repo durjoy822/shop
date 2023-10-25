@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
             UnitSeeder::class,
             RolePermissionSeeder::class,
             BrandSeeder::class,
+            ProductSeeder::class,
 
         ]);
 
