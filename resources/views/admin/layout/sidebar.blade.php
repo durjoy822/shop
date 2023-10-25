@@ -52,13 +52,13 @@
     </li>
     <li class="nav-item">
       <a class="nav-link" href="{{route('brands.index')}}">
-        <i class="fab fa-bandcamp"></i>
+        <i class="fas fa-universal-access"></i>
         <span>Brand</span>
       </a>
     </li>
     <li class="nav-item">
       <a class="nav-link" href="{{route('units.index')}}">
-        <i class="fab fa-bandcamp"></i>
+        <i class="fab fa-ubuntu"></i>
         <span>Unit</span>
       </a>
     </li>

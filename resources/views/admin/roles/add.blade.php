@@ -52,20 +52,20 @@ roles create
                             <div class="card-hover">
                                 <div class="card-heading  pt-3 px-4">
                                     <h5>
-                                        <input class="form-check-input" type="checkbox" value="{{$group->group_name}}" id="checkPermission" >
+                                        <input class="form-check-input" name="permissions[]" type="checkbox" id="checkPermission" >
                                         <label class="form-check-label" for="checkPermission">{{$group->group_name}}</label>
                                     </h5>
                                 </div>
                                 <div class="card-body p-0 pl-5 mt-2">
                                    <p class="m-0 pl-2">
-                                    @php 
-                                   $permissions = App\Models\User::getPermissionGroups($group->group_name);
+                                    @php
 
-                                    $j = 1;  
+                                $permissions = App\Models\User::getpermissionsByGroupName($group->name);
+                                    $j = 1;
                                     @endphp
                                     @foreach($permissions as $permission)
                                     <input class="form-check-input pl-2" type="checkbox" value=""id="flexCheckChecked" >
-                                     <label class="form-check-label" for="flexCheckChecked">crate</label>
+                                     <label class="form-check-label" for="flexCheckChecked">{{$permission->name}}</label><br>
                                      @php $j ++ ;  @endphp
                                      @endforeach
                                    </p>
@@ -75,10 +75,6 @@ roles create
                     </div>
                     @php $i ++ ;  @endphp
                     @endforeach
-
-
-
-
                 </div>
                 <div class="px-3">
                     <button type="submit" class="btn btn-primary mt-3">Create roles</button>

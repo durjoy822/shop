@@ -32,6 +32,7 @@ categories edit
                 </div>
                     <div class="row">
                         <div class="col-lg-8 pb-2">
+                            <label for="file_input">Image</label>
                             <input class="form-control " name="image" type="file" id="file-input">
                         </div>
                         <div class="col-lg-4 ">

@@ -61,43 +61,38 @@ class RolePermissionSeeder extends Seeder
                     'roles.destroy',
                 ],
             ],
-        ]; 
+        ];
 
-        //create and assings permission
         for ($i = 0; $i < count($permissions); $i++) {
             $permissionGroup = $permissions[$i]['group_name'];
-        
             for ($j = 0; $j < count($permissions[$i]['permissions']); $j++) {
-                $permission = Permission::create([
-                    'name' => $permissions[$i]['permissions'][$j],
-                    'group_name' => $permissionGroup,
-                ]);
+                // Create Permission
+                $permission = Permission::create(['name' => $permissions[$i]['permissions'][$j], 'group_name' => $permissionGroup]);
+                $roleSuperAdmin->givePermissionTo($permission);
+                $permission->assignRole($roleSuperAdmin);
             }
         }
-           
-            $roleSuperAdmin->givePermissionTo([
-
-                'dashboard',
-    
-                'categories.create',
-                'categories.edit',
-                'categories.destroy',
-    
-                'subcategories.create',
-                'subcategories.edit',
-                'subcategories.destroy',
-    
-                'roles.create',
-                'roles.edit',
-                'roles.destroy',
-    
-    
-            ]);
-    
-    
-            $roleSuperAdmin->givePermissionTo([
-                //
-            ]);
-        }
-
+    }
 }
+
+        //create and assings permission
+//         for ($i = 0; $i < count($permissions); $i++) {
+//             $permissionGroup = $permissions[$i]['group_name'];
+
+//             for ($j = 0; $j < count($permissions[$i]['permissions']); $j++) {
+//                 $permission = Permission::create([
+//                     'name' => $permissions[$i]['permissions'][$j],
+//                     'group_name' => $permissionGroup,
+//                 ]);
+//             }
+//         }
+//             $roleSuperAdmin->givePermissionTo([
+//             ]);
+//             $roleSuperAdmin->givePermissionTo([
+//                 //
+//             ]);
+//         }
+
+// } for ($i = 0; $i < count($permissions); $i++) {
+
+// }
