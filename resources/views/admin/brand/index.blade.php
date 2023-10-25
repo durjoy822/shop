@@ -38,7 +38,7 @@ brand
             <tr>
               <th>Sno</th>
               <th>Image</th>
-              <th>Category Name</th>
+              <th>Brand Name</th>
               <th>Action</th>
             </tr>
           </thead>
@@ -46,7 +46,7 @@ brand
             <tr>
                 <th>Sno</th>
                 <th>Image</th>
-                <th>Category Name</th>
+                <th>Brand Name</th>
                 <th>Action</th>
             </tr>
           </tfoot>
