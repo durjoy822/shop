@@ -3,11 +3,16 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Brand;
+use App\Traits\FileDelete;
+use App\Traits\FileUpload;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Session;
 
 class BrandController extends Controller
 {
+    use FileUpload;
+    use FileDelete;
     /**
      * Display a listing of the resource.
      */
@@ -23,7 +28,7 @@ class BrandController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.brand.add');
     }
 
     /**
@@ -31,7 +36,17 @@ class BrandController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name'=>'required',
+        ]);
+        $brand=new Brand();
+        $brand->name=$request->name;
+        if($request->image){
+            $brand->image=$this->uploadImage($request->image,'brand');
+        }
+        $brand->save();
+        Session::flash('message','brand Add successfully');
+        return redirect()->route('brands.index');
     }
 
     /**
@@ -47,7 +62,9 @@ class BrandController extends Controller
      */
     public function edit(string $id)
     {
-        //
+         return view('admin.brand.edit',[
+            'brand'=>Brand::find($id),
+         ]);
     }
 
     /**
@@ -55,7 +72,22 @@ class BrandController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $request->validate([
+            'name'=>'required',
+        ]);
+        $brand=Brand::find($id);
+        $brand->name=$request->name;
+        if($request->file('image')){
+            if($request->file('image')){
+                if(file_exists($brand->image)){
+                    unlink($brand->image);
+                }
+                $brand->image=$this->uploadImage($request->image,'brand');
+            }
+        }
+        $brand->save();
+        Session::flash('message','brand updated successfully');
+        return redirect()->route('brands.index');
     }
 
     /**
@@ -63,6 +95,10 @@ class BrandController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $brand=Brand::find($id);
+        $brand->image=$this->deleteImage($brand->image);
+        $brand->delete();
+        Session::flash('message','Brand Delete successfully!');
+        return back(); 
     }
 }
