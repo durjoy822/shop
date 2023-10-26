@@ -32,7 +32,7 @@ sub categories create
 
                 <div class="form-group">
                     <label for="select2SinglePlaceholder">Select Category</label>
-                    <select class="select2-single form-control" name="category_id" id="select2SinglePlaceholder">
+                    <select class="select2-multiple form-control js-example-responsive" style="width: 100%"  name="category_id" id="select2SinglePlaceholder">
                         <option value="">Select</option>
                         @foreach ($categories as $category)
                         <option value="{{$category->id}}">{{$category->name}}</option>

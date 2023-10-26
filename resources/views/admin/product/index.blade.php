@@ -38,6 +38,7 @@ products
             <tr>
               <th>Sno</th>
               <th>Product Image</th>
+              <th>Product Name</th>
               <th>Category Name</th>
               <th>Sub Category Name</th>
               <th>Selling Price</th>
@@ -49,6 +50,7 @@ products
             <tr>
                 <th>Sno</th>
                 <th>Product Image</th>
+                <th>Product Name</th>
                 <th>Category Name</th>
                 <th>Sub Category Name</th>
                 <th>Selling Price</th>
@@ -64,6 +66,7 @@ products
                 <td>
                     <a href="{{route('products.show',$product->id)}}"><img src="{{asset($product->image)}}" style="border-radius: 100%;width:100px"></a>
                 </td>
+                <td>{{$product->name}}</td>
                 <td>{{$product->category->name}}</td>
                 <td>{{$product->subCategory->name}}</td>
                 <td>{{$product->selling_price}}</td>
