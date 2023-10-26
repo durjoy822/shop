@@ -41,7 +41,7 @@ user
                 </div>
                 <div class="form-group overflow-hidden">
                     <label for="select2Multiple">Role select</label>
-                    <select class="select2-multiple form-control  overflow-hidden"  name="states[]" multiple="multiple"
+                    <select class="select2-multiple form-control js-example-responsive" style="width: 100%"  name="states[]" multiple="multiple"
                       id="select2Multiple">
                       <option value=""  >Select  Role</option>
                       <option value="Aceh">Admin</option>

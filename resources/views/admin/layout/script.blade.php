@@ -36,7 +36,17 @@
   </script>
 
 
+<script>
+    $(function(){
+  $('#demo').bs_dropzone();
+});
 
+$(function(){
+  $('#demo').bs_dropzone();
+});
+
+
+</script>
 
 
 
