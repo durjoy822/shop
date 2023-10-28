@@ -31,7 +31,10 @@
     <i class="fas fa-angle-up"></i>
   </a>
   @include('admin.layout.script')
+
+
   @include('admin.layout.toster')
+  @include('admin.layout.tynimce'); 
 </body>
 
 </html>
