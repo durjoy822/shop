@@ -13,7 +13,7 @@ products create
     </ol>
 </div>
     <div class="row " >
-        <div class="col-lg-8 offset-lg-2">
+        <div class="col-lg-10 offset-lg-1">
         <!-- Form Basic -->
         <div class="card mb-4">
             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
@@ -23,12 +23,9 @@ products create
             <form action="{{route('products.store')}}" method="post" enctype="multipart/form-data">
                 @csrf
 
-                <div class="form-group">
-                <label for="name">Product Name</label>
-                <input type="text" class="form-control" value="{{old('name')}}"  name="name" id="name"
-                    placeholder="Enter product name">
-                    <div class="text-danger">@error('name') {{$message}} @enderror</div>
-                </div>
+            <div class="row">
+                <!--product section-->
+                <div class="col-lg-6">
                 <!--Category-->
                 <div class="form-group">
                     <label for="select2SinglePlaceholder">Select Category</label>
@@ -52,7 +49,7 @@ products create
             <!--Brand-->
                 <div class="form-group">
                     <label for="select2SinglePlaceholder">Select Brand</label>
-                    <select class="select2-multiple form-control js-example-responsive" name="brand_id" style="width: 100%"  name="category_id" id="select2SinglePlaceholder">
+                    <select class="select2-single2 form-control js-example-responsive" name="brand_id" style="width: 100%"  name="category_id" id="select2SinglePlaceholder">
                         <option value="">Select</option>
                         @foreach ($categories as $category)
                         <option value="{{$category->id}}">{{$category->name}}</option>
@@ -69,10 +66,45 @@ products create
                         @endforeach
                     </select>
                 </div>
-                <!--code-->
+                <!--Stock Amount-->
+                <div class="form-group">
+                    <label for="name">Stock Amount</label>
+                    <input type="number" class="form-control" value="{{old('stock_amount')}}"  name="stock_amount" id="name"
+                        placeholder="Stock amount">
+                        <div class="text-danger">@error('stock_amount') {{$message}} @enderror</div>
+                    </div>
+                     <!--Short description-->
+                <div class="form-group">
+                    <label for="name">Short Description</label>
+                    <textarea  class="tinymce form-control" value="{{old('short_description')}}"  name="short_description" id="name"
+                        placeholder="short description"></textarea>
+                        <div class="text-danger">@error('short_description') {{$message}} @enderror</div>
+                    </div>
+
+                <!--long description-->
+                <div class="form-group">
+                    <label for="name">long Description</label>
+                    <textarea  class=" tinymce form-control" value="{{old('long_description')}}"  name="long_description" id="name"
+                        placeholder="short description"></textarea>
+                        <div class="text-danger">@error('long_description') {{$message}} @enderror</div>
+                    </div>
+                </div>
+
+
+
+            <!--    category image and description section-->
+                <div class="col-lg-6">
+                    <!--name-->
+                <div class="form-group">
+                    <label for="name">Product name</label>
+                    <input type="text" class="form-control" value="{{old('name')}}"  name="name" id="name"
+                        placeholder="Enter product code">
+                        <div class="text-danger">@error('code') {{$message}} @enderror</div>
+                    </div>
+                    <!--code-->
                 <div class="form-group">
                     <label for="name">Product code</label>
-                    <input type="text" class="form-control" value="{{old('code')}}"  name="name" id="name"
+                    <input type="text" class="form-control" value="{{old('code')}}"  name="code" id="name"
                         placeholder="Enter product code">
                         <div class="text-danger">@error('code') {{$message}} @enderror</div>
                     </div>
@@ -97,35 +129,23 @@ products create
                         placeholder="discount">
                         <div class="text-danger">@error('discount') {{$message}} @enderror</div>
                     </div>
-                <!--Discount-->
-                <div class="form-group">
-                    <label for="name">Stock Amount</label>
-                    <input type="number" class="form-control" value="{{old('stock_amount')}}"  name="stock_amount" id="name"
-                        placeholder="Stock amount">
-                        <div class="text-danger">@error('stock_amount') {{$message}} @enderror</div>
-                    </div>
-                    <!--single image-->
+                    <!-- single image -->
                     <div class="row">
-                        <div class="col-lg-8 pb-2">
-                            <label for="file_input">Image</label>
+                        <div class="col-lg-6">
+                            <label for="file_input">Fetuared Image</label>
                             <input class="form-control " name="image" type="file" id="file-input">
+                            <img src=""  alt="" class="col-8"  id="image-previewer" style="padding-top:10px;" >
                         </div>
-                        <div class="col-lg-4 ">
-                            <img src=""  alt="" class="col-8"  id="image-previewer"  >
-                        </div>
-                    </div>
-                    <!--multiple image-->
-                    <div class="row">
-                        <div class="col-lg-8 pb-2">
-                            <label for="file_input">Multiple Image</label>
-                            <input class="form-control " multiple name="image" type="file" id="file-input">
-                        </div>
-                        <div class="col-lg-4 ">
-                            <img src=""  alt="" class="col-8"  id="image-previewer"  >
+                        <!--multiple image-->
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label for="file_input">Multiple Image</label>
+                                <input type="file" class="form-control" name="demo-4" id="demo-4" multiple>
+                              </div>
                         </div>
                     </div>
                     <!--status-->
-                    <div class="mb-2">
+                    <div class="mb-2 pt-1">
                         <label for="">Status</label><br>
                         <div class="btn-group btn-group-toggle" data-toggle="buttons">
                             <label class="btn btn-secondary ">
@@ -136,6 +156,12 @@ products create
                             </label>
                           </div>
                     </div>
+                </div>
+            </div>
+
+
+
+
                     <button type="submit" class="btn btn-primary mt-3">Submit</button>
             </form>
             </div>
@@ -143,5 +169,7 @@ products create
         </div>
     </div>
 </div>
+
+
 
 @endsection

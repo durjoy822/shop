@@ -3,8 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\Subcategory;
+use App\Models\Unit;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -25,7 +28,10 @@ class ProductController extends Controller
     public function create()
     {
         return view('admin.product.add',[
-            'categories'=>Category::all(), 
+            'categories'=>Category::all(),
+            'subCategories'=>Subcategory::all(),
+            'units'=>Unit::all(),
+            'brands'=>Brand::all(),
         ]);
     }
 
