@@ -13,9 +13,9 @@
    <!-- Select2 -->
    <script src="{{asset('admin')}}/vendor/select2/dist/js/select2.min.js"></script>
 
-
-
-
+   {{-- <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> --}}
+   <script type="text/javascript" src="{{asset('admin')}}/plaguin/editor/jquery.richtext.js"></script>
+   <script src="{{asset('admin')}}/plaguin/select/selectstyle.js"></script>
 
 
   <!--Data table -->
@@ -39,6 +39,12 @@
      $('.select2-single').select2();
   </script>
 
+<!--It's for richtext editor-->
+<script>
+    $(document).ready(function() {
+        $('.content').richText();
+    });
+    </script>
 
 
 

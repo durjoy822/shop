@@ -27,10 +27,10 @@ products create
                 <!--product section-->
                 <div class="col-lg-6">
                 <!--Category-->
-                <div class="form-group">
+                <div class="form-group ">
                     <label for="select2SinglePlaceholder">Select Category</label>
-                    <select class="select2-multiple form-control js-example-responsive" name="category_id" style="width: 100%"  name="category_id" id="select2SinglePlaceholder">
-                        <option value="">Select</option>
+                    <select  class="form-control"  name="category_id" placeholder="Select Category" >
+                     <option value="">Select</option>
                         @foreach ($categories as $category)
                         <option value="{{$category->id}}">{{$category->name}}</option>
                         @endforeach
@@ -76,7 +76,7 @@ products create
                      <!--Short description-->
                 <div class="form-group">
                     <label for="name">Short Description</label>
-                    <textarea  class="tinymce form-control" value="{{old('short_description')}}"  name="short_description" id="name"
+                    <textarea  class="content form-control" value="{{old('short_description')}}"  name="short_description" id="name"
                         placeholder="short description"></textarea>
                         <div class="text-danger">@error('short_description') {{$message}} @enderror</div>
                     </div>
@@ -84,13 +84,11 @@ products create
                 <!--long description-->
                 <div class="form-group">
                     <label for="name">long Description</label>
-                    <textarea  class=" tinymce form-control" value="{{old('long_description')}}"  name="long_description" id="name"
+                    <textarea  class="  content form-control" value="{{old('long_description')}}"  name="long_description" id="name"
                         placeholder="short description"></textarea>
                         <div class="text-danger">@error('long_description') {{$message}} @enderror</div>
                     </div>
                 </div>
-
-
 
             <!--    category image and description section-->
                 <div class="col-lg-6">
@@ -158,10 +156,6 @@ products create
                     </div>
                 </div>
             </div>
-
-
-
-
                     <button type="submit" class="btn btn-primary mt-3">Submit</button>
             </form>
             </div>
@@ -169,7 +163,4 @@ products create
         </div>
     </div>
 </div>
-
-
-
 @endsection
