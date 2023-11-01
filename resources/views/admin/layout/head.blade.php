@@ -14,13 +14,11 @@
 <!-- Select2 -->
 <link href="{{asset('admin')}}/vendor/select2/dist/css/select2.min.css" rel="stylesheet" type="text/css">
 
-    {{-- <!--tiny mc-->
-    <script src='https://cdn.tiny.cloud/1/no-api-key/tinymce/4/tinymce.min.js'></script> --}}
-
-    {{-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> --}}
-    {{-- <link rel="stylesheet" href="css/site.css"> --}}
-    <link rel="stylesheet" href="{{asset('admin')}}/plaguin/editor/richtext.min.css">
-    <link href="{{asset('admin')}}/plaguin/select/selectstyle.css" rel="stylesheet" type="text/css">
+    <!--tiny mc-->
+    <script src='https://cdn.tiny.cloud/1/no-api-key/tinymce/4/tinymce.min.js'></script>
 
 
+
+    {{-- dropdown select--}}
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 
