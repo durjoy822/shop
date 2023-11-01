@@ -13,9 +13,8 @@
    <!-- Select2 -->
    <script src="{{asset('admin')}}/vendor/select2/dist/js/select2.min.js"></script>
 
-   {{-- <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> --}}
-   <script type="text/javascript" src="{{asset('admin')}}/plaguin/editor/jquery.richtext.js"></script>
-   <script src="{{asset('admin')}}/plaguin/select/selectstyle.js"></script>
+
+   <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
 
   <!--Data table -->
@@ -39,10 +38,11 @@
      $('.select2-single').select2();
   </script>
 
-<!--It's for richtext editor-->
 <script>
-    $(document).ready(function() {
-        $('.content').richText();
+    $(document).ready(function(){
+        $('.js-example-basic-single').select2({
+            theme: "classic"
+        });
     });
     </script>
 

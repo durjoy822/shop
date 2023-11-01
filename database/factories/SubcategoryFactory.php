@@ -21,19 +21,19 @@ class SubcategoryFactory extends Factory
      */
     public function definition(): array
     {
-        // Get a random category ID
-        $category_id = Category::inRandomOrder()->first()->id;
-        $subcategory = $this->faker->randomElement([
+        $names = [
             'Bed',
-            'Electronic light',
-            'Brand watches',
-            'Fan',
-            'Samsung',
-        ]);
-
-        return [
-            'category_id' => $category_id,
-            'name' => $subcategory,
+             'Electronic light',
+             'Brand watches',
+             'Fan',
+             'Samsung',
         ];
+        return [
+            'category_id' => $this->faker->numberBetween(1, 5),
+            'name' => $this->faker->unique()->randomElement($names),
+
+        ];
+
+
     }
 }

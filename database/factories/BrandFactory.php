@@ -42,8 +42,8 @@ class BrandFactory extends Factory
             ],
         ];
 
-        // Pick a random brand from the array
-        $brand = $this->faker->randomElement($brands);
+    
+        $brand  = $this->faker->unique()->randomElement($brands);
 
         return $brand;
     }

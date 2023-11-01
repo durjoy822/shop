@@ -1,4 +1,4 @@
-{{-- <script>
+<script>
     tinymce.init({
         selector: '.tinymce',
         height: 200,
@@ -20,4 +20,4 @@
         image_advtab: true,
         content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
     });
-</script> --}}
+</script>
