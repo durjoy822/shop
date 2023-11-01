@@ -14,11 +14,7 @@
 <!-- Select2 -->
 <link href="{{asset('admin')}}/vendor/select2/dist/css/select2.min.css" rel="stylesheet" type="text/css">
 
-    <!--tiny mc-->
-    <script src='https://cdn.tiny.cloud/1/no-api-key/tinymce/4/tinymce.min.js'></script>
 
-
-
-    {{-- dropdown select--}}
-    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+<!-- dropdown select-->
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 

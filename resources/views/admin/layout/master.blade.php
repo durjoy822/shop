@@ -34,7 +34,7 @@
 
 
   @include('admin.layout.toster')
-  @include('admin.layout.tynimce'); 
+  {{-- @include('admin.layout.tynimce');  --}}
 </body>
 
 </html>

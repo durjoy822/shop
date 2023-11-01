@@ -35,6 +35,7 @@ Route::controller(AuthController::class)->group(function () {
 
 });
 
+Route::get('/get/getCategory',[DashboardController::class,'getCategory'])->name('getCategory');
 
 
 Route::resource('/categories', CategoryController::class);

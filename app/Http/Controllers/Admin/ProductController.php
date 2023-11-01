@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ProductRequest;
 use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Product;
@@ -27,6 +28,7 @@ class ProductController extends Controller
      */
     public function create()
     {
+
         return view('admin.product.add',[
             'categories'=>Category::all(),
             'subCategories'=>Subcategory::all(),
@@ -38,9 +40,9 @@ class ProductController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(ProductRequest $request)
     {
-        return $request->all(); 
+        // return $request->all();
     }
 
     /**

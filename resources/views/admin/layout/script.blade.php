@@ -13,9 +13,26 @@
    <!-- Select2 -->
    <script src="{{asset('admin')}}/vendor/select2/dist/js/select2.min.js"></script>
 
-
    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
+   <script src="https://cdn.ckeditor.com/ckeditor5/36.0.1/classic/ckeditor.js"></script>
+
+<!--Ck editor -->
+   <script>
+    ClassicEditor
+        .create( document.querySelector( '#editor' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+    </script>
+   <script>
+    ClassicEditor
+        .create( document.querySelector( '#editor2' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+    </script>
+<!--end ck editor-->
 
   <!--Data table -->
   <script>
