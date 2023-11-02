@@ -2,17 +2,18 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
-use App\Http\Requests\ProductRequest;
-use App\Models\Brand;
-use App\Models\Category;
-use App\Models\Imagegallery;
-use App\Models\Product;
-use App\Models\Subcategory;
 use App\Models\Unit;
-use App\Services\Admin\ProductService;
+use App\Models\Brand;
+use App\Models\Product;
+use App\Models\Category;
+use App\Models\Subcategory;
+use App\Models\Imagegallery;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Services\Admin\ProductService;
 use Illuminate\Support\Facades\Session;
+use App\Http\Requests\ProductStoreRequest;
+use App\Http\Requests\ProductUpdateRequest;
 
 class ProductController extends Controller
 {
@@ -43,7 +44,7 @@ class ProductController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(ProductRequest $request,ProductService $productService)
+    public function store(ProductStoreRequest $request,ProductService $productService)
     {
         // return $request->all();
        $productService->store($request);
@@ -80,9 +81,11 @@ class ProductController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(ProductUpdateRequest $request, $id ,ProductService $productService)
     {
-        //
+        $productService->update($request,$id);
+       Session::flash('message','Product updated successfully');
+       return redirect()->route('products.index');
     }
 
     /**

@@ -271,7 +271,7 @@
                                             <label for="file_input">Fetuared Image</label>
                                             <input class="form-control " name="image" type="file" id="file-input">
                                             <img src="{{asset($product->image)}}" alt="" class="col-8" id="image-previewer"
-                                                style="padding-top:10px;">
+                                            style="width: 200px; height:80px ;margin-top:5px; ">
                                         </div>
                                         <!--multiple image-->
                                         <div class="col-lg-6 mt-2">
@@ -284,7 +284,7 @@
                                                     </label>
                                                 </div>
                                                 @foreach ($multiple_images as $multiple_image )
-                                                <img src="{{asset($multiple_image->multiple_image)}}" style="width: 70px">
+                                                <img src="{{asset($multiple_image->multiple_image)}}" style="width: 70px; height:70px ;margin-top:5px; ">
                                                 @endforeach
                                                 <div class="upload__img-wrap  " style="width: 70px;"></div>
                                             </div>

@@ -270,7 +270,7 @@
                                             <label for="file_input">Fetuared Image</label>
                                             <input class="form-control " name="image" type="file" id="file-input">
                                             <img src="" alt="" class="col-8" id="image-previewer"
-                                                style="padding-top:10px;">
+                                            style="width: 200px;margin-top:5px; ">
                                         </div>
                                         <!--multiple image-->
                                         <div class="col-lg-6 mt-2">
