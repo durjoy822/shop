@@ -71,6 +71,32 @@
     </li>
     <hr class="sidebar-divider">
     <div class="sidebar-heading">
+    Order
+    </div>
+    <li class="nav-item">
+        <a class="nav-link" href="">
+          <i class="fas fa-users-cog"></i>
+          <span>Order</span>
+        </a>
+      </li>
+    <hr class="sidebar-divider">
+    <div class="sidebar-heading">
+     Email Management
+    </div>
+    <li class="nav-item">
+        <a class="nav-link" href="">
+          <i class="fas fa-users-cog"></i>
+          <span>Single Sent</span>
+        </a>
+      </li>
+    <li class="nav-item">
+        <a class="nav-link" href="">
+          <i class="fas fa-users-cog"></i>
+          <span>Multiple sent</span>
+        </a>
+      </li>
+    <hr class="sidebar-divider">
+    <div class="sidebar-heading">
     Settings
     </div>
     <li class="nav-item">

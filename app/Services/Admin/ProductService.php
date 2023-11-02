@@ -7,6 +7,8 @@ use App\Models\Product;
 use App\Traits\FileDelete;
 use App\Traits\FileUpload;
 
+use function PHPUnit\Framework\fileExists;
+
 class ProductService
 {
     use FileUpload;
@@ -80,7 +82,7 @@ class ProductService
                if (file_exists($multipleImage->multiple_image)) {
                    unlink($multipleImage->multiple_image);
                }
-               $multipleImage->delete();
+                   $multipleImage->delete();
            }
 
            if ($request->hasFile('multiple_image')) {
@@ -94,4 +96,28 @@ class ProductService
            }
        }
    }
+
+    public function destroy($id){
+    $product = Product::find($id);
+     if (file_exists($product->image)) {
+        unlink($product->image);
+    }
+
+    // Delete associated multiple images
+    $multipleImages = Imagegallery::where('product_id', $id)->get();
+    foreach ($multipleImages as $multipleImage) {
+        if (file_exists($multipleImage->multiple_image)) {
+            unlink($multipleImage->multiple_image);
+        }
+        $multipleImage->delete();
+    }
+    $product->delete();
+
+
+
+    }
+
+
+
+
 }

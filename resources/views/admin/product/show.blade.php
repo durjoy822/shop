@@ -35,7 +35,7 @@ products details
                         <i class="fas fa-angle-double-left"></i>  Previeous
                     </button>
                 </a>
-                <a href="{{route('products.create')}}">
+                <a href="{{route('products.edit',$product->id)}}">
                     <button class="btn btn-warning">
                         <i class="fas fa-edit"></i>
                     </button>
