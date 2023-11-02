@@ -83,7 +83,7 @@ class ProductController extends Controller
      */
     public function update(ProductUpdateRequest $request, $id ,ProductService $productService)
     {
-        $productService->update($request,$id);
+       $productService->update($request,$id);
        Session::flash('message','Product updated successfully');
        return redirect()->route('products.index');
     }
@@ -91,8 +91,12 @@ class ProductController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy( $id,  ProductService $productService)
     {
-        //
+        $productService->destroy($id);
+        Session::flash('message','Product updated successfully');
+        return redirect()->route('products.index');
+
+
     }
 }
