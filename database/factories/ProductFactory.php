@@ -39,7 +39,7 @@ class ProductFactory extends Factory
             'discount' => $this->faker->numberBetween(0, 50),
             'stock_amount' => $this->faker->numberBetween(0, 1000),
             'image' => $this->faker->unique()->randomElement($product_image),
-            'status' => $this->faker->randomElement(['Public', 'Private']),
+            'status' => $this->faker->randomElement(['Public', 'Privet']),
             'hit_count' => $this->faker->numberBetween(0, 1000),
             'sales_count' => $this->faker->numberBetween(0, 1000),
         ];
