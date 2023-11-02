@@ -91,19 +91,31 @@ products details
             </tr>
             <tr>
                 <th>Hit count</th>
-                <td>{{$product->hit_count}}</td>
+                <td>
+                    @if ($product->hicount)
+                    {{$product->hit_count}}
+                    @else
+                    <i class="fas fa-exclamation-triangle text-danger"></i>
+                    @endif
+                </td>
             </tr>
             <tr>
                 <th>Sales count</th>
-                <td>{{$product->sales_count}}</td>
+                <td>
+                    @if ($product->sales_count)
+                    {{$product->sales_count}}
+                    @else
+                    <i class="fas fa-exclamation-triangle text-danger"></i>
+                    @endif
+                </td>
             </tr>
             <tr>
                 <th>Short Description</th>
-                <td>{{$product->short_description}}</td>
+                <td>{!!$product->short_description!!}</td>
             </tr>
             <tr>
                 <th>Long Description</th>
-                <td>{{$product->long_description}}</td>
+                <td>{!!$product->long_description!!}</td>
             </tr>
             <tr>
                 <th>Image</th>
@@ -114,7 +126,9 @@ products details
             <tr>
                 <th>Image Gleary</th>
                 <td>
-                     <img src="" style="border-radius: 100%;width:100px;height:70%">
+                    @foreach ($product->multipleImages as  $multipleImage)
+                    <img src="{{asset($multipleImage->multiple_image)}}" style="border-radius: 100%;width:100px;height:70%">
+                    @endforeach
                 </td>
             </tr>
             <tr>

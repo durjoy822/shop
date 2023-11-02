@@ -278,7 +278,7 @@
                                                 <div class="upload__btn-box">
                                                     <label class="upload__btn mb-0">
                                                         <p>Multiple images</p>
-                                                        <input type="file" multiple="" name="multiple_image"
+                                                        <input type="file" multiple="" name="multiple_image[]"
                                                             data-max_length="20" class="form-control upload__inputfile">
                                                     </label>
                                                 </div>
@@ -296,8 +296,8 @@
                                             Public
                                         </label>
                                         &nbsp; &nbsp; &nbsp; &nbsp;
-                                        <input class="form-check-input" type="radio" name="status">
-                                        <label class="form-check-label" value="Privet" for="flexRadioDefault2">
+                                        <input class="form-check-input" value="Privet" type="radio" name="status">
+                                        <label class="form-check-label"  for="flexRadioDefault2">
                                             Privet
                                         </label>
                                     </div>

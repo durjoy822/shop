@@ -6,10 +6,13 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\ProductRequest;
 use App\Models\Brand;
 use App\Models\Category;
+use App\Models\Imagegallery;
 use App\Models\Product;
 use App\Models\Subcategory;
 use App\Models\Unit;
+use App\Services\Admin\ProductService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class ProductController extends Controller
 {
@@ -40,9 +43,12 @@ class ProductController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(ProductRequest $request)
+    public function store(ProductRequest $request,ProductService $productService)
     {
         // return $request->all();
+       $productService->store($request);
+       Session::flash('message','Product store successfully');
+       return redirect()->route('products.index');
     }
 
     /**
@@ -52,6 +58,7 @@ class ProductController extends Controller
     {
         return view('admin.product.show',[
             'product'=>Product::find($id),
+
         ]);
     }
 
@@ -60,7 +67,14 @@ class ProductController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        return view('admin.product.edit',[
+            'product'=>Product::find($id),
+            'categories'=>Category::all(),
+            'subCategories'=>Subcategory::all(),
+            'units'=>Unit::all(),
+            'brands'=>Brand::all(),
+            'multiple_images'=>Imagegallery::where('product_id',$id)->get(),
+        ]);
     }
 
     /**
