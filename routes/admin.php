@@ -28,6 +28,9 @@ Route::controller(UserController::class)->group(function () {
 });
 Route::controller(ForgotPasswordController::class)->group(function () {
     Route::get('/forgot', 'forgot')->name('forgot.password');
+    Route::post('/forgot/email', 'forgotEmail')->name('forgot.email.submit');
+    Route::get('/reset/{token}', 'resetForm')->name('reset.form');
+    Route::post('/new/password', 'newPassword')->name('new.password');
 
 });
 Route::controller(AuthController::class)->group(function () {
