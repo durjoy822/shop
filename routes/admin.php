@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\ForgotPasswordController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\SubcategoryController;
 use App\Http\Controllers\Admin\UnitController;
@@ -24,6 +25,10 @@ Route::get('/logout',[AuthController::class,'logout'])->name('logout');
 Route::controller(UserController::class)->group(function () {
     Route::get('/user', 'user')->name('user');
     Route::get('/user/add', 'userAdd')->name('user.add');
+});
+Route::controller(ForgotPasswordController::class)->group(function () {
+    Route::get('/forgot', 'forgot')->name('forgot.password');
+
 });
 Route::controller(AuthController::class)->group(function () {
     Route::get('/login', 'login')->name('login');
