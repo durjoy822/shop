@@ -31,18 +31,29 @@
 
                     </div>
                     <div class="mb-3">
-                      <h1 class="h4 text-gray-900 m-0">Forgot password</h1>
-                      <small>Please inter your email address that you previeously login this site.</small>
+                      <h1 class="h4 text-gray-900 m-0">Password reset form</h1>
+                      <small>Fillup your new password creadential for reset your old password. </small>
                     </div>
-                    <form action="{{route('forgot.email.submit')}}" method="post" class="user">
+                    <form action="{{route('new.password')}}" method="post" class="user">
                         @csrf
+                        <input type="hidden" value="{{$token}}" name="token">
                       <div class="form-group">
                         <input type="email" class="form-control" name="email" value="{{old('email')}}" id="exampleInputEmail" aria-describedby="emailHelp"
                           placeholder="Enter Regiestered Email Address">
                           <div class="text-danger">@error('email') {{$message}} @enderror</div>
                       </div>
+                      <div class="form-group">
+                        <input type="password" class="form-control" name="password"  id="exampleInputEmail" aria-describedby="emailHelp"
+                          placeholder="Enter New Password">
+                          <div class="text-danger">@error('password') {{$message}} @enderror</div>
+                      </div>
+                      <div class="form-group">
+                        <input type="password" class="form-control" name="confirm_password"  id="exampleInputEmail" aria-describedby="emailHelp"
+                          placeholder="Confirm Password">
+                          <div class="text-danger">@error('confirm_password') {{$message}} @enderror</div>
+                      </div>
                       <div >
-                          <input type="submit" class="btn btn-outline-primary"  value="Sent reset password link">
+                          <input type="submit" class="btn btn-outline-primary"  value="Update">
                       </div>
                     </form>
                     <div class="text-center">
