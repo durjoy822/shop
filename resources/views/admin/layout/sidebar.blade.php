@@ -75,7 +75,7 @@
     </div>
     <li class="nav-item">
         <a class="nav-link" href="">
-          <i class="fas fa-users-cog"></i>
+            <i class="fas fa-th-list"></i>
           <span>Order</span>
         </a>
       </li>
@@ -85,13 +85,13 @@
     </div>
     <li class="nav-item">
         <a class="nav-link" href="">
-          <i class="fas fa-users-cog"></i>
+            <i class="fas fa-envelope-open-text"></i>
           <span>Single Sent</span>
         </a>
       </li>
     <li class="nav-item">
         <a class="nav-link" href="">
-          <i class="fas fa-users-cog"></i>
+            <i class="fas fa-mail-bulk"></i>
           <span>Multiple sent</span>
         </a>
       </li>
