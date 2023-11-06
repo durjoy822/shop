@@ -41,10 +41,10 @@
             </div>
             <ul class=user-login>
               <li>
-                <a href=login.html>Sign In</a>
+                <a href="{{route('customer.login')}}">Sign In</a>
               </li>
               <li>
-                <a href=register.html>Register</a>
+                <a href="{{route('customer.register')}}">Register</a>
               </li>
             </ul>
           </div>
@@ -59,7 +59,7 @@
         <div class="row align-items-center">
             <div class="col-lg-3 col-md-3 col-7">
 
-                <a class=navbar-brand href=index.html>
+                <a class=navbar-brand href={{route('home')}}>
                     <img src="{{ asset('website') }}/assets/images/logo/logo.svg" alt=Logo>
                 </a>
 
@@ -200,13 +200,13 @@
                     <div class="collapse navbar-collapse sub-menu-bar" id=navbarSupportedContent>
                         <ul id=nav class="navbar-nav ms-auto">
                             <li class=nav-item>
-                                <a href=index.html class=active aria-label="Toggle navigation">Home</a>
+                                <a href="{{route('home')}}" class=active aria-label="Toggle navigation">Home</a>
                             </li>
                             <li class=nav-item>
-                                <a href=contact.html aria-label="Toggle navigation">About us</a>
+                                <a href="{{route('about.us')}}" aria-label="Toggle navigation">About us</a>
                             </li>
                             <li class=nav-item>
-                                <a href=contact.html aria-label="Toggle navigation">Contact Us</a>
+                                <a href="{{route('contact.us')}}" aria-label="Toggle navigation">Contact Us</a>
                             </li>
                         </ul>
                     </div>

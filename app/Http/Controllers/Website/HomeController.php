@@ -10,6 +10,12 @@ class HomeController extends Controller
     public function home(){
         return view('frontend.home');
     }
+    public function aboutUs(){
+        return view('frontend.about-us');
+    }
+    public function contactUs(){
+        return view('frontend.contact-us');
+    }
     public function productList(){
         return view('frontend.shoplist');
     }
