@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\Admin\AuthController;
+use App\Http\Controllers\Admin\BlogCategoryController;
+use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
@@ -10,11 +12,6 @@ use App\Http\Controllers\Admin\SubcategoryController;
 use App\Http\Controllers\Admin\UnitController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\UserController;
-
-
-
-
-
 
 Route::middleware(user::class)->group(function () {
 Route::get('/dashboard',[DashboardController::class,'dashboard'])->name('dashboard');
@@ -51,3 +48,5 @@ Route::resource('/subcategories',SubcategoryController::class);
 Route::resource('/units',UnitController::class);
 Route::resource('/brands',BrandController::class);
 Route::resource('/products',ProductController::class);
+Route::resource('/blogs',BlogController::class);
+Route::resource('/blogs_categories',BlogCategoryController::class);

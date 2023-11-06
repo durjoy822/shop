@@ -81,6 +81,22 @@
       </li>
     <hr class="sidebar-divider">
     <div class="sidebar-heading">
+    Blogs
+    </div>
+    <li class="nav-item">
+        <a class="nav-link" href="{{route('blogs_categories.index')}}">
+            <i class="fas fa-th-list"></i>
+          <span>Blogs categories</span>
+        </a>
+      </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{{route('blogs.index')}}">
+            <i class="fas fa-th-list"></i>
+          <span>Blogs</span>
+        </a>
+      </li>
+    <hr class="sidebar-divider">
+    <div class="sidebar-heading">
      Email Management
     </div>
     <li class="nav-item">
