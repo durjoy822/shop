@@ -84,7 +84,7 @@
     Blogs
     </div>
     <li class="nav-item">
-        <a class="nav-link" href="{{route('blogs_categories.index')}}">
+        <a class="nav-link" href="{{route('blogscategories.index')}}">
             <i class="fas fa-th-list"></i>
           <span>Blogs categories</span>
         </a>

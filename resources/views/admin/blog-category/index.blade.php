@@ -29,7 +29,7 @@ blog category
                 Blogs category Data
             </div>
             <div>
-                <a href="{{route('blogs.create')}}"><button class="btn btn-info">Create Brand</button></a>
+                <a href="{{route('blogscategories.create')}}"><button class="btn btn-info">Create category</button></a>
             </div>
         </div>
       <div class="table-responsive p-3">
@@ -55,8 +55,8 @@ blog category
                 <td>{{$index + 1}}</td>
                 <td>{{$blogcat->name}}</td>
                 <td >
-                  <a href="{{route('blogs_categories.edit',$blogcat->id)}}"><i class="far fa-edit"></i></a>&nbsp;
-                  <form action="{{route('blogs_categories.destroy',$blogcat->id)}}" method="post" class="d-inline">
+                  <a href="{{route('blogscategories.edit',$blogcat->id)}}"><i class="far fa-edit"></i></a>&nbsp;
+                  <form action="{{route('blogscategories.destroy',$blogcat->id)}}" method="post" class="d-inline">
                     @csrf
                     @method('DELETE')
                     <button type="submit" style="border: none; background-color: transparent;">

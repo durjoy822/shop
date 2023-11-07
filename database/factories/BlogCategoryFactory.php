@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 
-use App\Models\BlogCategory; // Correct the namespace and class name here
+use App\Models\BlogCategory;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class BlogCategoryFactory extends Factory
@@ -12,19 +12,30 @@ class BlogCategoryFactory extends Factory
      *
      * @return array
      */
-    protected $model = BlogCategory::class; // Correct the model class name here
+    protected $model = BlogCategory::class;
+
+    // Define an array of predefined names
+    protected $names = [
+        'Technology',
+        'Life',
+        'Phone',
+        'Product',
+        'Smartphones',
+    ];
+
+    // Keep track of the current index to select names sequentially
+    protected $currentIndex = 0;
 
     public function definition(): array
     {
-        $name = [
-            'Technology',
-            'Life',
-            'Phone',
-            'Product',
-            'Smartphones',
-        ];
+        // Get the current name from the array
+        $name = $this->names[$this->currentIndex];
+
+        // Increment the index or reset it when we reach the end of the array
+        $this->currentIndex = ($this->currentIndex + 1) % count($this->names);
+
         return [
-            'name' => $this->faker->randomElement($name), // Use $this->faker to generate random data
+            'name' => $name,
         ];
     }
 }
