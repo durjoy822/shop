@@ -68,7 +68,7 @@ blog category
             @endforeach
             @else
             <tr>
-                <td colspan="4" class="text-primary "> Brand not found!</td>
+                <td colspan="4" class="text-primary "> Blog category not found!</td>
             </tr>
             @endif
 
