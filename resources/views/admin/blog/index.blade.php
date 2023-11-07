@@ -29,7 +29,7 @@ blog
                 Blogs Data
             </div>
             <div>
-                <a href="{{route('blogs.create')}}"><button class="btn btn-info">Create Brand</button></a>
+                <a href="{{route('blogs.create')}}"><button class="btn btn-info">Create Blog</button></a>
             </div>
         </div>
       <div class="table-responsive p-3">
@@ -40,7 +40,6 @@ blog
                 <th>Image</th>
                 <th>Blog Category</th>
                 <th>Heading</th>
-                <th>Content</th>
                 <th>creator</th>
                 <th>creating time</th>
                 <th>Action</th>
@@ -52,7 +51,6 @@ blog
                 <th>Image</th>
                 <th>Blog Category</th>
                 <th>Heading</th>
-                <th>Content</th>
                 <th>creator</th>
                 <th>creating time</th>
                 <th>Action</th>
@@ -64,15 +62,15 @@ blog
             <tr>
                 <td>{{$index + 1}}</td>
                 <td>
-                  <img src="{{asset($blog->image)}}" style="border-radius: 100%;width:100px">
+                  <a href="{{route('blogs.show',$blog->id)}}" ><img src="{{asset($blog->image)}}" style="border-radius: 100%;width:100px"></a>
                 </td>
                 <td>{{$blog->BlogCategory->name}}</td>
                 <td>{{$blog->heading}}</td>
-                <td>{{$blog->content}}</td>
                 <td>{{$blog->creator}}</td>
-                <td>{{$blog->created_at}}</td>
+                <td>{{$blog->created_at->format("F j, Y")}}</td>
                 <td >
-                  <a href="{{route('blogs.edit',$blog->id)}}"><i class="far fa-edit"></i></a>&nbsp;
+                  <a href="{{route('blogs.edit',$blog->id)}}"><i class="far fa-edit"></i></a>;
+                  <a href="{{route('blogs.show',$blog->id)}}"><i class="far fa-eye text-warning"></i></a>;
                   <form action="{{route('blogs.destroy',$blog->id)}}" method="post" class="d-inline">
                     @csrf
                     @method('DELETE')
@@ -85,7 +83,7 @@ blog
             @endforeach
             @else
             <tr>
-                <td colspan="4" class="text-primary "> Brand not found!</td>
+                <td colspan="4" class="text-primary "> Blog not found!</td>
             </tr>
             @endif
 
