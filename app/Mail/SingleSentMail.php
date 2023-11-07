@@ -9,16 +9,18 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class Forgot_password extends Mailable
+class SingleSentMail extends Mailable
 {
     use Queueable, SerializesModels;
+
+    public $mail;
 
     /**
      * Create a new message instance.
      */
-    public function __construct()
+    public function __construct($mail)
     {
-        //
+        $this->mail=$mail;
     }
 
     /**
@@ -27,7 +29,7 @@ class Forgot_password extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Forgot Password',
+            subject: 'Fast shop',
         );
     }
 
@@ -37,7 +39,7 @@ class Forgot_password extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'view.name',
+            view: 'admin.email.single_mail_template',
         );
     }
 

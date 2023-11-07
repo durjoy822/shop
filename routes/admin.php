@@ -6,6 +6,8 @@ use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\EmailsentController;
+use App\Http\Controllers\Admin\EmailsentsController;
 use App\Http\Controllers\Admin\ForgotPasswordController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\SubcategoryController;
@@ -39,8 +41,14 @@ Route::controller(AuthController::class)->group(function () {
     Route::post('/login/check', 'loginCheck')->name('login.check');
 
 });
+Route::controller(EmailsentsController::class)->group(function () {
+    Route::get('/email/index', 'index')->name('email.index');
+    Route::get('/email/create/{id}', 'create')->name('email.create');
+    Route::post('/email/sent', 'emailSent')->name('email.sent');
 
-Route::get('/get/getCategory',[DashboardController::class,'getCategory'])->name('getCategory');
+});
+
+Route::get('/get/getCategory',[DashboardController::class,'getCategory'])->name('getCategory');//for get all sub category item
 
 
 Route::resource('/categories', CategoryController::class);

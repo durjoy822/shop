@@ -99,16 +99,16 @@
     <div class="sidebar-heading">
      Email Management
     </div>
-    <li class="nav-item">
+    {{-- <li class="nav-item">
         <a class="nav-link" href="">
             <i class="fas fa-envelope-open-text"></i>
           <span>Single Sent</span>
         </a>
-      </li>
+      </li> --}}
     <li class="nav-item">
-        <a class="nav-link" href="">
+        <a class="nav-link" href="{{route('email.index')}}">
             <i class="fas fa-mail-bulk"></i>
-          <span>Multiple sent</span>
+          <span>Email sent</span>
         </a>
       </li>
     <hr class="sidebar-divider">
