@@ -49,4 +49,4 @@ Route::resource('/units',UnitController::class);
 Route::resource('/brands',BrandController::class);
 Route::resource('/products',ProductController::class);
 Route::resource('/blogs',BlogController::class);
-Route::resource('/blogs_categories',BlogCategoryController::class);
+Route::resource('/blogscategories',BlogCategoryController::class);

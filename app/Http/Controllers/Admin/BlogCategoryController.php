@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Blogcategory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class BlogCategoryController extends Controller
 {
@@ -23,7 +24,7 @@ class BlogCategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.blog-category.add');
     }
 
     /**
@@ -31,7 +32,19 @@ class BlogCategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd($request->all());
+        $request->validate([
+            'name'=>'required',
+        ],
+        [
+           'name.required'=>'Category name required.',
+        ]);
+
+        $blogcat=new Blogcategory();
+        $blogcat->name=$request->name;
+        $blogcat->save();
+        Session::flash('message','Blog Category add successfully.');
+        return redirect()->route('blogscategories.index');
     }
 
     /**
@@ -47,7 +60,9 @@ class BlogCategoryController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        return view('admin.blog-category.edit',[
+            'blogcats'=>Blogcategory::find($id),
+        ]);
     }
 
     /**
@@ -55,7 +70,18 @@ class BlogCategoryController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $request->validate([
+            'name'=>'required',
+        ],
+        [
+           'name.required'=>'Category name required.',
+        ]);
+
+        $blogcat=Blogcategory::find($id);
+        $blogcat->name=$request->name;
+        $blogcat->save();
+        Session::flash('message','Blog Category updated successfully.');
+        return redirect()->route('blogscategories.index');
     }
 
     /**
@@ -63,6 +89,9 @@ class BlogCategoryController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $blogcat=Blogcategory::find($id)->delete();
+        Session::flash('message','Blog Category deleted successfully.');
+        return redirect()->route('blogscategories.index');
+
     }
 }
