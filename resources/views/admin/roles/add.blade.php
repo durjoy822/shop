@@ -60,7 +60,7 @@ roles create
                                    <p class="m-0 pl-2">
                                     @php
 
-                                $permissions = App\Models\User::getpermissionsByGroupName($group->name);
+                                // $permissions = App\Models\User::getpermissionsByGroupName($group->name);
                                     $j = 1;
                                     @endphp
                                     @foreach($permissions as $permission)

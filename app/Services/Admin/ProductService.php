@@ -82,7 +82,9 @@ class ProductService
                if (file_exists($multipleImage->multiple_image)) {
                    unlink($multipleImage->multiple_image);
                }
+            //    if($request->multiple_image !=''){
                    $multipleImage->delete();
+            //    }
            }
 
            if ($request->hasFile('multiple_image')) {
