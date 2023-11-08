@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Website;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
+use App\Models\Subcategory;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -20,6 +22,6 @@ class HomeController extends Controller
         return view('frontend.shoplist');
     }
     public function productDetails(){
-        return view('frontend.shop-details');
+        return view('frontend.shop-details');~
     }
 }
