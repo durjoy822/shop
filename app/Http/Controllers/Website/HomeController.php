@@ -22,6 +22,6 @@ class HomeController extends Controller
         return view('frontend.shoplist');
     }
     public function productDetails(){
-        return view('frontend.shop-details');~
+        return view('frontend.shop-details');
     }
 }
