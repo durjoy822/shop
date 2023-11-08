@@ -16,7 +16,7 @@ class AuthController extends Controller
 {
     public function login(){
         return view('admin.auth.login',[
-            'login'=>User::first(), 
+            'login'=>User::first(),
         ]);
     }
     public function register(){
