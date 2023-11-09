@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
 Use Laravel\Socialite\Facades\Socialite;
 
 class SocialLoginController extends Controller
@@ -41,8 +42,8 @@ class SocialLoginController extends Controller
 
                 $saveUser = User::where('email',$user->getEmail())->first();
             }
-            // Auth::loginUsingId($saveUser->id);
             Auth::guard('user')->login($saveUser);
+            Session::flash('success','Google login successfully.');
             return redirect()->route('dashboard');
 
         }catch(\Throwable $th){

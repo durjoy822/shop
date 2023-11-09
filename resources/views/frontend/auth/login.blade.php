@@ -51,11 +51,11 @@
                             </div>
                             <div class="form-group input-group">
                                 <label for=reg-fn>Email</label>
-                                <input class=form-control type=email id=reg-email required>
+                                <input class=form-control name="email" type=email id=reg-email required>
                             </div>
                             <div class="form-group input-group">
                                 <label for=reg-fn>Password</label>
-                                <input class=form-control type=password id=reg-pass required>
+                                <input class=form-control name="password" type=password id=reg-pass required>
                             </div>
                             <div class="d-flex flex-wrap justify-content-between bottom-content">
                                 <div class=form-check>
