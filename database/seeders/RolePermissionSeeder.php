@@ -12,66 +12,222 @@ class RolePermissionSeeder extends Seeder
     /**
      * Run the database seeds.
      */
-    public function run(): void
+    public function run()
     {
-        //create roles
-
+        //  Create roles
         $roleSuperAdmin = Role::create([
-            'name' => 'Super Admin',
-            'description' => 'This is Super Admin'
+            'name' => 'SuperAdmin',
+            'description' => 'This is SuperAdmin',
         ]);
-
         $roleAdmin = Role::create([
-            'name' => ' Admin',
-            'description' => ' This is Admin',
+            'name' => 'Admin',
+            'description' => 'This is Admin',
+        ]);
+        $roleAdmin = Role::create([
+            'name' => 'Guest',
+            'description' => 'This is Guest',
         ]);
 
-
-        //Permission list as array
-
-        $permissions=[
-
+        //  permission List as array
+        $permissions = [
             [
-                'group_name'=>'dashboard permission',
-                'permissions'=>[
+                'group_name' => 'dashboard permission',
+                'permissions' => [
                     'dashboard',
                 ],
             ],
             [
-                'group_name'=>'categories permission',
-                'permissions'=>[
-                    'categories.create',
-                    'categories.edit',
-                    'categories.destroy',
-                ],
-            ],
-            [
-                'group_name'=>'sub categories permission',
-                'permissions'=>[
-                    'subcategories.create',
-                    'subcategories.edit',
-                    'subcategories.destroy',
-                ],
-            ],
-            [
-                'group_name'=>'roles permission',
-                'permissions'=>[
+                'group_name' => 'roles permission',
+                'permissions' => [
+                    'roles.index',
                     'roles.create',
+                    'roles.show',
                     'roles.edit',
                     'roles.destroy',
                 ],
             ],
+            [
+                'group_name' => 'currency permission',
+                'permissions' => [
+                    'currency.index',
+                    'currency.create',
+                    'currency.show',
+                    'currency.edit',
+                    'currency.destroy',
+                ],
+            ],
+            [
+                'group_name' => 'users permission',
+                'permissions' => [
+                    'users.index',
+                    'users.create',
+                    'users.show',
+                    'users.edit',
+                    'users.destroy',
+                ],
+            ],
+            [
+                'group_name' => 'rooms permission',
+                'permissions' => [
+                    'room.index',
+                    'room.create',
+                    'room.show',
+                    'room.edit',
+                    'room.destroy',
+                ],
+            ],
+            [
+                'group_name' => 'language permission',
+                'permissions' => [
+                    'language.index',
+                    'language.create',
+                    'language.translate',
+                    'language.edit',
+                    'language.destroy',
+                ],
+            ],
+            [
+                'group_name' => 'settings permission',
+                'permissions' => [
+                    'settings',
+                    'optimize',
+                ],
+            ],
+            [
+                'group_name' => 'facilities permission',
+                'permissions' => [
+                    'facilities.index',
+                    'facilities.create',
+                    'facilities.show',
+                    'facilities.edit',
+                    'facilities.destroy',
+                ],
+            ],
+            [
+                'group_name' => 'complements permission',
+                'permissions' => [
+                    'complements.index',
+                    'complements.create',
+                    'complements.show',
+                    'complements.edit',
+                    'complements.destroy',
+                ],
+            ],
+            [
+                'group_name' => 'roomtype permission',
+                'permissions' => [
+                    'roomtype.index',
+                    'roomtype.create',
+                    'roomtype.show',
+                    'roomtype.edit',
+                    'roomtype.destroy',
+                ],
+            ],
+            [
+                'group_name' => 'blog permission',
+                'permissions' => [
+                    'blog.index',
+                    'blog.create',
+                    'blog.show',
+                    'blog.edit',
+                    'blog.destroy',
+                ],
+            ],
+            [
+                'group_name' => 'booking permission',
+                'permissions' => [
+                    'booking.index',
+                    'booking.create',
+                    'booking.show',
+                    'booking.edit',
+                    'booking.destroy',
+                ],
+            ],
+
         ];
 
         for ($i = 0; $i < count($permissions); $i++) {
             $permissionGroup = $permissions[$i]['group_name'];
+
             for ($j = 0; $j < count($permissions[$i]['permissions']); $j++) {
                 // Create Permission
-                $permission = Permission::create(['name' => $permissions[$i]['permissions'][$j], 'group_name' => $permissionGroup]);
-                $roleSuperAdmin->givePermissionTo($permission);
-                $permission->assignRole($roleSuperAdmin);
+                Permission::create([
+                    'name' => $permissions[$i]['permissions'][$j],
+                    'group_name' => $permissionGroup,
+                ]);
             }
         }
+
+        $roleSuperAdmin->givePermissionTo([
+            'dashboard',
+
+            'roles.index',
+            'roles.create',
+            'roles.show',
+            'roles.edit',
+            'roles.destroy',
+
+            'room.index',
+            'room.create',
+            'room.show',
+            'room.edit',
+            'room.destroy',
+
+            'users.index',
+            'users.create',
+            'users.show',
+            'users.edit',
+            'users.destroy',
+
+            'settings',
+            'optimize',
+
+            'currency.index',
+            'currency.create',
+            'currency.show',
+            'currency.edit',
+            'currency.destroy',
+
+            'facilities.index',
+            'facilities.create',
+            'facilities.show',
+            'facilities.edit',
+            'facilities.destroy',
+
+            'complements.index',
+            'complements.create',
+            'complements.show',
+            'complements.edit',
+            'complements.destroy',
+
+            'language.index',
+            'language.create',
+            'language.translate',
+            'language.edit',
+            'language.destroy',
+
+            'roomtype.index',
+            'roomtype.create',
+            'roomtype.show',
+            'roomtype.edit',
+            'roomtype.destroy',
+
+            'blog.index',
+            'blog.create',
+            'blog.show',
+            'blog.edit',
+            'blog.destroy',
+
+            'booking.index',
+            'booking.create',
+            'booking.show',
+            'booking.edit',
+            'booking.destroy',
+        ]);
+
+        $roleAdmin->givePermissionTo([
+            //
+        ]);
     }
 }
 
