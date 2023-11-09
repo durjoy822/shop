@@ -73,7 +73,7 @@ class ProductService
        }
 
        $product->save();
-
+       if ($request->hasFile('multiple_image')) {
        if ($product->id) {
            // Delete existing multiple images associated with the product
            $multipleImages = Imagegallery::where('product_id', $id)->get();
@@ -87,7 +87,6 @@ class ProductService
             //    }
            }
 
-           if ($request->hasFile('multiple_image')) {
                $images = $request->file('multiple_image');
                foreach ($images as $image) {
                    $imageGallery = new Imagegallery();

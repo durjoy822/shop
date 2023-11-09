@@ -283,7 +283,7 @@
                                                     </label>
                                                 </div>
 
-                                                <div class="upload__img-wrap  " style="width: 70px;"></div>
+                                                <div class="upload__img-wrap  flex-row " ></div>
                                             </div>
                                         </div>
                                     </div>
@@ -358,7 +358,7 @@
                                 var reader = new FileReader();
                                 reader.onload = function(e) {
                                     var html =
-                                        "<div class='upload__img-box'><div style='background-image: url(" +
+                                        "<div class='upload__img-box '><div style='background-image: url(" +
                                         e.target.result + ")' data-number='" + $(
                                             ".upload__img-close").length + "' data-file='" + f
                                         .name +

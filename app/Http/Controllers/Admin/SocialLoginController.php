@@ -41,7 +41,8 @@ class SocialLoginController extends Controller
 
                 $saveUser = User::where('email',$user->getEmail())->first();
             }
-            Auth::loginUsingId($saveUser->id);
+            // Auth::loginUsingId($saveUser->id);
+            Auth::guard('user')->login($saveUser);
             return redirect()->route('dashboard');
 
         }catch(\Throwable $th){
