@@ -3,14 +3,15 @@
 namespace App\Http\Controllers\Website;
 
 use App\Http\Controllers\Controller;
-use App\Models\Category;
-use App\Models\Subcategory;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
     public function home(){
-        return view('frontend.home');
+        return view('frontend.home',[
+            'products' => Product::take(8)->get(),
+        ]);
     }
     public function aboutUs(){
         return view('frontend.about-us');
@@ -18,10 +19,19 @@ class HomeController extends Controller
     public function contactUs(){
         return view('frontend.contact-us');
     }
-    public function productList(){
-        return view('frontend.shoplist');
+    public function productList($id){               //category wise product show
+        return view('frontend.shoplist',[
+            'products'=> Product::where('category_id',$id)->get(),
+        ]);
     }
-    public function productDetails(){
-        return view('frontend.shop-details');
+    public function subCategory($id){               //sub category wise product show
+        return view('frontend.shoplist',[
+            'products'=> Product::where('sub_category_id',$id)->get(),
+        ]);
+    }
+    public function productDetails($id){
+        return view('frontend.shop-details',[
+            'product'=>Product::find($id),
+        ]);
     }
 }

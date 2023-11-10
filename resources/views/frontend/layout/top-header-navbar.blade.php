@@ -176,7 +176,7 @@
                     <span class=cat-button><i class="lni lni-menu"></i>All Categories</span>
                     <ul class=sub-category>
                         @foreach ($categories as $category)
-                        <li><a href="{{route('product.list')}}">{{$category->name}}
+                        <li><a href="{{route('product.list',['id'=>$category->id])}}">{{$category->name}}
                             @if (count($category->subCategory)>0)
                             <i class="lni lni-chevron-right"></i>
                             @endif
@@ -184,15 +184,12 @@
                             @if (count($category->subCategory)>0)
                             <ul class=inner-sub-category>
                                 @foreach ($category->subCategory as $subCategory)
-                                <li><a href=product-grids.html>{{$subCategory->name}}</a></li>
+                                <li><a href="{{route('subcategory.list',['id'=>$category->id])}}">{{$subCategory->name}}</a></li>
                                 @endforeach
                             </ul>
                             @endif
                         </li>
                         @endforeach
-                        {{-- <li><a href={{route('product.list')}}>accessories</a></li>
-                        <li><a href=product-grids.html>Televisions</a></li> --}}
-
                     </ul>
                 </div>
 

@@ -3,6 +3,7 @@
  shop product details
 @endsection
 @section('content')
+<!--breadcrumbs-->
 <div class=breadcrumbs>
     <div class=container>
       <div class="row align-items-center">
@@ -21,8 +22,7 @@
       </div>
     </div>
   </div>
-
-
+<!--product details section-->
   <section class="item-details section">
     <div class=container>
       <div class=top-area>
@@ -31,27 +31,25 @@
             <div class=product-images>
               <main id=gallery>
                 <div class=main-img>
-                  <img src="{{asset('website')}}/assets/images/product-details/x01.jpg.pagespeed.ic.XjDYxdFHtv.jpg" id=current alt="#">
+                  <img src="{{asset($product->image)}}" id=current   alt="product_image" style="height: 350px">
                 </div>
                 <div class=images>
-                  <img src="{{asset('website')}}/assets/images/product-details/x01.jpg.pagespeed.ic.XjDYxdFHtv.jpg" class=img alt="#">
-                  <img src="{{asset('website')}}/assets/images/product-details/x02.jpg.pagespeed.ic.mYWhbaDcJp.jpg" class=img alt="#">
-                  <img src="{{asset('website')}}/assets/images/product-details/x03.jpg.pagespeed.ic.8kY9vrBs2m.jpg" class=img alt="#">
-                  <img src="{{asset('website')}}/assets/images/product-details/x04.jpg.pagespeed.ic.BsBTCP7KQx.jpg" class=img alt="#">
-                  <img src="{{asset('website')}}/assets/images/product-details/x05.jpg.pagespeed.ic.wpmCHwHsWC.jpg" class=img alt="#">
+                    @foreach ($product->multipleImages as $multipleImage )
+                    <img src="{{asset($multipleImage->multiple_image)}}" class=img alt="#" style="height: 100px">
+                    @endforeach
                 </div>
               </main>
             </div>
           </div>
           <div class="col-lg-6 col-md-12 col-12">
             <div class=product-info>
-              <h2 class=title>GoPro Karma Camera Drone</h2>
-              <p class=category><i class="lni lni-tag"></i> Drones:<a href="javascript:void(0)">Action
-                  cameras</a></p>
-              <h3 class=price>$850<span>$945</span></h3>
-              <p class=info-text>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                tempor incididunt
-                ut labore et dolore magna aliqua.</p>
+              <h2 class=title>{{$product->name}}</h2>
+              <p class="category m-0"><i class="lni lni-tag"></i> Category : {{$product->category->name}}</p>
+              <p class=category><i class="lni lni-tag"></i>Brand : {{$product->brand->name}}</p>
+              <h3 class=price>{{$product->selling_price}} Tk <span>{{$product->regular_price}} Tk</span></h3>
+              <p class=info-text>
+                {!!$product->short_description!!}
+              </p>
               <div class=row>
               </div>
               <div class=bottom-content>
@@ -89,18 +87,7 @@
             <div class="col-lg-12 col-12">
               <div class="info-body custom-responsive-margin">
                 <h4>Details</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                  incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                  exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-                  irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat.</p>
-                <h4>Features</h4>
-                <ul class=features>
-                  <li>Capture 4K30 Video and 12MP Photos</li>
-                  <li>Game-Style Controller with Touchscreen</li>
-                  <li>View Live Camera Feed</li>
-                  <li>Full Control of HERO6 Black</li>
-                  <li>Use App for Dedicated Camera Operation</li>
-                </ul>
+                {!!$product->long_description!!}
               </div>
             </div>
           </div>
@@ -190,7 +177,7 @@
     </div>
   </section>
 
-
+<!--Preview modal -->
   <div class="modal fade review-modal" id=exampleModal tabindex=-1 aria-labelledby=exampleModalLabel aria-hidden=true>
     <div class=modal-dialog>
       <div class=modal-content>

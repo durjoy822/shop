@@ -15,8 +15,10 @@ Route::controller(HomeController::class)->group(function () {
     Route::get('/', 'home')->name('home');
     Route::get('/about-us', 'aboutUs')->name('about.us');
     Route::get('/contact-us', 'contactUs')->name('contact.us');
-    Route::get('/shop/product-list', 'productList')->name('product.list');
-    Route::get('/shop/product-details', 'productDetails')->name('product.details');//for single product form product list
+    Route::get('/shop/category/product-list/{id}', 'productList')->name('product.list');        //category product list
+    Route::get('/shop/subcategory/product-list/{id}', 'subCategory')->name('subcategory.list'); //sub category product list
+    Route::get('/shop/product-details/{id}', 'productDetails')->name('product.details');
+
 });
 Route::controller(CustomerAuthController::class)->group(function () {
     Route::get('/shop/login', 'customerLogin')->name('customer.login');
