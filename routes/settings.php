@@ -15,7 +15,10 @@ Route::get('/migrate/fresh/seed',[OptimizeController::class,'migrateFreshSeed'])
 
 Route::controller(SocialLoginController::class)->group(function () {
     Route::get('/auth/google', 'LoginGoogle')->name('google');
-    Route::any('/auth/google/callback', 'GoogleCallback')->name('callback');
+    Route::any('/auth/google/callback', 'GoogleCallback')->name('google.callback');
+
+    Route::get('/auth/facebook', 'LoginGoogle')->name('facebook');
+    Route::any('/auth/facebook/callback', 'GoogleCallback')->name('facebook.callback');
 
 
 });
