@@ -25,12 +25,24 @@ class ProductFactory extends Factory
             'https://static-01.daraz.com.bd/p/b6dadfee5f9d38260285b2f65006a2e4.jpg_188x188.jpg_.webp',
             'https://static-01.daraz.com.bd/p/f887d3133e1ce569b28be6c84a76e3c8.jpg_188x188.jpg_.webp',
         ];
+        $name = [
+            'Router',
+            'Samsung s22 ultra',
+            'Music player',
+            'Web fun G-100',
+            'Table lamp',
+            'Hair tremer',
+            'Table watch',
+            'Head phone',
+            'Bag',
+            'Soney tv',
+        ];
         return [
             'category_id' => $this->faker->numberBetween(1, 5), // Adjust the range as needed
             'sub_category_id' => $this->faker->numberBetween(1, 5),
             'brand_id' => $this->faker->numberBetween(1, 5),
             'unit_id' => $this->faker->numberBetween(1, 2),
-            'name' => $this->faker->word,
+            'name' => $this->faker->unique()->randomElement($name),
             'code' => $this->faker->unique()->ean8, // Generate a unique code
             'short_description' => $this->faker->text,
             'long_description' => $this->faker->paragraph,

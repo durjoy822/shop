@@ -3,6 +3,8 @@
 home
 @endsection
 @section('content')
+<!--Hero slaider section-->
+
 <section class=hero-area>
     <div class=container>
         <div class=row>
@@ -81,7 +83,7 @@ home
     </div>
 </section>
 
-
+<!--Featured category section-->
 <section class="featured-categories section">
     <div class=container>
         <div class=row>
@@ -208,7 +210,7 @@ home
                     </ul>
                     <div class=images>
                         <img data-pagespeed-lazy-src="{{ asset('website') }}/assets/images/featured-categories/fetured-item-6.png"
-                            alt="#" 
+                            alt="#"
                             onload="pagespeed.lazyLoadImages.loadIfVisibleAndMaybeBeacon(this);"
                             onerror="this.onerror=null;pagespeed.lazyLoadImages.loadIfVisibleAndMaybeBeacon(this);">
                     </div>
@@ -219,7 +221,7 @@ home
     </div>
 </section>
 
-<!--trending product section-->
+<!--Trending product section-->
 <section class="trending-product section">
     <div class=container>
         <div class=row>
@@ -232,77 +234,48 @@ home
             </div>
         </div>
         <div class=row>
-            <div class="col-lg-3 col-md-6 col-12">
-                <div class=single-product>
-                    <div class=product-image>
-                        <img data-pagespeed-lazy-src="{{ asset('website') }}/assets/images/products/xproduct-1.jpg.pagespeed.ic.9r8oOB3k7u.jpg"
-                            alt="#"
-                            src="data:image/jpeg;base64,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"
-                            onload="pagespeed.lazyLoadImages.loadIfVisibleAndMaybeBeacon(this);"
-                            onerror="this.onerror=null;pagespeed.lazyLoadImages.loadIfVisibleAndMaybeBeacon(this);">
-                        <div class=button>
-                            <a href=product-details.html class=btn><i class="lni lni-cart"></i> Add to Cart</a>
-                        </div>
-                    </div>
-                    <div class=product-info>
-                        <span class=category>Watches</span>
-                        <h4 class=title>
-                            <a href="{{route('product.list')}}">Xiaomi Mi Band 5</a>
-                        </h4>
-                        <ul class=review>
-                            <li><i class="lni lni-star-filled"></i></li>
-                            <li><i class="lni lni-star-filled"></i></li>
-                            <li><i class="lni lni-star-filled"></i></li>
-                            <li><i class="lni lni-star-filled"></i></li>
-                            <li><i class="lni lni-star"></i></li>
-                            <li><span>4.0 Review(s)</span></li>
-                        </ul>
-                        <div class=price>
-                            <span>$199.00</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-12">
+           @foreach ($products as $product )
+           <div class="col-lg-3 col-md-6 col-12">
 
-                <div class=single-product>
-                    <div class=product-image>
-                        <img data-pagespeed-lazy-src="{{ asset('website') }}/assets/images/products/xproduct-1.jpg.pagespeed.ic.9r8oOB3k7u.jpg"
-                        alt="#"
-                        src="data:image/jpeg;base64,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"
-                        onload="pagespeed.lazyLoadImages.loadIfVisibleAndMaybeBeacon(this);"
-                        onerror="this.onerror=null;pagespeed.lazyLoadImages.loadIfVisibleAndMaybeBeacon(this);">
-                        <span class=sale-tag>-25%</span>
-                        <div class=button>
-                            <a href=product-details.html class=btn><i class="lni lni-cart"></i> Add to Cart</a>
-                        </div>
-                    </div>
-                    <div class=product-info>
-                        <span class=category>Speaker</span>
-                        <h4 class=title>
-                            <a href=product-grids.html>Big Power Sound Speaker</a>
-                        </h4>
-                        <ul class=review>
-                            <li><i class="lni lni-star-filled"></i></li>
-                            <li><i class="lni lni-star-filled"></i></li>
-                            <li><i class="lni lni-star-filled"></i></li>
-                            <li><i class="lni lni-star-filled"></i></li>
-                            <li><i class="lni lni-star-filled"></i></li>
-                            <li><span>5.0 Review(s)</span></li>
-                        </ul>
-                        <div class=price>
-                            <span>$275.00</span>
-                            <span class=discount-price>$300.00</span>
-                        </div>
-                    </div>
-                </div>
+               <div class=single-product>
+                   <div class=product-image>
+                       <img  alt="#" src="{{asset($product->image)}}" style="height: 250px">
+                       @if ($product->discount)
+                       <span class=sale-tag>{{$product->discount}}%</span>
+                       @else
+                       <span class=new-tag >New </span>
+                       @endif
+                       <div class=button>
+                           <a href=product-details.html class="btn mb-2"><i class="lni lni-cart"></i> Add to Cart</a>
+                       </div>
+                   </div>
+                   <div class=product-info>
+                       <span class=category>{{$product->category->name}}</span>
+                       <h4 class=title>
+                           <a href="{{route('product.details',['id'=>$product->id])}}">{{$product->name}}</a>
+                       </h4>
+                       <ul class=review>
+                           <li><i class="lni lni-star-filled"></i></li>
+                           <li><i class="lni lni-star-filled"></i></li>
+                           <li><i class="lni lni-star-filled"></i></li>
+                           <li><i class="lni lni-star-filled"></i></li>
+                           <li><i class="lni lni-star-filled"></i></li>
+                           <li><span>5.0 Review(s)</span></li>
+                       </ul>
+                       <div class=price>
+                           <span>{{$product->selling_price}} Tk</span>
+                           <span class=discount-price>{{$product->regular_price}} Tk</span>
+                       </div>
+                   </div>
+               </div>
 
-            </div>
+           </div>
+           @endforeach
         </div>
     </div>
 </section>
 
-
+<!--Banner section-->
 <section class="banner section">
     <div class=container>
         <div class=row>
@@ -335,7 +308,7 @@ home
     </div>
 </section>
 
-
+<!--Special offer section-->
 <section class="special-offer section">
     <div class=container>
         <div class=row>
@@ -520,7 +493,7 @@ home
     </div>
 </section>
 
-
+<!--home product list section-->
 <section class="home-product-list section">
     <div class=container>
         <div class=row>
@@ -690,7 +663,7 @@ home
     </div>
 </section>
 
-
+<!--brand section-->
 <div class=brands>
     <div class=container>
         <div class=row>
@@ -753,7 +726,7 @@ home
     </div>
 </div>
 
-
+<!--Blog section-->
 <section class="blog-section section">
     <div class=container>
         <div class=row>
@@ -846,7 +819,7 @@ home
     </div>
 </section>
 
-
+<!--shipping info section-->
 <section class=shipping-info>
     <div class=container>
         <ul>

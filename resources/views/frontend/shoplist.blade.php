@@ -195,23 +195,28 @@ shop product list
                 </div>
               </div>
             </div>
-            <!--single product book view-->
+            <!--single product (coll-4) book view-->
             <div class=tab-content id=nav-tabContent>
               <div class="tab-pane fade" id=nav-grid role=tabpanel aria-labelledby=nav-grid-tab>
                 <div class=row>
+                    @foreach ($products as $product)
                   <div class="col-lg-4 col-md-6 col-12">
                     <div class=single-product>
                       <div class=product-image>
-                        <img src="{{asset('website')}}/assets/images/products/xproduct-1.jpg.pagespeed.ic.9r8oOB3k7u.jpg"  alt="#">
-                        <span class=sale-tag>-25%</span>
+                        <img src="{{asset($product->image)}}"  alt="product_image" style="height: 250px">
+                        @if ($product->discount)
+                        <span class=sale-tag>{{$product->discount}}%</span>
+                        @else
+                        <span class=new-tag>New</span>
+                        @endif
                         <div class=button>
                           <a href=product-details.html class=btn><i class="lni lni-cart"></i> Add to Cart</a>
                         </div>
                       </div>
                       <div class=product-info>
-                        <span class=category>Speaker</span>
+                        <span class=category>{{$product->category->name}}</span>
                         <h4 class=title>
-                          <a href=product-grids.html>Bluetooth Speaker</a>
+                          <a href="{{route('product.details',['id'=>$product->id])}}">{{$product->name}}</a>
                         </h4>
                         <ul class=review>
                           <li><i class="lni lni-star-filled"></i></li>
@@ -222,14 +227,14 @@ shop product list
                           <li><span>5.0 Review(s)</span></li>
                         </ul>
                         <div class=price>
-                          <span>$275.00</span>
-                          <span class=discount-price>$300.00</span>
+                          <span>{{$product->selling_price}} Tk</span>
+                          <span class=discount-price>{{$product->regular_price}}</span>
                         </div>
                       </div>
                     </div>
 
                   </div>
-
+                  @endforeach
                 </div>
                 <!--pagination-->
                 <div class=row>
@@ -250,47 +255,53 @@ shop product list
 
 
 
-              <!--single product div view-->
+              <!--single product (coll-12 ) div view-->
               <div class="tab-pane show active fade" id=nav-list role=tabpanel aria-labelledby=nav-list-tab>
                 <div class=row>
-                  <div class="col-lg-12 col-md-12 col-12">
+                    @foreach ($products as $product)
+                    <div class="col-lg-12 col-md-12 col-12">
 
-                    <div class=single-product>
-                      <div class="row align-items-center">
-                        <div class="col-lg-4 col-md-4 col-12">
-                          <div class=product-image>
-                            <img src="{{asset('website')}}/assets/images/products/xproduct-1.jpg.pagespeed.ic.9r8oOB3k7u.jpg" alt="#">
-                            <span class=sale-tag>-25%</span>
-                            <div class=button>
-                              <a href=product-details.html class=btn><i class="lni lni-cart"></i> Add to
-                                Cart</a>
+                      <div class=single-product>
+                        <div class="row align-items-center">
+                          <div class="col-lg-4 col-md-4 col-12">
+                            <div class=product-image>
+                              <img src="{{asset($product->image)}}" alt="#" style="height:250px">
+                              @if ($product->discount)
+                              <span class=sale-tag>{{$product->discount}}%</span>
+                              @else
+                              <span class=new-tag>New</span>
+                              @endif
+                              <div class=button>
+                                <a href=product-details.html class=btn><i class="lni lni-cart"></i> Add to
+                                  Cart</a>
+                              </div>
                             </div>
                           </div>
-                        </div>
-                        <div class="col-lg-8 col-md-8 col-12">
-                          <div class=product-info>
-                            <span class=category>Speaker</span>
-                            <h4 class=title>
-                              <a href="{{route('product.details')}}">Big Power Sound Speaker</a>
-                            </h4>
-                            <ul class=review>
-                              <li><i class="lni lni-star-filled"></i></li>
-                              <li><i class="lni lni-star-filled"></i></li>
-                              <li><i class="lni lni-star-filled"></i></li>
-                              <li><i class="lni lni-star-filled"></i></li>
-                              <li><i class="lni lni-star-filled"></i></li>
-                              <li><span>5.0 Review(s)</span></li>
-                            </ul>
-                            <div class=price>
-                              <span>$275.00</span>
-                              <span class=discount-price>$300.00</span>
+                          <div class="col-lg-8 col-md-8 col-12">
+                            <div class=product-info>
+                              <span class=category>{{$product->category->name}}</span>
+                              <h4 class=title>
+                                <a href="{{route('product.details',['id'=> $product->id])}}">{{$product->name}}</a>
+                              </h4>
+                              <ul class=review>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><span>5.0 Review(s)</span></li>
+                              </ul>
+                              <div class=price>
+                                <span>{{$product->selling_price}} Tk</span>
+                                <span class=discount-price>{{$product->regular_price}} Tk</span>
+                              </div>
                             </div>
                           </div>
                         </div>
                       </div>
-                    </div>
 
-                  </div>
+                    </div>
+                    @endforeach
 
                 </div>
                 <!--pagination-->

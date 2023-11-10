@@ -23,7 +23,7 @@ return new class extends Migration
             $table->longText('long_description');
             $table->integer('regular_price');
             $table->integer('selling_price');
-            $table->integer('discount');
+            $table->integer('discount')->nullable();
             $table->integer('stock_amount');
             $table->string('image')->nullable();
             $table->string('status')->accepts('Public','Privet');
