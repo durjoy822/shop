@@ -68,6 +68,12 @@
         <span>Product</span>
       </a>
     </li>
+    <li class="nav-item">
+      <a class="nav-link" href="">
+        <i class="fas fa-project-diagram"></i>
+        <span>Spacial Product</span>
+      </a>
+    </li>
     </li>
     <hr class="sidebar-divider">
     <div class="sidebar-heading">
@@ -99,16 +105,20 @@
     <div class="sidebar-heading">
      Email Management
     </div>
-    {{-- <li class="nav-item">
-        <a class="nav-link" href="">
-            <i class="fas fa-envelope-open-text"></i>
-          <span>Single Sent</span>
-        </a>
-      </li> --}}
     <li class="nav-item">
         <a class="nav-link" href="{{route('email.index')}}">
             <i class="fas fa-mail-bulk"></i>
           <span>Email sent</span>
+        </a>
+      </li>
+    <hr class="sidebar-divider">
+    <div class="sidebar-heading">
+    Product Preview
+    </div>
+    <li class="nav-item">
+        <a class="nav-link" href="">
+            <i class="fas fa-mail-bulk"></i>
+          <span>Preview</span>
         </a>
       </li>
     <hr class="sidebar-divider">
@@ -119,6 +129,12 @@
         <a class="nav-link" href="{{route('user')}}">
           <i class="fas fa-users-cog"></i>
           <span>User settings</span>
+        </a>
+      </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{{route('settings.index')}}">
+          <i class="fas fa-users-cog"></i>
+          <span>Settings</span>
         </a>
       </li>
     <li class="nav-item">
