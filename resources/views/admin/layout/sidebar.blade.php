@@ -132,7 +132,7 @@
         </a>
       </li>
     <li class="nav-item">
-        <a class="nav-link" href="{{route('settings.index')}}">
+        <a class="nav-link" href="{{route('setting.edit')}}">
           <i class="fas fa-users-cog"></i>
           <span>Settings</span>
         </a>
