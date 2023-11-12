@@ -673,54 +673,14 @@ home
         </div>
         <div class=brands-logo-wrapper>
             <div class="brands-logo-carousel d-flex align-items-center justify-content-between">
+                @foreach ($brands as  $brand)
                 <div class=brand-logo>
-                    <img data-pagespeed-lazy-src="{{ asset('website') }}/assets/images/brands/01.png"
-                        alt="#" src="../../pagespeed_static/1.JiBnMqyl6S.gif"
-                        onload="pagespeed.lazyLoadImages.loadIfVisibleAndMaybeBeacon(this);"
-                        onerror="this.onerror=null;pagespeed.lazyLoadImages.loadIfVisibleAndMaybeBeacon(this);">
+                    <img 
+                        alt="Brnad-img" src="{{ asset($brand->image) }}"
+                        >
                 </div>
-                <div class=brand-logo>
-                    <img data-pagespeed-lazy-src="{{ asset('website') }}/assets/images/brands/02.png"
-                        alt="#" src="../../pagespeed_static/1.JiBnMqyl6S.gif"
-                        onload="pagespeed.lazyLoadImages.loadIfVisibleAndMaybeBeacon(this);"
-                        onerror="this.onerror=null;pagespeed.lazyLoadImages.loadIfVisibleAndMaybeBeacon(this);">
-                </div>
-                <div class=brand-logo>
-                    <img data-pagespeed-lazy-src="{{ asset('website') }}/assets/images/brands/03.png"
-                        alt="#" src="../../pagespeed_static/1.JiBnMqyl6S.gif"
-                        onload="pagespeed.lazyLoadImages.loadIfVisibleAndMaybeBeacon(this);"
-                        onerror="this.onerror=null;pagespeed.lazyLoadImages.loadIfVisibleAndMaybeBeacon(this);">
-                </div>
-                <div class=brand-logo>
-                    <img data-pagespeed-lazy-src="{{ asset('website') }}/assets/images/brands/04.png"
-                        alt="#" src="../../pagespeed_static/1.JiBnMqyl6S.gif"
-                        onload="pagespeed.lazyLoadImages.loadIfVisibleAndMaybeBeacon(this);"
-                        onerror="this.onerror=null;pagespeed.lazyLoadImages.loadIfVisibleAndMaybeBeacon(this);">
-                </div>
-                <div class=brand-logo>
-                    <img data-pagespeed-lazy-src="{{ asset('website') }}/assets/images/brands/05.png"
-                        alt="#" src="../../pagespeed_static/1.JiBnMqyl6S.gif"
-                        onload="pagespeed.lazyLoadImages.loadIfVisibleAndMaybeBeacon(this);"
-                        onerror="this.onerror=null;pagespeed.lazyLoadImages.loadIfVisibleAndMaybeBeacon(this);">
-                </div>
-                <div class=brand-logo>
-                    <img data-pagespeed-lazy-src="{{ asset('website') }}/assets/images/brands/06.png"
-                        alt="#" src="../../pagespeed_static/1.JiBnMqyl6S.gif"
-                        onload="pagespeed.lazyLoadImages.loadIfVisibleAndMaybeBeacon(this);"
-                        onerror="this.onerror=null;pagespeed.lazyLoadImages.loadIfVisibleAndMaybeBeacon(this);">
-                </div>
-                <div class=brand-logo>
-                    <img data-pagespeed-lazy-src="{{ asset('website') }}/assets/images/brands/03.png"
-                        alt="#" src="../../pagespeed_static/1.JiBnMqyl6S.gif"
-                        onload="pagespeed.lazyLoadImages.loadIfVisibleAndMaybeBeacon(this);"
-                        onerror="this.onerror=null;pagespeed.lazyLoadImages.loadIfVisibleAndMaybeBeacon(this);">
-                </div>
-                <div class=brand-logo>
-                    <img data-pagespeed-lazy-src="{{ asset('website') }}/assets/images/brands/04.png"
-                        alt="#" src="../../pagespeed_static/1.JiBnMqyl6S.gif"
-                        onload="pagespeed.lazyLoadImages.loadIfVisibleAndMaybeBeacon(this);"
-                        onerror="this.onerror=null;pagespeed.lazyLoadImages.loadIfVisibleAndMaybeBeacon(this);">
-                </div>
+                @endforeach
+
             </div>
         </div>
     </div>

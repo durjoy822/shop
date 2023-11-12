@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Website;
 
 use App\Http\Controllers\Controller;
+use App\Models\Brand;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -11,6 +12,7 @@ class HomeController extends Controller
     public function home(){
         return view('frontend.home',[
             'products' => Product::take(8)->get(),
+            'brands' => Brand::all(),
         ]);
     }
     public function aboutUs(){
