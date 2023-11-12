@@ -3,10 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\OptimizeController;
-use App\Http\Controllers\Admin\SettingsController;
+use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\SocialLoginController;
-
-
 
 Route::get('/optimize',[OptimizeController::class,'optimize'])->name('optimize');
 Route::get('/optimize/clear',[OptimizeController::class,'optimizeClear'])->name('optimize.clear');
@@ -22,6 +20,12 @@ Route::controller(SocialLoginController::class)->group(function () {
     Route::any('/auth/facebook/callback', 'GoogleCallback')->name('facebook.callback');
 
 });
+Route::controller(SettingController::class)->group(function () {
+    Route::get('/settings/edit', 'settingEdit')->name('setting.edit');
+
+});
+
+
+
 
 Route::resource('/roles',RoleController::class);
-Route::resource('/settings',SettingsController::class);

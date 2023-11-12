@@ -24,6 +24,7 @@ class DatabaseSeeder extends Seeder
             BlogSeeder::class,
             BlogCategorySeeder::class,
             ImagegallerySeeder::class,
+            SettingSeeder::class,
 
         ]);
 
