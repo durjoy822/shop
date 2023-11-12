@@ -40,9 +40,31 @@ class BrandFactory extends Factory
                 'name'  => 'Apple',
                 'image' => 'https://www.tailorbrands.com/wp-content/uploads/2021/01/apple_logo_1977.jpg',
             ],
+
+            // need to change name and image
+            [
+                'name'  => 'Nike',
+                'image' => 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrPmlYuNd-l9lVYABCPnxihddD0Bm7myaSrS7Hx_TQIOFkVqb03LYrFbhXX_zoid1aIQA&usqp=CAU',
+            ],
+            [
+                'name'  => 'Adidas',
+                'image' => 'https://cdn.britannica.com/94/193794-050-0FB7060D/Adidas-logo.jpg',
+            ],
+            [
+                'name'  => 'Honda',
+                'image' => 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3R89rayABEasn_GY_ZP8jAqHo5albfSaee5PNvcaR7uG1aFa8j6SM-lJz_ExWWCxxBC0&usqp=CAU',
+            ],
+            [
+                'name'  => 'General Electric',
+                'image' => 'https://c8.alamy.com/comp/D455PW/general-electric-logo-as-an-app-icon-clipping-path-included-D455PW.jpg',
+            ],
+            [
+                'name'  => 'Levis',
+                'image' => 'https://logoeps.com/wp-content/uploads/2013/03/levi-strauss-co-vector-logo.png',
+            ],
         ];
 
-    
+
         $brand  = $this->faker->unique()->randomElement($brands);
 
         return $brand;
