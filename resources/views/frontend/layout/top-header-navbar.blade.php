@@ -116,7 +116,7 @@
                             <div class=shopping-item>
                                 <div class=dropdown-cart-header>
                                     <span>2 Items</span>
-                                    <a href=cart.html>View Cart</a>
+                                    <a href="{{route('cart')}}">View Cart</a>
                                 </div>
                                 <ul class=shopping-list>
                                     <li>
@@ -153,7 +153,7 @@
                                         <span class=total-amount>$134.00</span>
                                     </div>
                                     <div class=button>
-                                        <a href=checkout.html class="btn animate">Checkout</a>
+                                        <a href="{{route('checkout')}}" class="btn animate">Checkout</a>
                                     </div>
                                 </div>
                             </div>
