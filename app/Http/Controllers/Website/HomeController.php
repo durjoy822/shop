@@ -21,6 +21,8 @@ class HomeController extends Controller
             'blogs' => Blog::inRandomOrder()->take(3)->get()
         ]);
     }
+
+    
     public function aboutUs(){
         return view('frontend.about-us');
     }
