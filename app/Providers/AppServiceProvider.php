@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Blogcategory;
 use App\Models\Category;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\View;
@@ -24,6 +25,7 @@ class AppServiceProvider extends ServiceProvider
     {
         view::composer('*' ,function($view){
             $view->with('categories',Category::all());
+            $view->with('blogCategories',Blogcategory::all());
         });
     }
 }

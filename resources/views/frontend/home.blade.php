@@ -675,7 +675,7 @@ home
             <div class="brands-logo-carousel d-flex align-items-center justify-content-between">
                 @foreach ($brands as  $brand)
                 <div class=brand-logo>
-                    <img 
+                    <img
                         alt="Brnad-img" src="{{ asset($brand->image) }}"
                         >
                 </div>
@@ -692,89 +692,37 @@ home
         <div class=row>
             <div class=col-12>
                 <div class=section-title>
-                    <h2>Our Latest News</h2>
+                    <h2>Our Latest Blog</h2>
                     <p>There are many variations of passages of Lorem
                         Ipsum available, but the majority have suffered alteration in some form.</p>
                 </div>
             </div>
         </div>
+
         <div class=row>
+            @foreach ($blogs as $blog)
             <div class="col-lg-4 col-md-6 col-12">
-
                 <div class=single-blog>
                     <div class=blog-img>
                         <a href=blog-single-sidebar.html>
-                            <img data-pagespeed-lazy-src="{{ asset('website') }}/assets/images/blog/xblog-1.jpg.pagespeed.ic.24jdCeAtgl.jpg"
-                                alt="#" src="../../pagespeed_static/1.JiBnMqyl6S.gif"
-                                onload="pagespeed.lazyLoadImages.loadIfVisibleAndMaybeBeacon(this);"
-                                onerror="this.onerror=null;pagespeed.lazyLoadImages.loadIfVisibleAndMaybeBeacon(this);">
+                            <img  alt="blog_image" src="{{asset($blog->image)}}" style="height: 250px">
                         </a>
                     </div>
                     <div class=blog-content>
-                        <a class=category href="javascript:void(0)">eCommerce</a>
+                        <a class=category href="javascript:void(0)">{{$blog->BlogCategory->name}}</a>
                         <h4>
-                            <a href=blog-single-sidebar.html>What information is needed for shipping?</a>
+                            <a href=blog-single-sidebar.html>{{$blog->heading}}</a>
                         </h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                            incididunt.</p>
+                        <p>{!!Str::limit($blog->content, 150)!!}</p>
                         <div class=button>
-                            <a href="javascript:void(0)" class=btn>Read More</a>
+                            <a href="{{route('blog.details',['id'=>$blog->id])}}" class=btn>Read More</a>
                         </div>
                     </div>
                 </div>
 
             </div>
-            <div class="col-lg-4 col-md-6 col-12">
+            @endforeach
 
-                <div class=single-blog>
-                    <div class=blog-img>
-                        <a href=blog-single-sidebar.html>
-                            <img data-pagespeed-lazy-src="{{ asset('website') }}/assets/images/blog/xblog-2.jpg.pagespeed.ic.6L6xzKu5Ob.jpg"
-                                alt="#" src="../../pagespeed_static/1.JiBnMqyl6S.gif"
-                                onload="pagespeed.lazyLoadImages.loadIfVisibleAndMaybeBeacon(this);"
-                                onerror="this.onerror=null;pagespeed.lazyLoadImages.loadIfVisibleAndMaybeBeacon(this);">
-                        </a>
-                    </div>
-                    <div class=blog-content>
-                        <a class=category href="javascript:void(0)">Gaming</a>
-                        <h4>
-                            <a href=blog-single-sidebar.html>Interesting fact about gaming consoles</a>
-                        </h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                            incididunt.</p>
-                        <div class=button>
-                            <a href="javascript:void(0)" class=btn>Read More</a>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-            <div class="col-lg-4 col-md-6 col-12">
-
-                <div class=single-blog>
-                    <div class=blog-img>
-                        <a href=blog-single-sidebar.html>
-                            <img data-pagespeed-lazy-src="{{ asset('website') }}/assets/images/blog/xblog-3.jpg.pagespeed.ic._VBu-kFR6c.jpg"
-                                alt="#" src="../../pagespeed_static/1.JiBnMqyl6S.gif"
-                                onload="pagespeed.lazyLoadImages.loadIfVisibleAndMaybeBeacon(this);"
-                                onerror="this.onerror=null;pagespeed.lazyLoadImages.loadIfVisibleAndMaybeBeacon(this);">
-                        </a>
-                    </div>
-                    <div class=blog-content>
-                        <a class=category href="javascript:void(0)">Electronic</a>
-                        <h4>
-                            <a href=blog-single-sidebar.html>Electronics, instrumentation & control engineering
-                            </a>
-                        </h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                            incididunt.</p>
-                        <div class=button>
-                            <a href="javascript:void(0)" class=btn>Read More</a>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
         </div>
     </div>
 </section>
