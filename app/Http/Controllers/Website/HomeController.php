@@ -5,13 +5,17 @@ namespace App\Http\Controllers\Website;
 use App\Http\Controllers\Controller;
 use App\Models\Blog;
 use App\Models\Brand;
+use App\Models\Category;
 use App\Models\Product;
+use App\Models\Subcategory;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
     public function home(){
         return view('frontend.home',[
+            'categories'=>Category::take(6)->get(),
+            'subCategories'=>Subcategory::get(),
             'products' => Product::take(8)->get(),
             'brands' => Brand::all(),
             'blogs' => Blog::inRandomOrder()->take(3)->get()
@@ -50,7 +54,7 @@ class HomeController extends Controller
     }
     public function blogDetails($id){
         return view('frontend.blog.blog-details',[
-            'blog'=>Blog::find($id), 
+            'blog'=>Blog::find($id),
         ]);
     }
 }
