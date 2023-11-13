@@ -41,7 +41,6 @@ class BrandFactory extends Factory
                 'image' => 'https://www.tailorbrands.com/wp-content/uploads/2021/01/apple_logo_1977.jpg',
             ],
 
-            // need to change name and image
             [
                 'name'  => 'Nike',
                 'image' => 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrPmlYuNd-l9lVYABCPnxihddD0Bm7myaSrS7Hx_TQIOFkVqb03LYrFbhXX_zoid1aIQA&usqp=CAU',

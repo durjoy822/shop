@@ -17,14 +17,14 @@ return new class extends Migration
             $table->string('email');
             $table->string('phone');
             $table->string('address');
-            $table->string('opening_day');
-            $table->string('closeing_day');
+            $table->string('opening_day')->accepts('saturday','sunday','monday','tuesday,wednesday,thursday,friday');
+            $table->string('closeing_day')->accepts('saturday','sunday','monday','tuesday,wednesday,thursday,friday');
             $table->string('opening_time');
             $table->string('closeing_time');
             $table->string('dark_logo')->nullable();
             $table->string('light_logo')->nullable();
             $table->string('favicon')->nullable();
-            $table->string('design');
+            $table->string('design_develop');
             $table->timestamps();
         });
     }
