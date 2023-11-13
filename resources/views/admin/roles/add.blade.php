@@ -65,7 +65,7 @@ roles create
                                     @endphp
                                     @foreach($permissions as $permission)
                                     <input class="form-check-input pl-2" type="checkbox" value=""id="flexCheckChecked" >
-                                     <label class="form-check-label" for="flexCheckChecked">{{$permission->name}}</label><br>
+                                     <label class="form-check-label" for="flexCheckChecked"></label><br>
                                      @php $j ++ ;  @endphp
                                      @endforeach
                                    </p>

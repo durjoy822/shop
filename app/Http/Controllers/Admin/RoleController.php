@@ -30,9 +30,9 @@ class RoleController extends Controller
     public function create()
     {
         return view('admin.roles.add',[
-            // 'permission_groups'=>User::getPermissionGroups(),
+            'permission_groups'=>User::getPermissionGroups(),
             // 'permissions'=>Permission::all(),
-            $permissions = Permission::get()
+            'permissions' => Permission::get()
             ->groupBy('group_name')
             ->sortByDesc(function ($group) {
                 return $group->count();
