@@ -204,22 +204,28 @@
                     </button>
                     <div class="collapse navbar-collapse sub-menu-bar" id=navbarSupportedContent>
                         <ul id=nav class="navbar-nav ms-auto">
+                            <!--home-->
                             <li class=nav-item>
                                 <a href="{{route('home')}}"  aria-label="Toggle navigation">Home</a>
                             </li>
+                            <!--blog-->
                             <li class=nav-item>
                                 <a class="dd-menu collapsed" href="javascript:void(0)" data-bs-toggle=collapse
                                   data-bs-target="#submenu-1-4" aria-controls=navbarSupportedContent aria-expanded=false
                                   aria-label="Toggle navigation">Blog</a>
                                 <ul class="sub-menu collapse" id=submenu-1-4>
-                                  <li class=nav-item><a href=blog-grid-sidebar.html>All blogs</a>
-                                  <li class=nav-item><a href=blog-grid-sidebar.html>Blog Grid Sidebar</a>
+                                  <li class=nav-item><a href="">All blogs</a>
+                                    @foreach ($blogCategories as $blogCategory)
+                                    <li class=nav-item><a href="{{route('blog.list',['id'=>$blogCategory->id])}}">{{$blogCategory->name}}</a>
+                                    @endforeach
                                   </li>
                                 </ul>
                               </li>
-                            <li class=nav-item>
+                               <!--about us-->
+                              <li class=nav-item>
                                 <a href="{{route('about.us')}}" aria-label="Toggle navigation">About us</a>
                             </li>
+                             <!--contact us-->
                             <li class=nav-item>
                                 <a href="{{route('contact.us')}}" aria-label="Toggle navigation">Contact Us</a>
                             </li>
