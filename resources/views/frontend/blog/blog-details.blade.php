@@ -45,8 +45,7 @@
                           <a > <i class="lni lni-user"></i> {{$blog->creator}}</a>
                         </li>
                         <li>
-                          <a ><i class="lni lni-calendar"></i> {{ $blog->created_at->format('d M Y') }}
-                          </a>
+                          <a ><i class="lni lni-calendar"></i> {{ $blog->created_at->format('d M Y') }}</a>
                         </li>
                         <li>
                           <a href="javascript:void(0)"><i class="lni lni-tag"></i> {{$blog->BlogCategory->name}}</a>
@@ -162,36 +161,17 @@
                 <div class="widget popular-feeds">
                   <h5 class=widget-title>Featured Posts</h5>
                   <div class=popular-feed-loop>
+                    @foreach ($featuredBlogs as $featuredBlog )
                     <div class=single-popular-feed>
                       <div class=feed-desc>
                         <a class=feed-img href=blog-single-sidebar.html>
-                          <img src="{{ asset('website') }}/assets/images/blog/xblog-sidebar-1.jpg.pagespeed.ic.aLixndzzRu.jpg" alt="#">
+                          <img src="{{ asset($featuredBlog->image) }}" alt="blog_image">
                         </a>
-                        <h6 class=post-title><a href=blog-single-sidebar.html>What information is
-                            needed for shipping?</a></h6>
-                        <span class=time><i class="lni lni-calendar"></i> 05th Nov 2023</span>
+                        <h6 class=post-title><a href=blog-single-sidebar.html>{{$featuredBlog->heading}}</a></h6>
+                        <span class=time><i class="lni lni-calendar"></i> {{ $blog->created_at->format('d M Y') }}</span>
                       </div>
                     </div>
-                    <div class=single-popular-feed>
-                      <div class=feed-desc>
-                        <a class=feed-img href=blog-single-sidebar.html>
-                          <img src="{{ asset('website') }}/assets/images/blog/xblog-sidebar-2.jpg.pagespeed.ic.haEE6A_MRL.jpg" alt="#">
-                        </a>
-                        <h6 class=post-title><a href=blog-single-sidebar.html>Interesting fact about
-                            gaming consoles</a></h6>
-                        <span class=time><i class="lni lni-calendar"></i> 24th March 2023</span>
-                      </div>
-                    </div>
-                    <div class=single-popular-feed>
-                      <div class=feed-desc>
-                        <a class=feed-img href=blog-single-sidebar.html>
-                          <img src="{{ asset('website') }}/assets/images/blog/xblog-sidebar-3.jpg.pagespeed.ic.XJhBmocwcd.jpg" alt="#">
-                        </a>
-                        <h6 class=post-title><a href=blog-single-sidebar.html>Electronics,
-                            instrumentation & control engineering </a></h6>
-                        <span class=time><i class="lni lni-calendar"></i> 30th Jan 2023</span>
-                      </div>
-                    </div>
+                    @endforeach
                   </div>
                 </div>
 

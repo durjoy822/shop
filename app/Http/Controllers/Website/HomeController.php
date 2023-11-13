@@ -50,11 +50,14 @@ class HomeController extends Controller
     public function blogList($id){
         return view('frontend.blog.bloglist',[  //blog category wise blog show
             'blogs'=>Blog::where('blog_category_id',$id)->get(),
+            'featuredBlogs'=>Blog::inRandomOrder()->take(3)->get(),
         ]);
     }
     public function blogDetails($id){
         return view('frontend.blog.blog-details',[
             'blog'=>Blog::find($id),
+            'featuredBlogs'=>Blog::inRandomOrder()->take(3)->get(),
+
         ]);
     }
 }
