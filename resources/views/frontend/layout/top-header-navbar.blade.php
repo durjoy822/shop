@@ -184,7 +184,7 @@
                             @if (count($category->subCategory)>0)
                             <ul class=inner-sub-category>
                                 @foreach ($category->subCategory as $subCategory)
-                                <li><a href="{{route('subcategory.list',['id'=>$category->id])}}">{{$subCategory->name}}</a></li>
+                                <li><a href="{{route('subcategory.list',['id'=>$subCategory->id])}}">{{$subCategory->name}}</a></li>
                                 @endforeach
                             </ul>
                             @endif
@@ -214,7 +214,6 @@
                                   data-bs-target="#submenu-1-4" aria-controls=navbarSupportedContent aria-expanded=false
                                   aria-label="Toggle navigation">Blog</a>
                                 <ul class="sub-menu collapse" id=submenu-1-4>
-                                  <li class=nav-item><a href="">All blogs</a>
                                     @foreach ($blogCategories as $blogCategory)
                                     <li class=nav-item><a href="{{route('blog.list',['id'=>$blogCategory->id])}}">{{$blogCategory->name}}</a>
                                     @endforeach

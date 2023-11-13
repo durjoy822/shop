@@ -26,10 +26,15 @@ class SubcategoryFactory extends Factory
              'Electronic light',
              'Brand watches',
              'Fan',
-             'Samsung',
+             'Tv',
+             'Phone',
+             'Table',
+             'Light',
+             'Baby Product',
+             'Gift',
         ];
         return [
-            'category_id' => $this->faker->numberBetween(1, 5),
+            'category_id' => $this->faker->numberBetween(1, 6),
             'name' => $this->faker->unique()->randomElement($names),
 
         ];

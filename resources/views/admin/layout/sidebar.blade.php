@@ -70,7 +70,7 @@
     </li>
     <li class="nav-item">
       <a class="nav-link" href="">
-        <i class="fas fa-project-diagram"></i>
+        <i class="fab fa-hubspot"></i>
         <span>Spacial Product</span>
       </a>
     </li>
@@ -91,13 +91,13 @@
     </div>
     <li class="nav-item">
         <a class="nav-link" href="{{route('blogscategories.index')}}">
-            <i class="fas fa-th-list"></i>
+            <i class="fas fa-th-large"></i>
           <span>Blogs categories</span>
         </a>
       </li>
     <li class="nav-item">
         <a class="nav-link" href="{{route('blogs.index')}}">
-            <i class="fas fa-th-list"></i>
+            <i class="fas fa-th"></i>
           <span>Blogs</span>
         </a>
       </li>
@@ -117,7 +117,7 @@
     </div>
     <li class="nav-item">
         <a class="nav-link" href="">
-            <i class="fas fa-mail-bulk"></i>
+            <i class="fab fa-diaspora"></i>
           <span>Preview</span>
         </a>
       </li>
@@ -133,7 +133,7 @@
       </li>
     <li class="nav-item">
         <a class="nav-link" href="{{route('setting.edit')}}">
-          <i class="fas fa-users-cog"></i>
+            <i class="fas fa-cogs"></i>
           <span>Settings</span>
         </a>
       </li>
