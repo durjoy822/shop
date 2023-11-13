@@ -69,7 +69,7 @@
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="">
+      <a class="nav-link" href="{{route('spacial_products.index')}}">
         <i class="fab fa-hubspot"></i>
         <span>Spacial Product</span>
       </a>

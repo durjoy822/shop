@@ -113,9 +113,7 @@ home
                     <div class=images>
                         <img
                             alt="category_image"
-                            src="{{asset($category->image)}}" style="height: 200px; width:200px"
-                            onload="pagespeed.lazyLoadImages.loadIfVisibleAndMaybeBeacon(this);"
-                            onerror="this.onerror=null;pagespeed.lazyLoadImages.loadIfVisibleAndMaybeBeacon(this);">
+                            src="{{asset($category->image)}}" style="height: 200px; width:200px">
                     </div>
                 </div>
 
