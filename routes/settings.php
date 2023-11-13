@@ -22,6 +22,7 @@ Route::controller(SocialLoginController::class)->group(function () {
 });
 Route::controller(SettingController::class)->group(function () {
     Route::get('/settings/edit', 'settingEdit')->name('setting.edit');
+    Route::post('/settings/update/{id}', 'settingUpdate')->name('setting.update');
 
 });
 

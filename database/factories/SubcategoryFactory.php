@@ -22,7 +22,7 @@ class SubcategoryFactory extends Factory
     public function definition(): array
     {
         $names = [
-            'Bed',
+             'Bed',
              'Electronic light',
              'Brand watches',
              'Fan',
