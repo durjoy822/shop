@@ -22,7 +22,7 @@ class ReviewFactory extends Factory
     {
         return [
             'product_id' => $this->faker->numberBetween(1, 10),
-            'customer_id' => Str::uuid()->toString(), // Use Str::uuid() to generate a UUID
+            'customer_id' => $this->faker->numberBetween(1, 10), // Use Str::uuid() to generate a UUID
             'customer_name' => $this->faker->name, // Use $this->faker instead of $faker
             'customer_email' => $this->faker->unique()->safeEmail,
             'rating' => $this->faker->numberBetween(1, 10), // Remove quotes around numbers

@@ -27,7 +27,7 @@ class User extends Authenticatable
         'email',
         'password',
         'google_id',
-        'facebook_id', 
+        'facebook_id',
     ];
 
     /**
@@ -50,21 +50,21 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-    public static function getPermissionGroups() {
-        $permission_groups = DB::table('permissions')
-            ->select('group_name')
-            ->groupBy('group_name')
-            ->get();
+    // public static function getPermissionGroups() {
+    //     $permission_groups = DB::table('permissions')
+    //         ->select('group_name')
+    //         ->groupBy('group_name')
+    //         ->get();
 
-        return $permission_groups;
-    }
+    //     return $permission_groups;
+    // }
 
-    public static function getPermissionsByGroupName($group_name) {
-        $permissions = DB::table('permissions')
-            ->select('name', 'id')
-            ->where('group_name', $group_name)
-            ->get();
-        return $permissions;
-    }
+    // public static function getPermissionsByGroupName($group_name) {
+    //     $permissions = DB::table('permissions')
+    //         ->select('name', 'id')
+    //         ->where('group_name', $group_name)
+    //         ->get();
+    //     return $permissions;
+    // }
 
 }

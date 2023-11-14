@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 use App\Models\User;
+use Illuminate\Support\Facades\Session;
+
 
 
 
@@ -30,13 +32,9 @@ class RoleController extends Controller
     public function create()
     {
         return view('admin.roles.add',[
-            'permission_groups'=>User::getPermissionGroups(),
-            // 'permissions'=>Permission::all(),
-            'permissions' => Permission::get()
-            ->groupBy('group_name')
-            ->sortByDesc(function ($group) {
-                return $group->count();
-            })
+            'group_names'=>Permission::all(),
+            'permission_name'=>Permission::all(),
+
         ]);
     }
 
@@ -53,6 +51,8 @@ class RoleController extends Controller
             'description'=>$request->description,
             'guard_name' => 'web'
         ]);
+        Session::flash('message','Role add successfully.'); 
+        return redirect()->route('roles.index'); 
     }
 
     /**
