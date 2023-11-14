@@ -45,8 +45,7 @@ roles create
                     <input type="checkbox"> Select All
                 </div>
                 <div class="row px-3 py-3 ">
-                    @php $i = 1; @endphp
-                    @foreach($permission_groups as $group)
+                    @foreach($group_names as $group)
                     <div class="col-md-4 py-2">
                         <div class="card p-2">
                             <div class="card-hover">
@@ -58,22 +57,18 @@ roles create
                                 </div>
                                 <div class="card-body p-0 pl-5 mt-2">
                                    <p class="m-0 pl-2">
-                                    @php
+                                    @foreach($permission_name as $permission)
+                                    @if ($permission->group_name==$group->group_name)
 
-                                // $permissions = App\Models\User::getpermissionsByGroupName($group->name);
-                                    $j = 1;
-                                    @endphp
-                                    @foreach($permissions as $permission)
                                     <input class="form-check-input pl-2" type="checkbox" value=""id="flexCheckChecked" >
-                                     <label class="form-check-label" for="flexCheckChecked"></label><br>
-                                     @php $j ++ ;  @endphp
+                                    <label class="form-check-label" for="flexCheckChecked"> {{$permission->name}}</label><br>
+                                    @endif
                                      @endforeach
                                    </p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    @php $i ++ ;  @endphp
                     @endforeach
                 </div>
                 <div class="px-3">

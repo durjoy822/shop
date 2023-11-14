@@ -19,6 +19,16 @@
                 <li class="breadcrumb-item active" aria-current="page">Roles</li>
             </ol>
         </div>
+        <!--session message-->
+            @if(Session::has('message'))
+            <div class="alert alert-block alert-success alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+                <i class=" fa fa-check cool-green "></i>
+                {{ nl2br(Session::get('message')) }}
+            </div>
+            @endif
         <!--table-->
         <div class="col-lg-12">
             <div class="card mb-4">
@@ -35,7 +45,7 @@
                     <div class="col-md-4 py-2">
                         <div class="card ">
                             <div class="card-hover">
-                                <div class="card-heading  pt-3 text-center">
+                                <div class="card-heading  pt-4 text-center">
                                     <h2>{{$role->name}}</h2>
                                 </div>
                                 <div class="card-body py-2 text-center ">

@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('customer_name');
             $table->string('customer_email');
             $table->string('rating')->nullable();
-            $table->string('review')->nullable();
+            $table->longText('review')->nullable();
             $table->timestamps();
         });
     }
