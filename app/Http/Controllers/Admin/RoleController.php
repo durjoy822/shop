@@ -32,7 +32,7 @@ class RoleController extends Controller
     public function create()
     {
         return view('admin.roles.add',[
-            'group_names'=>Permission::all(),
+            'group_names'=>Permission::select(['group_name'])->groupBy('group_name')->get(),
             'permission_name'=>Permission::all(),
 
         ]);
@@ -51,8 +51,8 @@ class RoleController extends Controller
             'description'=>$request->description,
             'guard_name' => 'web'
         ]);
-        Session::flash('message','Role add successfully.'); 
-        return redirect()->route('roles.index'); 
+        Session::flash('message','Role add successfully.');
+        return redirect()->route('roles.index');
     }
 
     /**

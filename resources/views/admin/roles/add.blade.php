@@ -4,7 +4,7 @@ roles create
 @endsection
 <style>
     .card-hover {
-        height: 170px;
+        height: 200px;
     }
 </style>
 @section('content')
@@ -42,7 +42,7 @@ roles create
                 </div>
                 </div>
                 <div class="px-5 h6 m-0">
-                    <input type="checkbox"> Select All
+                    <input type="checkbox" id="selectAll" > Select All
                 </div>
                 <div class="row px-3 py-3 ">
                     @foreach($group_names as $group)
@@ -51,25 +51,24 @@ roles create
                             <div class="card-hover">
                                 <div class="card-heading  pt-3 px-4">
                                     <h5>
-                                        <input class="form-check-input" name="permissions[]" type="checkbox" id="checkPermission" >
-                                        <label class="form-check-label" for="checkPermission">{{$group->group_name}}</label>
+                                        <input class="form-check-input" type="checkbox" id="groupName" >
+                                        <label class="form-check-label" for="group_name">{{$group->group_name}}</label>
                                     </h5>
                                 </div>
                                 <div class="card-body p-0 pl-5 mt-2">
-                                   <p class="m-0 pl-2">
-                                    @foreach($permission_name as $permission)
-                                    @if ($permission->group_name==$group->group_name)
-
-                                    <input class="form-check-input pl-2" type="checkbox" value=""id="flexCheckChecked" >
-                                    <label class="form-check-label" for="flexCheckChecked"> {{$permission->name}}</label><br>
-                                    @endif
-                                     @endforeach
-                                   </p>
+                                    <p class="m-0 pl-2">
+                                        @foreach($permission_name as $permission)
+                                            @if ($permission->group_name==$group->group_name)
+                                                <input class="form-check-input pl-2" type="checkbox" value="" id="permissionName" >
+                                                <label class="form-check-label" for="permission_name"> {{$permission->name}}</label><br>
+                                            @endif
+                                        @endforeach
+                                    </p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    @endforeach
+                @endforeach
                 </div>
                 <div class="px-3">
                     <button type="submit" class="btn btn-primary mt-3">Create roles</button>
@@ -80,4 +79,20 @@ roles create
         </div>
     </div>
 </div>
+
+
+<!--jquary cdn link  added into layout head file  -->
+<script>
+    $(document).ready(function(){
+        $('#selectAll').click(function(){
+            if($(this).is(':checked')){
+                $('input[type=checkbox]').prop('checked', true);  //checked all the checkbox
+            } else {
+                $('input[type=checkbox]').prop('checked', false);   //unchecked all the checkbox
+            }
+        });
+    });
+</script>
+
+
 @endsection
