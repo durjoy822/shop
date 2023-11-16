@@ -1,6 +1,6 @@
 @extends('admin.layout.master')
 @section('title')
-roles create
+roles edit
 @endsection
 <style>
     .card-hover {
@@ -10,11 +10,11 @@ roles create
 @section('content')
 <div class="container-fluid" id="container-wrapper">
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <h1 class="h3 mb-0 text-gray-800">Roles Create</h1>
+    <h1 class="h3 mb-0 text-gray-800">Roles Edit</h1>
     <ol class="breadcrumb">
       <li class="breadcrumb-item"><a href="{{route('dashboard')}}">Dashboard</a></li>
       <li class="breadcrumb-item"><a href="./">Roles</a></li>
-      <li class="breadcrumb-item active" aria-current="page">roles create</li>
+      <li class="breadcrumb-item active" aria-current="page">roles edit</li>
     </ol>
 </div>
     <div class="row " >
@@ -22,7 +22,7 @@ roles create
         <!-- Form Basic -->
         <div class="card mb-4">
             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-            <h6 class="m-0 font-weight-bold text-primary">Roles create </h6>
+            <h6 class="m-0 font-weight-bold text-primary">Roles Edit </h6>
             </div>
             <div class="card-body ">
                 <div class="col-lg-6 offset-lg-3 ">
@@ -60,7 +60,7 @@ roles create
                                     <p class="m-0 pl-2">
                                         @foreach($permission_name as $permission)
                                             @if ($permission->group_name==$group->group_name)
-                                                <input class="form-check-input pl-2 permission" name="role_permissions[]" type="checkbox" value=" {{$permission->name}}" id="permissionName" >
+                                                <input class="form-check-input pl-2 permission"{{hasPermissionTo($permission->name)?'checked':''}}  name="role_permissions[]" type="checkbox" value=" {{$permission->name}}" id="permissionName" >
                                                 <label class="form-check-label" for="permission_name"> {{$permission->name}}</label><br>
                                             @endif
                                         @endforeach
