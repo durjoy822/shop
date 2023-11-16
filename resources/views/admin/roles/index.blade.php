@@ -52,7 +52,7 @@
                                     <p class="m-0">{{$role->description}}</p>
                                 </div>
                                 <div class="py-2 px-2 text-center">
-                                    <a href=""><i class="far fa-edit"></i></a>&nbsp;
+                                    <a href="{{route('roles.edit',$role->id)}}"><i class="far fa-edit"></i></a>&nbsp;
                                     <form action="" method="post" class="d-inline">
                                         @csrf
                                         @method('DELETE')
