@@ -37,7 +37,8 @@
           <div class=top-end>
             <div class=user>
               <i class="lni lni-user"></i>
-              Hello
+              Hello &nbsp;  &nbsp;
+              <a class=user href="{{route('customer.dashboard')}}"> Dashboard</a>
             </div>
             <ul class=user-login>
               <li>

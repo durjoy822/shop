@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\CartController;
 use App\Http\Controllers\Admin\CheckoutController;
 use App\Http\Controllers\Website\CustomerAuthController;
+use App\Http\Controllers\Website\CustomerDashboardController;
 use App\Http\Controllers\Website\HomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -29,6 +30,13 @@ Route::controller(HomeController::class)->group(function () {
 Route::controller(CustomerAuthController::class)->group(function () {
     Route::get('/shop/login', 'customerLogin')->name('customer.login');
     Route::get('/shop/register', 'customerRegister')->name('customer.register');
+
+});
+
+    // -----customer dashboard-------
+Route::controller(CustomerDashboardController::class)->group(function () {
+    Route::get('/shop/Dashboard', 'customerDashboard')->name('customer.dashboard');
+
 
 });
     // -----Cart -------

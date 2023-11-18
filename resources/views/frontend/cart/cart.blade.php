@@ -1,6 +1,6 @@
 @extends('frontend.layout.master')
 @section('title')
-    shop Cart
+    customer dashboard
 @endsection
 @section('content')
 <!--breadcrumbs-->
