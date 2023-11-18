@@ -35,11 +35,14 @@
         </div>
         <div class="col-lg-6 col-md-6 col-12">
           <div class=top-end>
+            @if (Auth::guard('customer')->check())
             <div class=user>
               <i class="lni lni-user"></i>
               Hello &nbsp;  &nbsp;
-              <a class=user href="{{route('customer.dashboard')}}"> Dashboard</a>
+              <a class=user href="{{route('customer.dashboard')}}"> {{Auth::guard('customer')->user()->name}}   &nbsp;  Dashboard </a>
+              logout
             </div>
+            @else
             <ul class=user-login>
               <li>
                 <a href="{{route('customer.login')}}">Sign In</a>
@@ -48,6 +51,7 @@
                 <a href="{{route('customer.register')}}">Register</a>
               </li>
             </ul>
+            @endif
           </div>
         </div>
       </div>

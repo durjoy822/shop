@@ -19,21 +19,29 @@ class CustomerAuthController extends Controller
         return view('frontend.auth.register');
     }
 
-    public function registerStore(Request $request){
-        // dd($request->all());
-        $user=new User();
-        $user->name=$request->name;
-        $user->email=$request->email;
-        $user->password=FacadesHash::make($request->password);
-        $user->save();
-        Auth::guard('user')->login($user);
-        Session::flash('success','Admin register successfully');
-        return redirect()->route('dashboard');
+    public function customerStore(Request $request){
+        $request->validate([
+            'name'=>'required',
+            'email'=>'required',
+            'password'=>'required',
+            'confirm_password'=>'required',
+        ]);
+        $customer=new User();
+        $customer->name=$request->name;
+        $customer->email=$request->email;
+        $customer->role="customer";
+        if($request->password==$request->confirm_password){
+            $customer->password=FacadesHash::make($request->password);
+        }
+        $customer->save();
+        Auth::guard('customer')->login($customer);
+        Session::flash('message','Customer Register Successfully.');
+        return redirect()->route('customer.dashboard');
 
     }
 
     public function loginCheck(Request $request){
-        if(Auth::guard('user')->attempt([
+        if(Auth::guard('customer')->attempt([
             'email'=>$request->email,
             'password'=>$request->password,
         ],$request->has('remember_token'))){

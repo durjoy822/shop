@@ -21,6 +21,16 @@
             </div>
         </div>
     </div>
+    <!--session message-->
+        @if(Session::has('message'))
+        <div class="alert alert-block alert-success alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+            <i class=" fa fa-check cool-green "></i>
+            {{ nl2br(Session::get('message')) }}
+        </div>
+        @endif
 <!--Account info setting section-->
     <section class="about-us section ">
         <div class=container>
@@ -69,6 +79,16 @@
            </div>
         </div>
     </section>
-
+    
+    <script>
+        @if(Session::has('success'))
+            toastr.options =
+            {
+                "closeButton" : true,
+                "progressBar" : true
+            }
+        toastr.success("{{ session('success') }}");
+        @endif
+    </script>
 @endsection
 
