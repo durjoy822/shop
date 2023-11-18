@@ -167,7 +167,7 @@
                         <a class=feed-img href=blog-single-sidebar.html>
                           <img src="{{ asset($featuredBlog->image) }}" alt="blog_image">
                         </a>
-                        <h6 class=post-title><a href=blog-single-sidebar.html>{{$featuredBlog->heading}}</a></h6>
+                        <h6 class=post-title><a href="{{route('blog.details',['id'=>$featuredBlog->id])}}">{{$featuredBlog->heading}}</a></h6>
                         <span class=time><i class="lni lni-calendar"></i> {{ $blog->created_at->format('d M Y') }}</span>
                       </div>
                     </div>
