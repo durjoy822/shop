@@ -32,35 +32,36 @@
                             <h3>No Account? Register</h3>
                             <p>Registration takes less than a minute but gives you full control over your orders.</p>
                         </div>
-                        <form class=row method=post>
+                        <form  action="{{route('customer.store')}}" class=row method="post">
+                            @csrf
+
                             <div class=col-sm-12>
                                 <div class=form-group>
                                     <label for=reg-fn>Full Name</label>
-                                    <input class=form-control name="name" type=text id=reg-fn required>
+                                    <input class=form-control name="name" type=text id=reg-fn >
+                                    <div class="text-danger mt-1">@error('name') {{$message}} @enderror </div>
                                 </div>
                             </div>
-                            <div class=col-sm-6>
+                            <div class=col-sm-12>
                                 <div class=form-group>
                                     <label for=reg-email>E-mail Address</label>
-                                    <input class=form-control name="email" type=email id=reg-email required>
-                                </div>
-                            </div>
-                            <div class=col-sm-6>
-                                <div class=form-group>
-                                    <label for=reg-phone>Phone Number</label>
-                                    <input class=form-control  name="number" type=text id=reg-phone required>
+                                    <input class=form-control name="email" type=email id=reg-email >
+                                    <div class="text-danger mt-1">@error('email') {{$message}} @enderror </div>
                                 </div>
                             </div>
                             <div class=col-sm-6>
                                 <div class=form-group>
                                     <label for=reg-pass>Password</label>
-                                    <input class=form-control name="password" type=password id=reg-pass required>
+                                    <input class=form-control name="password" type=password id=reg-pass >
+                                    <div class="text-danger mt-1">@error('password') {{$message}} @enderror </div>
+
                                 </div>
                             </div>
                             <div class=col-sm-6>
                                 <div class=form-group>
                                     <label for=reg-pass-confirm>Confirm Password</label>
-                                    <input class=form-control name="confirm_password" type=password id=reg-pass-confirm required>
+                                    <input class=form-control name="confirm_password" type=password id=reg-pass-confirm >
+                                    <div class="text-danger mt-1">@error('confirm_password') {{$message}} @enderror </div>
                                 </div>
                             </div>
                             <div class=button>

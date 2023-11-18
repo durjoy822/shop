@@ -31,6 +31,8 @@ Route::controller(CustomerAuthController::class)->group(function () {
     Route::get('/shop/login', 'customerLogin')->name('customer.login');
     Route::get('/shop/register', 'customerRegister')->name('customer.register');
 
+    Route::post('/shop/customer/store', 'customerStore')->name('customer.store');
+
 });
 
     // -----customer dashboard-------
