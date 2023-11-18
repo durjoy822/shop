@@ -35,7 +35,7 @@ Route::controller(CustomerAuthController::class)->group(function () {
 
     // -----customer dashboard-------
 Route::controller(CustomerDashboardController::class)->group(function () {
-    Route::get('/shop/Dashboard', 'customerDashboard')->name('customer.dashboard');
+    Route::get('/shop/dashboard', 'customerDashboard')->name('customer.dashboard');
 
 
 });

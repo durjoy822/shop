@@ -39,7 +39,6 @@ class AuthController extends Controller
 
     }
 
-
     public function loginCheck(Request $request){
         if(Auth::guard('user')->attempt([
             'email'=>$request->email,

@@ -60,7 +60,7 @@ roles edit
                                     <p class="m-0 pl-2">
                                         @foreach($permission_name as $permission)
                                             @if ($permission->group_name==$group->group_name)
-                                                <input class="form-check-input pl-2 permission"{{hasPermissionTo($permission->name)?'checked':''}}  name="role_permissions[]" type="checkbox" value=" {{$permission->name}}" id="permissionName" >
+                                                <input class="form-check-input pl-2 permission"  name="role_permissions[]" type="checkbox" value=" {{$permission->name}}" id="permissionName" >
                                                 <label class="form-check-label" for="permission_name"> {{$permission->name}}</label><br>
                                             @endif
                                         @endforeach
