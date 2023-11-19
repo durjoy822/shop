@@ -3,6 +3,7 @@
 home
 @endsection
 @section('content')
+
 <!--Hero slaider section-->
 
 <section class=hero-area>

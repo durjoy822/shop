@@ -40,21 +40,28 @@ class CustomerAuthController extends Controller
 
     }
 
-    public function loginCheck(Request $request){
+    public function customerLoginCheck(Request $request){
+        // dd($request->all());
+        $request->validate([
+            'email'=>'required|email|exists:users,email',
+            // 'password'=>'required|min:4|exists:users,password'
+        ]);
         if(Auth::guard('customer')->attempt([
             'email'=>$request->email,
             'password'=>$request->password,
+            'role'=>$request->role,
         ],$request->has('remember_token'))){
             Session::flash('success','login Successfully');
-            return redirect()->route('dashboard');
+            return redirect()->route('customer.dashboard');
         }else{
             Session::flash('success','Give a right Information');
             return back();
         }
     }
-    public function logout(){
-        Auth::guard('user')->logout();
+
+    public function customerLogout(){
+        Auth::guard('customer')->logout();
         Session::flash('success','logout Successfully');
-        return redirect()->route('login');
+        return redirect()->route('home');
     }
 }

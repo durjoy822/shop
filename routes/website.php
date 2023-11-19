@@ -10,6 +10,20 @@ use Illuminate\Support\Facades\Route;
 
 
 
+
+// -----customer auth-------
+Route::middleware(customer::class)->group(function () {
+    Route::get('/shop/customer/logout',[CustomerAuthController::class,'customerLogout'])->name('customer.logout');
+
+});
+Route::controller(CustomerAuthController::class)->group(function () {
+    Route::get('/shop/login', 'customerLogin')->name('customer.login');
+    Route::get('/shop/register', 'customerRegister')->name('customer.register');
+    Route::post('/shop/customer/store', 'customerStore')->name('customer.store');
+    Route::post('/shop/customer/login/check', 'customerLoginCheck')->name('customer.login.check');
+
+});
+
 Route::controller(HomeController::class)->group(function () {
     Route::get('/', 'home')->name('home');
     Route::get('/about-us', 'aboutUs')->name('about.us');
@@ -25,15 +39,6 @@ Route::controller(HomeController::class)->group(function () {
 
 });
 
-
-    // -----customer auth-------
-Route::controller(CustomerAuthController::class)->group(function () {
-    Route::get('/shop/login', 'customerLogin')->name('customer.login');
-    Route::get('/shop/register', 'customerRegister')->name('customer.register');
-
-    Route::post('/shop/customer/store', 'customerStore')->name('customer.store');
-
-});
 
     // -----customer dashboard-------
 Route::controller(CustomerDashboardController::class)->group(function () {
