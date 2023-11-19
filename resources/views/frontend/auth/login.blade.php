@@ -27,7 +27,9 @@
         <div class=container>
             <div class=row>
                 <div class="col-lg-6 offset-lg-3 col-md-10 offset-md-1 col-12">
-                    <form class="card login-form" method=post>
+                    <form action="{{route('customer.login.check')}}" class="card login-form" method="post">
+                        @csrf
+
                         <div class=card-body>
                             <div class=title>
                                 <h3>Login Now</h3>
@@ -49,13 +51,16 @@
                             <div class=alt-option>
                                 <span>Or</span>
                             </div>
+                            <input type="hidden" name="role" value="customer">
                             <div class="form-group input-group">
                                 <label for=reg-fn>Email</label>
-                                <input class=form-control name="email" type=email id=reg-email required>
+                                <input class=form-control name="email" value="customer@gmail.com" type=email id=reg-email >
+                                <div class="text-danger mt-1">@error('email') {{$message}} @enderror </div>
                             </div>
                             <div class="form-group input-group">
                                 <label for=reg-fn>Password</label>
-                                <input class=form-control name="password" type=password id=reg-pass required>
+                                <input class=form-control name="password" value="12345678" type=password id=reg-pass >
+                                <div class="text-danger mt-1">@error('password') {{$message}} @enderror </div>
                             </div>
                             <div class="d-flex flex-wrap justify-content-between bottom-content">
                                 <div class=form-check>

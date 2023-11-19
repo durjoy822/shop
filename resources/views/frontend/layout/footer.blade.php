@@ -117,10 +117,9 @@
                 <div class="col-lg-4 col-12">
                     <div class=payment-gateway>
                         <span>We Accept:</span>
-                        <img data-pagespeed-lazy-src="{{ asset('website') }}/assets/images/footer/credit-cards-footer.png"
-                            alt="#" src="../../pagespeed_static/1.JiBnMqyl6S.gif"
-                            onload="pagespeed.lazyLoadImages.loadIfVisibleAndMaybeBeacon(this);"
-                            onerror="this.onerror=null;pagespeed.lazyLoadImages.loadIfVisibleAndMaybeBeacon(this);">
+                        <img
+                            alt="we_accept photo" src="#"
+                           >
                     </div>
                 </div>
                 <div class="col-lg-4 col-12">
