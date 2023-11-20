@@ -7,6 +7,7 @@ use App\Models\Blog;
 use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\Review;
 use App\Models\Subcategory;
 use Illuminate\Http\Request;
 
@@ -22,7 +23,7 @@ class HomeController extends Controller
         ]);
     }
 
-    
+
     public function aboutUs(){
         return view('frontend.about-us');
     }
@@ -44,6 +45,7 @@ class HomeController extends Controller
     public function productDetails($id){
         return view('frontend.shop-details',[
             'product'=>Product::find($id),
+            'reviews'=>Review::where('product_id',$id)->get(),
         ]);
 
     }

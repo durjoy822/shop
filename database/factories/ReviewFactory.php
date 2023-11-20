@@ -25,7 +25,7 @@ class ReviewFactory extends Factory
             'customer_id' => $this->faker->numberBetween(1, 10), // Use Str::uuid() to generate a UUID
             'customer_name' => $this->faker->name, // Use $this->faker instead of $faker
             'customer_email' => $this->faker->unique()->safeEmail,
-            'rating' => $this->faker->numberBetween(1, 10), // Remove quotes around numbers
+            'rating' => $this->faker->numberBetween(1, 5), // Remove quotes around numbers
             'review' => $this->faker->paragraph,
             'created_at' => now(),
             'updated_at' => now(),

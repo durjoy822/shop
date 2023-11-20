@@ -32,7 +32,23 @@ class ReviewController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // return $request->all();
+        $request->validate([
+            'customer_name'=>'required',
+            'customer_email'=>'required',
+            'rating'=>'required',
+            'review'=>'required',
+        ]);
+        $review=new Review();
+        $review->product_id= $request->product_id;
+        $review->customer_id= $request->customer_id;
+        $review->customer_name= $request->customer_name;
+        $review->customer_email= $request->customer_email;
+        $review->rating= $request->rating;
+        $review->review= $request->review;
+        $review->save();
+        return back();
+
     }
 
     /**
