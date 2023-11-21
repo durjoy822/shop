@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\OptimizeController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\SocialLoginController;
+use App\Http\Controllers\Admin\UsersInfoController;
 
 Route::get('/optimize',[OptimizeController::class,'optimize'])->name('optimize');
 Route::get('/optimize/clear',[OptimizeController::class,'optimizeClear'])->name('optimize.clear');
@@ -20,11 +21,22 @@ Route::controller(SocialLoginController::class)->group(function () {
     Route::any('/auth/facebook/callback', 'GoogleCallback')->name('facebook.callback');
 
 });
+
+
 Route::controller(SettingController::class)->group(function () {
     Route::get('/settings/edit', 'settingEdit')->name('setting.edit');
     Route::post('/settings/update/{id}', 'settingUpdate')->name('setting.update');
 
 });
+
+
+Route::controller(UsersInfoController::class)->group(function () {
+    Route::get('/user/info/index', 'userIndex')->name('user.profile');
+    Route::post('/user/info/update/{id}', 'userInfoUpdate')->name('user.info.update');
+
+});
+
+
 
 
 

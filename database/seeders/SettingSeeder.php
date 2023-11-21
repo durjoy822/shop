@@ -14,7 +14,7 @@ class SettingSeeder extends Seeder
     public function run(): void
     {
         Setting::create([
-            'name' => 'SHOP ONLINE',
+            'name' => 'Shop online limited  ',
             'email' => 'shop@gmail.com',
             'phone' => '(+88)01777355112',
             'address' => 'Ishwardi, Pabna, Bangladesh',

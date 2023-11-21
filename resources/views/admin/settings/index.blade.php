@@ -11,6 +11,9 @@ settings
             background: rgb(161, 235, 132);
             transition: 2s;
         }
+        .user{
+            padding: 2.5rem;
+        }
 
 </style>
 <div class="container-fluid" id="container-wrapper">
@@ -30,7 +33,7 @@ settings
                     <!--User Settings-->
                     <div class="col-md-4 p-2 setting">
                         <div class="card">
-                            <div class="card-body">
+                            <div class="card-body user">
                                 <div >
                                     <i class="fas fa-users-cog"></i>
                                     User Settings
@@ -41,7 +44,7 @@ settings
                     <!--Roles Settings-->
                     <div class="col-md-4 p-2 setting">
                         <div class="card">
-                            <div class="card-body">
+                            <div class="card-body user">
                                 <div >
                                      <i class="fas fa-user-shield  "></i>
                                      Roles Settins
@@ -52,7 +55,7 @@ settings
                     <!--Optimize Settings-->
                     <div class="col-md-4 p-2 setting">
                         <div class="card">
-                            <div class="card-body">
+                            <div class="card-body user">
                                 <div >
                                     <i class="fas fa-rocket"></i>
                                     Optimize

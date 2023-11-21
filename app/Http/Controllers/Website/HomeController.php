@@ -46,7 +46,7 @@ class HomeController extends Controller
     public function productDetails($id){
         return view('frontend.shop-details',[
             'product'=>Product::find($id),
-            'reviews'=>Review::where('product_id',$id)->paginate(2),
+            'reviews'=>Review::where('product_id',$id)->paginate(4),
         ]);
 
     }

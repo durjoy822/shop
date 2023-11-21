@@ -123,6 +123,16 @@
       </li>
     <hr class="sidebar-divider">
     <div class="sidebar-heading">
+   Website
+    </div>
+    <li class="nav-item">
+        <a class="nav-link" href="">
+            <i class="fas fa-users"></i>
+          <span>Teams</span>
+        </a>
+      </li>
+    <hr class="sidebar-divider">
+    <div class="sidebar-heading">
     Settings
     </div>
     <li class="nav-item">

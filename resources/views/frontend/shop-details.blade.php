@@ -208,7 +208,12 @@
                                         </div>
                                     </div>
                                 @endforeach
-                               <span class="mt-2" id="pagination-links"> {{ $reviews->links() }}</span>
+
+                                <!--styling pagination-->
+                               <div >
+                                 {{ $reviews->links('frontend.layout.defaultPagination') }}
+                                </div>
+                                <!--styling pagination-->
                             </div>
                         </div>
                     </div>

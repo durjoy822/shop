@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\AuthRequest;
 use Illuminate\Support\Facades\Hash as FacadesHash;
 use App\Http\Controllers\Controller;
+use App\Models\Users_profile;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
@@ -33,6 +34,16 @@ class AuthController extends Controller
         $user->email=$request->email;
         $user->password=FacadesHash::make($request->password);
         $user->save();
+
+            // it's for user profile info
+        $userInfo= new Users_profile();
+        $userInfo->user_id= $user->id;
+        $userInfo->name=$request->name;
+        $userInfo->email=$request->email;
+        $userInfo->save();
+
+
+
         Auth::guard('user')->login($user);
         Session::flash('success','Admin register successfully');
         return redirect()->route('dashboard');
