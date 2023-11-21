@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Website;
 
 use App\Http\Controllers\Controller;
 use App\Models\Blog;
+use App\Models\Blogcategory;
 use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Product;
@@ -45,7 +46,7 @@ class HomeController extends Controller
     public function productDetails($id){
         return view('frontend.shop-details',[
             'product'=>Product::find($id),
-            'reviews'=>Review::where('product_id',$id)->get(),
+            'reviews'=>Review::where('product_id',$id)->paginate(2),
         ]);
 
     }
@@ -55,12 +56,14 @@ class HomeController extends Controller
         return view('frontend.blog.bloglist',[  //blog category wise blog show
             'blogs'=>Blog::where('blog_category_id',$id)->get(),
             'featuredBlogs'=>Blog::inRandomOrder()->take(3)->get(),
+            'blogCategories'=>Blogcategory::inRandomOrder()->take(5)->get(),
         ]);
     }
     public function blogDetails($id){
         return view('frontend.blog.blog-details',[
             'blog'=>Blog::find($id),
             'featuredBlogs'=>Blog::inRandomOrder()->take(3)->get(),
+            'blogCategories'=>Blogcategory::inRandomOrder()->take(5)->get(),
 
         ]);
     }

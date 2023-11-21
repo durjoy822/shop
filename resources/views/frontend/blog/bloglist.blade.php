@@ -104,21 +104,11 @@
                 <div class="widget categories-widget">
                   <h5 class=widget-title>Top Categories</h5>
                   <ul class=custom>
+                    @foreach ( $blogCategories as $blogCategory )
                     <li>
-                      <a href="javascript:void(0)">Editor's Choice</a><span>(24)</span>
-                    </li>
-                    <li>
-                      <a href="javascript:void(0)">Electronics</a><span>(12)</span>
-                    </li>
-                    <li>
-                      <a href="javascript:void(0)">Industrial Design</a><span>(5)</span>
-                    </li>
-                    <li>
-                      <a href="javascript:void(0)">Secure Payments Online</a><span>(15)</span>
-                    </li>
-                    <li>
-                      <a href="javascript:void(0)">Online Shopping</a><span>(7)</span>
-                    </li>
+                      <a href="{{route('blog.list',['id'=>$blogCategory->id])}}">{{$blogCategory->name}}</a>
+                    @endforeach
+
                   </ul>
                 </div>
               </div>
