@@ -2,17 +2,25 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
+use App\Models\Team;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Traits\FileDelete;
+use App\Traits\FileUpload;
+use Illuminate\Support\Facades\Session;
 
 class TeamController extends Controller
 {
+    use FileUpload;
+    use FileDelete;
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('admin.team.index'); 
+        return view('admin.team.index',[
+            'teams'=>Team::latest()->get(),
+        ]);
     }
 
     /**
@@ -20,7 +28,7 @@ class TeamController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.team.create');
     }
 
     /**
@@ -28,7 +36,21 @@ class TeamController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name'=>'required',
+            'position'=>'required',
+        ]);
+        $team=new Team();
+        $team->name=$request->name;
+        $team->position=$request->position;
+        $team->facebook=$request->facebook;
+        $team->twitter=$request->twitter;
+        $team->whats_app=$request->whats_app;
+        $team->image=$this->uploadImage($request->image,'team');
+        $team->save();
+        Session::flash('message','Team add successfully. ');
+        return redirect()->route('teams.index'); 
+
     }
 
     /**
