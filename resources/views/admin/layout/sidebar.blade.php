@@ -126,7 +126,7 @@
    Website
     </div>
     <li class="nav-item">
-        <a class="nav-link" href="">
+        <a class="nav-link" href="{{route('teams.index')}}">
             <i class="fas fa-users"></i>
           <span>Teams</span>
         </a>
