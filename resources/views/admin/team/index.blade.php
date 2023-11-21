@@ -53,14 +53,18 @@ teams
             </tr>
           </tfoot>
           <tbody>
-            {{-- @if ($units->count())
-            @foreach ($units  as $index=>$unit )
+            @if ($teams->count())
+            @foreach ($teams  as $index=>$team )
             <tr>
                 <td>{{$index + 1}}</td>
-                <td>{{$unit->name}}</td>
                 <td>
-                  <a href="{{route('units.edit',$unit->id)}}"><i class="far fa-edit"></i></a>&nbsp;
-                  <form action="{{route('units.destroy',$unit->id)}}" method="post" class="d-inline">
+                    <img src="{{asset($team->image)}}" style="border-radius: 100%;width:100px">
+                </td>
+                <td>{{$team->name}}</td>
+                <td>{{$team->position}}</td>
+                <td>
+                  <a href="{{route('teams.edit',$team->id)}}"><i class="far fa-edit"></i></a>&nbsp;
+                  <form action="{{route('teams.destroy',$team->id)}}" method="post" class="d-inline">
                     @csrf
                     @method('DELETE')
                     <button type="submit" style="border: none; background-color: transparent;">
@@ -74,7 +78,7 @@ teams
             <tr>
                 <td colspan="4" class="text-primary "> Units not found!</td>
             </tr>
-            @endif --}}
+            @endif
           </tbody>
         </table>
       </div>

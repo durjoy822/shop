@@ -20,7 +20,7 @@ class UsersProfileSeeder extends Seeder
 
         foreach ($users as $user) {
             // Fix the condition using where method
-            if ($user->role !== 'customer') {
+            // if ($user->role !== 'customer') {
                 DB::table('users_profiles')->insert([
                     'user_id' => $user->id,
                     'name' => $user->name, // or generate a random name if needed
@@ -31,7 +31,7 @@ class UsersProfileSeeder extends Seeder
                     'created_at' => now(),
                     'updated_at' => now(),
                 ]);
-            }
+            // }
         }
     }
 }
