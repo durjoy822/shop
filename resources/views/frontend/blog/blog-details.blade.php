@@ -48,7 +48,7 @@
                           <a ><i class="lni lni-calendar"></i> {{ $blog->created_at->format('d M Y') }}</a>
                         </li>
                         <li>
-                          <a href="javascript:void(0)"><i class="lni lni-tag"></i> {{$blog->BlogCategory->name}}</a>
+                          <a href="javascript:void(0)"><i class="fa-solid fa-dice-d20"></i> {{$blog->BlogCategory->name}}</a>
                         </li>
                       </ul>
 
@@ -148,14 +148,7 @@
 
             <aside class="col-lg-4 col-md-12 col-12">
               <div class="sidebar blog-grid-page">
-                <!--Search bar-->
-                <div class="widget search-widget">
-                  <h5 class=widget-title>Search This Site</h5>
-                  <form action="#">
-                    <input type=text placeholder="Search Here...">
-                    <button type=submit><i class="lni lni-search-alt"></i></button>
-                  </form>
-                </div>
+    
 
                 <!--Featured Post-->
                 <div class="widget popular-feeds">
@@ -179,21 +172,11 @@
                 <div class="widget categories-widget">
                   <h5 class=widget-title>Top Categories</h5>
                   <ul class=custom>
+                    @foreach ( $blogCategories as $blogCategory )
                     <li>
-                      <a href="javascript:void(0)">Editor's Choice</a><span>(24)</span>
+                      <a href="{{route('blog.list',['id'=>$blogCategory->id])}}">{{$blogCategory->name}}</a>
                     </li>
-                    <li>
-                      <a href="javascript:void(0)">Electronics</a><span>(12)</span>
-                    </li>
-                    <li>
-                      <a href="javascript:void(0)">Industrial Design</a><span>(5)</span>
-                    </li>
-                    <li>
-                      <a href="javascript:void(0)">Secure Payments Online</a><span>(15)</span>
-                    </li>
-                    <li>
-                      <a href="javascript:void(0)">Online Shopping</a><span>(7)</span>
-                    </li>
+                    @endforeach
                   </ul>
                 </div>
               </div>

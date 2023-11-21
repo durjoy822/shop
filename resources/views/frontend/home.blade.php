@@ -154,18 +154,11 @@ home
                        </div>
                    </div>
                    <div class=product-info>
-                       <span class=category>{{$product->category->name}}</span>
+                       <span class=category> Category : {{$product->category->name}}</span>
+                       <span class=category>Brand : {{$product->brand->name}}</span>
                        <h4 class=title>
                            <a href="{{route('product.details',['id'=>$product->id])}}">{{$product->name}}</a>
                        </h4>
-                       <ul class=review>
-                           <li><i class="lni lni-star-filled"></i></li>
-                           <li><i class="lni lni-star-filled"></i></li>
-                           <li><i class="lni lni-star-filled"></i></li>
-                           <li><i class="lni lni-star-filled"></i></li>
-                           <li><i class="lni lni-star-filled"></i></li>
-                           <li><span>5.0 Review(s)</span></li>
-                       </ul>
                        <div class=price>
                            <span>{{$product->selling_price}} Tk</span>
                            <span class=discount-price>{{$product->regular_price}} Tk</span>

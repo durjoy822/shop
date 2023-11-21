@@ -46,9 +46,9 @@
                     <div class="col-lg-6 col-md-12 col-12">
                         <div class=product-info>
                             <h2 class=title>{{ $product->name }}</h2>
-                            <p class="category m-0"><i class="lni lni-tag"></i> Category : {{ $product->category->name }}
+                            <p class="category m-0"><i class="fa-solid fa-play"></i> Category : {{ $product->category->name }}
                             </p>
-                            <p class=category><i class="lni lni-tag"></i>Brand : {{ $product->brand->name }}</p>
+                            <p class=category><i class="fa-solid fa-play"></i>  Brand : {{ $product->brand->name }}</p>
                             <h3 class=price>{{ $product->selling_price }} Tk <span>{{ $product->regular_price }} Tk</span>
                             </h3>
                             <p class=info-text>
@@ -102,20 +102,28 @@
                 <div class=row>
                     <div class="col-lg-4 col-12">
                         <div class="single-block give-review">
+                            <!--product review form-->
                             <h4>Leave Your Review</h4>
-                            <form>
+                            <form action="{{route('reviews.store')}}" method="post">
+                                @csrf
+
                                 @if (!Auth::guard('customer')->check())
+                                <input type="hidden" name="product_id" value="{{ $product->id }}">
                                     <div class=form-group>
                                         <label for="customer_name">Name</label>
-                                        <input type="text" name="customer_name" class="form-control">
+                                        <input type="text" name="customer_name" class="form-control mt-1">
+                                        <div class="text-danger">@error('customer_name'){{ $message }} @enderror</div>
+
                                     </div>
                                     <div class='form-group mt-2'>
                                         <label for="customer_email">Email</label>
-                                        <input type="text" name="customer_email" class="form-control">
+                                        <input type="text" name="customer_email" class="form-control mt-1">
+                                        <div class="text-danger">@error('customer_email'){{ $message }} @enderror</div>
+
                                     </div>
                                     <div class="form-group mt-2">
                                         <label for=review-rating>Rating</label>
-                                        <select class=form-control name="rating" id=review-rating>
+                                        <select class="form-control mt-1" name="rating" id=review-rating>
                                             <option selected>Selete rating</option>
                                             <option value="5">5 Stars</option>
                                             <option value="4">4 Stars</option>
@@ -123,15 +131,22 @@
                                             <option value="2">2 Stars</option>
                                             <option value="1">1 Star</option>
                                         </select>
+                                        <div class="text-danger">@error('rating'){{ $message }} @enderror</div>
                                     </div>
                                     <div class="form-group mt-2">
                                         <label for="review">Review</label>
                                         <textarea class="form-control" name="review" id="review"></textarea>
+                                        <div class="text-danger">@error('review'){{ $message }} @enderror</div>
                                     </div>
                                 @else
+                                <input type="hidden" name="product_id" value="{{ $product->id }}">
+                                <input type="hidden" name="customer_id" value="{{ Auth::guard('customer')->user()->id }}">
+                                <input type="hidden" name="customer_name" value="{{ Auth::guard('customer')->user()->name }}">
+                                <input type="hidden" name="customer_email"value="{{ Auth::guard('customer')->user()->email }}">
+
                                     <div class="form-group mt-2">
                                         <label for=review-rating>Rating</label>
-                                        <select class=form-control name="rating" id=review-rating>
+                                        <select class="form-control mt-1" name="rating" id=review-rating>
                                             <option selected>Selete rating</option>
                                             <option value="5">5 Stars</option>
                                             <option value="4">4 Stars</option>
@@ -139,12 +154,14 @@
                                             <option value="2">2 Stars</option>
                                             <option value="1">1 Star</option>
                                         </select>
+                                        <div class="text-danger">@error('rating'){{ $message }} @enderror</div>
                                     </div>
                                     <div class="form-group mt-2">
                                         <label for="review">Review</label>
-                                        <textarea class="form-control" name="review" id="review"></textarea>
+                                        <textarea class="form-control mt-1" name="review" id="review"></textarea>
+                                        <div class="text-danger">@error('review'){{ $message }} @enderror</div>
                                     </div>
-                                @endif
+                                    @endif
                                 <button type="submit" class="btn review-btn">
                                     Leave a Review
                                 </button>
@@ -191,6 +208,7 @@
                                         </div>
                                     </div>
                                 @endforeach
+                               <span class="mt-2" id="pagination-links"> {{ $reviews->links() }}</span>
                             </div>
                         </div>
                     </div>
@@ -198,88 +216,6 @@
             </div>
         </div>
     </section>
-
-    <!--review modal -->
-    <div class="modal fade review-modal" id=exampleModal tabindex=-1 aria-labelledby=exampleModalLabel aria-hidden=true>
-        <div class=modal-dialog>
-            <div class=modal-content>
-                <div class=modal-header>
-                    <h5 class=modal-title id=exampleModalLabel>Leave a Review</h5>
-                    <button type=button class=btn-close data-bs-dismiss=modal aria-label=Close></button>
-                </div>
-                <div class=modal-body>
-                    <div class=row>
-                        <form action="{{ route('reviews.store') }}" method="post">
-                            @csrf
-                            <!--get review data on auth check wise-->
-                            @if (!Auth::guard('customer')->check())
-                                <div class=col-sm-12>
-                                    <div class=form-group>
-                                        <label for=review-name>Your Name</label>
-                                        <input class=form-control name="customer_name" type=text id=review-name>
-                                        <div class="text-danger">
-                                            @error('customer_name')
-                                                {{ $message }}
-                                            @enderror
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class=col-sm-12>
-                                    <div class=form-group>
-                                        <label for=review-email>Your Email</label>
-                                        <input class=form-control type=email name="customer_email" id=review-email>
-                                        <div class="text-danger">
-                                            @error('customer_email')
-                                                {{ $message }}
-                                            @enderror
-                                        </div>
-                                    </div>
-                                </div>
-                                <input type="hidden" name="product_id" value="{{ $product->id }}">
-                            @else
-                                <input type="hidden" name="product_id" value="{{ $product->id }}">
-                                <input type="hidden" name="customer_id"
-                                    value="{{ Auth::guard('customer')->user()->id }}">
-                                <input type="hidden" name="customer_name"
-                                    value="{{ Auth::guard('customer')->user()->name }}">
-                                <input type="hidden" name="customer_email"
-                                    value="{{ Auth::guard('customer')->user()->email }}">
-                            @endif
-
-                    </div>
-                    <div class=row>
-                        <div class=col-sm-12>
-                            <div class=form-group>
-                                <label for=review-rating>Rating</label>
-                                <select class=form-control name="rating" id=review-rating>
-                                    <option selected>Selete rating</option>
-                                    <option value="5">5 Stars</option>
-                                    <option value="4">4 Stars</option>
-                                    <option value="3">3 Stars</option>
-                                    <option value="2">2 Stars</option>
-                                    <option value="1">1 Star</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                    <div class=form-group>
-                        <label for=review-message>Review</label>
-                        <textarea class=form-control name="review" id=review-message rows=3></textarea>
-                        <div class="text-danger">
-                            @error('review')
-                                {{ $message }}
-                            @enderror
-                        </div>
-
-                    </div>
-                </div>
-                <div class="modal-footer button">
-                    <button type="submit" class=btn>Submit Review</button>
-                </div>
-                </form>
-            </div>
-        </div>
-    </div>
 
     <!--script for product-->
     <script type="text/javascript">
@@ -296,4 +232,5 @@
             });
         });
     </script>
+
 @endsection
