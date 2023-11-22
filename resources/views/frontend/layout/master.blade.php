@@ -31,6 +31,8 @@
     <a href="#" class=scroll-top>
         <i class="lni lni-chevron-up"></i>
     </a>
+<!--sweet alart-->
+   @include('frontend.layout.sweetAlart')
 <!--script-->
    @include('frontend.layout.script')
 </body>
