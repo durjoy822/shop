@@ -49,7 +49,7 @@ class TeamController extends Controller
         $team->image=$this->uploadImage($request->image,'team');
         $team->save();
         Session::flash('message','Team add successfully. ');
-        return redirect()->route('teams.index'); 
+        return redirect()->route('teams.index');
 
     }
 
@@ -66,7 +66,9 @@ class TeamController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        return view('admin.team.edit',[
+            'team'=>Team::find($id),
+        ]);
     }
 
     /**
@@ -74,14 +76,37 @@ class TeamController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $request->validate([
+            'name'=>'required',
+            'position'=>'required',
+        ]);
+        $team=Team::find($id);
+        $team->name=$request->name;
+        $team->position=$request->position;
+        $team->facebook=$request->facebook;
+        $team->twitter=$request->twitter;
+        $team->whats_app=$request->whats_app;
+        if($request->file('image')){
+            if(file_exists($team->image)){
+                unlink($team->image);
+        }
+        $team->image=$this->uploadImage($request->image,'team');
     }
+        $team->save();
+        Session::flash('message','Team updated  successfully. ');
+        return redirect()->route('teams.index');
+    }
+
 
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(string $id)
     {
-        //
+        $team=Team::find($id);
+        $team->image=$this->deleteImage($team->image);
+        $team->delete();
+        Session::flash('message','Team Delete successfully!');
+        return back();
     }
 }
