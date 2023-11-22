@@ -62,22 +62,23 @@
                 </div>
             </div>
             <div class=row>
-                <div class="col-lg-3 col-md-6 col-12">
+                @foreach ($teams as $team )
 
+                <div class="col-lg-3 col-md-6 col-12">
                     <div class=single-team>
                         <div class=image>
-                            <img src="{{asset('website')}}/assets/images/team/x01.jpg.pagespeed.ic.fDNrd-uBeq.jpg" alt="#">
+                            <img src="{{asset($team->image)}}" alt="#">
                         </div>
                         <div class=content>
                             <div class=info>
-                                <h3>Grace Wright</h3>
-                                <h5>Founder, CEO</h5>
+                                <h3>{{$team->name}}</h3>
+                                <h5>{{$team->position}}</h5>
                                 <ul class=social>
-                                    <li><a href="javascript:void(0)"><i class="lni lni-facebook-filled"></i></a>
+                                    <li><a href="{{$team->facebook}}" target="blank"><i class="lni lni-facebook-filled"></i></a>
                                     </li>
-                                    <li><a href="javascript:void(0)"><i class="lni lni-twitter-original"></i></a>
+                                    <li><a href="{{$team->twitter}}" target="blank"><i class="lni lni-twitter-original"></i></a>
                                     </li>
-                                    <li><a href="javascript:void(0)"><i class="lni lni-skype"></i></a>
+                                    <li><a href="{{$team->whats_app}}" target="blank"><i class="fa-brands fa-whatsapp" style="color: #00040a;"></i></a>
                                     </li>
                                 </ul>
                             </div>
@@ -85,75 +86,8 @@
                     </div>
 
                 </div>
-                <div class="col-lg-3 col-md-6 col-12">
+                @endforeach
 
-                    <div class=single-team>
-                        <div class=image>
-                            <img src="{{asset('website')}}/assets/images/team/x02.jpg.pagespeed.ic.XmjuA-eLLg.jpg" alt="#">
-                        </div>
-                        <div class=content>
-                            <div class=info>
-                                <h3>Taylor Jackson</h3>
-                                <h5>Financial Director</h5>
-                                <ul class=social>
-                                    <li><a href="javascript:void(0)"><i class="lni lni-facebook-filled"></i></a>
-                                    </li>
-                                    <li><a href="javascript:void(0)"><i class="lni lni-twitter-original"></i></a>
-                                    </li>
-                                    <li><a href="javascript:void(0)"><i class="lni lni-skype"></i></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="col-lg-3 col-md-6 col-12">
-
-                    <div class=single-team>
-                        <div class=image>
-                            <img src="{{asset('website')}}/assets/images/team/x03.jpg.pagespeed.ic.B9zQr57749.jpg" alt="#">
-                        </div>
-                        <div class=content>
-                            <div class=info>
-                                <h3>Quinton Cross</h3>
-                                <h5>Marketing Director</h5>
-                                <ul class=social>
-                                    <li><a href="javascript:void(0)"><i class="lni lni-facebook-filled"></i></a>
-                                    </li>
-                                    <li><a href="javascript:void(0)"><i class="lni lni-twitter-original"></i></a>
-                                    </li>
-                                    <li><a href="javascript:void(0)"><i class="lni lni-skype"></i></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="col-lg-3 col-md-6 col-12">
-
-                    <div class=single-team>
-                        <div class=image>
-                            <img src="{{asset('website')}}/assets/images/team/x04.jpg.pagespeed.ic._WD6xJBQIk.jpg" alt="#">
-                        </div>
-                        <div class=content>
-                            <div class=info>
-                                <h3>Liana Mullen</h3>
-                                <h5>Lead Designer</h5>
-                                <ul class=social>
-                                    <li><a href="javascript:void(0)"><i class="lni lni-facebook-filled"></i></a>
-                                    </li>
-                                    <li><a href="javascript:void(0)"><i class="lni lni-twitter-original"></i></a>
-                                    </li>
-                                    <li><a href="javascript:void(0)"><i class="lni lni-skype"></i></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
             </div>
         </div>
     </section>

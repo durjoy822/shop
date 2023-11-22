@@ -2,15 +2,16 @@
 
 namespace App\Http\Controllers\Website;
 
-use App\Http\Controllers\Controller;
 use App\Models\Blog;
-use App\Models\Blogcategory;
+use App\Models\Team;
 use App\Models\Brand;
-use App\Models\Category;
-use App\Models\Product;
 use App\Models\Review;
+use App\Models\Product;
+use App\Models\Category;
 use App\Models\Subcategory;
+use App\Models\Blogcategory;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class HomeController extends Controller
 {
@@ -26,7 +27,9 @@ class HomeController extends Controller
 
 
     public function aboutUs(){
-        return view('frontend.about-us');
+        return view('frontend.about-us',[
+            'teams'=>Team::all(), 
+        ]);
     }
     public function contactUs(){
         return view('frontend.contact-us');
