@@ -12,6 +12,7 @@ use App\Models\Subcategory;
 use App\Models\Blogcategory;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\AboutUs;
 
 class HomeController extends Controller
 {
@@ -28,7 +29,8 @@ class HomeController extends Controller
 
     public function aboutUs(){
         return view('frontend.about-us',[
-            'teams'=>Team::all(), 
+            'teams'=>Team::all(),
+            'about_us'=>AboutUs::all(),
         ]);
     }
     public function contactUs(){

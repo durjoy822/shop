@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AboutUsController;
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\BlogCategoryController;
 use App\Http\Controllers\Admin\BlogController;
@@ -63,3 +64,4 @@ Route::resource('/blogscategories',BlogCategoryController::class);
 Route::resource('/spacial_products',SpacialProductController::class);
 Route::resource('/reviews',ReviewController::class);
 Route::resource('/teams',TeamController::class);
+Route::resource('/about_us',AboutUsController::class);
