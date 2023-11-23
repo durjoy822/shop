@@ -51,17 +51,17 @@ class CustomerAuthController extends Controller
             'password'=>$request->password,
             'role'=>$request->role,
         ],$request->has('remember_token'))){
-            Session::flash('success','login Successfully');
+            Session::flash('message','login Successfully');
             return redirect()->route('customer.dashboard');
         }else{
-            Session::flash('success','Give a right Information');
+            Session::flash('message','Give a right Information');
             return back();
         }
     }
 
     public function customerLogout(){
         Auth::guard('customer')->logout();
-        Session::flash('success','logout Successfully');
+        Session::flash('message','logout Successfully');
         return redirect()->route('home');
     }
 }

@@ -14,6 +14,8 @@
             </div>
         </div>
     </div>
+
+
     <!--topbar/middle header/navbar-->
     <header class="header navbar-area">
        @include('frontend.layout.top-header-navbar')
@@ -31,9 +33,12 @@
     <a href="#" class=scroll-top>
         <i class="lni lni-chevron-up"></i>
     </a>
-<!--sweet alart-->
-   @include('frontend.layout.sweetAlart')
+
 <!--script-->
    @include('frontend.layout.script')
+   <!--sweet alart-->
+   @include('frontend.layout.sweetAlart');
+
+
 </body>
 </html>

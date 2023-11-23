@@ -131,6 +131,12 @@
           <span>Teams</span>
         </a>
       </li>
+    <li class="nav-item">
+        <a class="nav-link" href="">
+            <i class="fas fa-users"></i>
+          <span>About_us</span>
+        </a>
+      </li>
     <hr class="sidebar-divider">
     <div class="sidebar-heading">
     Settings
