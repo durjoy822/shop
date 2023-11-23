@@ -24,28 +24,38 @@
 <!--about us-->
     <section class="about-us section">
         <div class=container>
-            <div class="row align-items-center">
-                <div class="col-lg-6 col-md-12 col-12">
-                    <div class=content-left>
-                        <img src="{{asset('website')}}/assets/images/about/xabout-img.jpg.pagespeed.ic.bJyW_F0aUA.jpg" alt="#">
-                        <a href="https://www.youtube.com/watch?v=r44RKWyfcFw&amp;fbclid=IwAR21beSJORalzmzokxDRcGfkZA1AtRTE__l5N4r09HcGS5Y6vOluyouM9EM"
-                            class="glightbox video"><i class="lni lni-play"></i></a>
+            <div class="row align-items-center ">
+                @foreach ($about_us as $index => $about)
+                @if($index % 2 == 0)
+                    <div class="col-lg-6 col-md-12 col-12 mt-4">
+                        <div class="content-left text-center">
+                            <img src="{{ asset($about->image) }}" alt="#" style="height:300px; width:70%">
+                        </div>
                     </div>
-                </div>
-                <div class="col-lg-6 col-md-12 col-12">
+                    <div class="col-lg-6 col-md-12 col-12 mt-4">
+                        <div class="content-right">
+                            <h2>{{ $about->heading }}</h2>
+                            <p>{{ $about->content }}</p>
+                            <!-- Add other content here -->
+                        </div>
+                    </div>
+                @else
+                    <!-- Reverse the order for odd iterations -->
+                    <div class="col-lg-6 col-md-12 col-12 mt-4">
+                        <div class="content-right">
+                            <h2>{{ $about->heading }}</h2>
+                            <p>{{ $about->content }}</p>
+                            <!-- Add other content here -->
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-12 col-12 mt-4">
+                        <div class="content-left text-center">
+                            <img src="{{ asset($about->image) }}" style="height:300px; width:70%" alt="#">
+                        </div>
+                    </div>
+                @endif
+            @endforeach
 
-                    <div class=content-right>
-                        <h2>ShopGrids - Your Trusted & Reliable Partner.</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam id purus at risus
-                            pellentesque faucibus a quis eros. In eu fermentum leo. Integer ut eros lacus. Proin ut
-                            accumsan leo. Morbi vitae est eget dolor consequat aliquam eget quis dolor. Mauris rutrum
-                            fermentum erat, at euismod lorem pharetra nec. Duis erat lectus, ultrices euismod sagittis.
-                        </p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eius mod tempor incididunt
-                            ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                            laboris nisi aliquip ex ea commodo consequat.</p>
-                    </div>
-                </div>
             </div>
         </div>
     </section>

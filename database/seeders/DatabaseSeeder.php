@@ -28,6 +28,7 @@ class DatabaseSeeder extends Seeder
             ReviewSeeder::class,
             UsersProfileSeeder::class,
             TeamSeeder::class,
+            AboutUsSeeder::class,
 
         ]);
 
