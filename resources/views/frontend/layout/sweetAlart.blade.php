@@ -1,10 +1,9 @@
-@if (Session::has('message'))
-    <script>
+<script>
+    @if(Session::has('message'))
         Swal.fire({
-        title: 'Error!',
-        text: 'Do you want to continue',
-        icon: 'error',
-        confirmButtonText: 'Cool'
-        })
-    </script>
-@endif
+            icon: 'success',
+            title: 'Success',
+            text: '{{ Session::get('message') }}',
+        });
+    @endif
+</script>

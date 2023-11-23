@@ -21,16 +21,6 @@
             </div>
         </div>
     </div>
-    <!--session message-->
-        @if(Session::has('message'))
-        <div class="alert alert-block alert-success alert-dismissible" role="alert">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-            </button>
-            <i class=" fa fa-check cool-green "></i>
-            {{ nl2br(Session::get('message')) }}
-        </div>
-        @endif
 <!--Account info setting section-->
     <section class="about-us section ">
         <div class=container>
@@ -44,6 +34,11 @@
                         <hr class="m-2">
                         <div class="px-3">
                             <i class="fa-solid fa-folder-open"></i> &nbsp; &nbsp; <a href="" class="text-dark"> Orders</a>
+                            <span class="badge bg-primary rounded-pill">14</span>
+                        </div>
+                        <hr class="m-2">
+                        <div class="px-3">
+                            <i class="fa-solid fa-heart"></i>&nbsp; &nbsp; <a href="" class="text-dark"> Wishlist</a>
                             <span class="badge bg-primary rounded-pill">14</span>
                         </div>
                         <hr class="m-2">
@@ -79,7 +74,7 @@
            </div>
         </div>
     </section>
-    
+
     <script>
         @if(Session::has('success'))
             toastr.options =
