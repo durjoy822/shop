@@ -46,12 +46,12 @@ Route::controller(CustomerDashboardController::class)->group(function () {
 
 
 });
-    // -----Cart -------
+    // -----Cart 24 number video-------
 Route::controller(CartController::class)->group(function () {
     Route::get('/shop/cart', 'cart')->name('cart');
 
 });
-    // -----Cart -------
+    // -----Checkout   -------
 Route::controller(CheckoutController::class)->group(function () {
     Route::get('/shop/checkout', 'checkout')->name('checkout');
 
