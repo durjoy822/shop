@@ -3,6 +3,15 @@
     customer dashboard
 @endsection
 @section('content')
+<style>
+    .rounded_remove{
+        font-size: 20px;
+    }
+    .rounded_remove:hover{
+        font-size: 25px;
+        transition: 1s ;
+    }
+</style>
 <!--breadcrumbs-->
 <div class=breadcrumbs>
     <div class=container>
@@ -22,146 +31,79 @@
     </div>
   </div>
 
-
   <!--cart  section-->
   <div class="shopping-cart section">
     <div class=container>
+        <div class="text-end  my-3 mx-2">
+            {{-- <form action="{{route('cart.remove')}}" method="post"> --}}
+               <a href="{{route('cart.remove')}}">
+                <button class="btn btn-outline-info" style="transition: 1s; " type="submit" >
+                    <i class="fa-solid fa-trash" style="color: #ee1737;"></i> <span class="text-dark">Remove All</span>
+                </button>
+            </a>
+            {{-- </form> --}}
+            </div>
       <div class=cart-list-head>
-
         <div class=cart-list-title>
           <div class=row>
             <div class="col-lg-1 col-md-1 col-12">
             </div>
             <div class="col-lg-4 col-md-3 col-12">
-              <p>Product Name</p>
+              <p>Product info</p>
             </div>
             <div class="col-lg-2 col-md-2 col-12">
               <p>Quantity</p>
             </div>
             <div class="col-lg-2 col-md-2 col-12">
-              <p>Subtotal</p>
+              <p>Unit price </p>
             </div>
             <div class="col-lg-2 col-md-2 col-12">
-              <p>Discount</p>
+              <p>Total price </p>
             </div>
             <div class="col-lg-1 col-md-2 col-12">
               <p>Remove</p>
             </div>
           </div>
         </div>
-
-
+        @foreach ($products as $product )
         <div class=cart-single-list>
           <div class="row align-items-center">
             <div class="col-lg-1 col-md-1 col-12">
-              <a href=product-details.html><img src="assets/images/cart/x01.jpg.pagespeed.ic.eLp5IujAcr.jpg"
+              <a href=product-details.html>
+                <img src="{{asset($product->attributes->image)}}"
                   alt="#"></a>
             </div>
             <div class="col-lg-4 col-md-3 col-12">
               <h5 class=product-name><a href=product-details.html>
-                  Canon EOS M50 Mirrorless Camera</a></h5>
+                {{$product->name}}</a></h5>
               <p class=product-des>
-                <span><em>Type:</em> Mirrorless</span>
-                <span><em>Color:</em> Black</span>
+                <span><em>Category:</em> {{$product->attributes->category}}</span>
+                <span><em>Brand:</em> {{$product->attributes->brand}}</span>
               </p>
             </div>
             <div class="col-lg-2 col-md-2 col-12">
-              <div class=count-input>
-                <select class=form-control>
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                  <option>5</option>
-                </select>
-              </div>
+                <form action="{{route('cart.update',['id'=>$product->id])}}" method="post">
+                    @csrf
+                        <div class="input-group">
+                        <input type="number"  class="form-control " min="1" value="{{$product->quantity}}" name="qty">
+                        <input type="submit" class="btn  btn-info" value="Update">
+                    </div>
+                    </form>
             </div>
             <div class="col-lg-2 col-md-2 col-12">
-              <p>$910.00</p>
+              <p>{{number_format($product->price)}} TK</p>
             </div>
             <div class="col-lg-2 col-md-2 col-12">
-              <p>$29.00</p>
+              <p>{{number_format($product->price * $product->quantity)}} TK</p>
             </div>
             <div class="col-lg-1 col-md-2 col-12">
-              <a class=remove-item href="javascript:void(0)"><i class="lni lni-close"></i></a>
+              <a   href="{{route('cart.delete',['id'=>$product->id])}}">
+                <i class="fa-regular fa-circle-xmark  rounded_remove" style="color: #f00a0a; "></i>
+              </a>
             </div>
           </div>
         </div>
-
-
-        <div class=cart-single-list>
-          <div class="row align-items-center">
-            <div class="col-lg-1 col-md-1 col-12">
-              <a href=product-details.html><img src="assets/images/cart/x02.jpg.pagespeed.ic.ciMpeAtsld.jpg"
-                  alt="#"></a>
-            </div>
-            <div class="col-lg-4 col-md-3 col-12">
-              <h5 class=product-name><a href=product-details.html>
-                  Apple iPhone X 256 GB Space Gray</a></h5>
-              <p class=product-des>
-                <span><em>Memory:</em> 256 GB</span>
-                <span><em>Color:</em> Space Gray</span>
-              </p>
-            </div>
-            <div class="col-lg-2 col-md-2 col-12">
-              <div class=count-input>
-                <select class=form-control>
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                  <option>5</option>
-                </select>
-              </div>
-            </div>
-            <div class="col-lg-2 col-md-2 col-12">
-              <p>$1100.00</p>
-            </div>
-            <div class="col-lg-2 col-md-2 col-12">
-              <p>—</p>
-            </div>
-            <div class="col-lg-1 col-md-2 col-12">
-              <a class=remove-item href="javascript:void(0)"><i class="lni lni-close"></i></a>
-            </div>
-          </div>
-        </div>
-
-
-        <div class=cart-single-list>
-          <div class="row align-items-center">
-            <div class="col-lg-1 col-md-1 col-12">
-              <a href=product-details.html><img src="assets/images/cart/x03.jpg.pagespeed.ic.D7-y7DEWw8.jpg"
-                  alt="#"></a>
-            </div>
-            <div class="col-lg-4 col-md-3 col-12">
-              <h5 class=product-name><a href=product-details.html>HP LaserJet Pro Laser Printer</a></h5>
-              <p class=product-des>
-                <span><em>Type:</em> Laser</span>
-                <span><em>Color:</em> White</span>
-              </p>
-            </div>
-            <div class="col-lg-2 col-md-2 col-12">
-              <div class=count-input>
-                <select class=form-control>
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                  <option>5</option>
-                </select>
-              </div>
-            </div>
-            <div class="col-lg-2 col-md-2 col-12">
-              <p>$550.00</p>
-            </div>
-            <div class="col-lg-2 col-md-2 col-12">
-              <p>—</p>
-            </div>
-            <div class="col-lg-1 col-md-2 col-12">
-              <a class=remove-item href="javascript:void(0)"><i class="lni lni-close"></i></a>
-            </div>
-          </div>
-        </div>
+        @endforeach
 
       </div>
       <div class=row>
@@ -169,6 +111,7 @@
 
           <div class=total-amount>
             <div class=row>
+                <!--cupon section-->
               <div class="col-lg-8 col-md-6 col-12">
                 <div class=left>
                   <div class=coupon>
@@ -181,6 +124,7 @@
                   </div>
                 </div>
               </div>
+              <!--Cart Subtotal-->
               <div class="col-lg-4 col-md-6 col-12">
                 <div class=right>
                   <ul>
