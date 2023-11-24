@@ -46,9 +46,13 @@ Route::controller(CustomerDashboardController::class)->group(function () {
 
 
 });
-    // -----Cart 24 number video-------
+    // -----Cart -------
 Route::controller(CartController::class)->group(function () {
     Route::get('/shop/cart', 'cart')->name('cart');
+    Route::post('/shop/cart/add/{id}', 'cartAdd')->name('cart.add');
+    Route::get('/shop/cart/delete/{id}', 'cartDelete')->name('cart.delete');
+    Route::get('/shop/cart/all/remove', 'cartAllRemove')->name('cart.remove');
+    Route::post('/shop/cart/update/{id}', 'cartUpdate')->name('cart.update');
 
 });
     // -----Checkout   -------

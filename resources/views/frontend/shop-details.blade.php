@@ -60,11 +60,12 @@
                                 <div class="row align-items-end">
                                     <div class="col-lg-4 col-md-4 col-12">
                                         <div class="form-group quantity mt-0">
-                                            <form action="" method="post">
+                                            <form action="{{route('cart.add',['id'=>$product->id])}}" method="post">
+                                                @csrf
+                                                <!--qty-->
                                                 <label for=color>Quantity</label>
                                                 <input type="number" class="form-control py-2" name="qty"
                                                     value="1" min="1" placeholder="Select qty">
-
                                         </div>
                                     </div>
                                     <div class="col-lg-4 col-md-4 col-12 mt-2">
