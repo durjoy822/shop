@@ -171,6 +171,9 @@ return [
         Barryvdh\Debugbar\ServiceProvider::class,
         Spatie\Permission\PermissionServiceProvider::class,
         Laravel\Socialite\SocialiteServiceProvider::class,
+        Darryldecode\Cart\CartServiceProvider::class,
+
+
     ])->toArray(),
 
     /*
@@ -188,6 +191,9 @@ return [
         // 'Example' => App\Facades\Example::class,
         'Debugbar' => Barryvdh\Debugbar\Facades\Debugbar::class,
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
+        'Cart' => Darryldecode\Cart\Facades\CartFacade::class, 
+
+
     ])->toArray(),
 
 ];
