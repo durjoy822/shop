@@ -27,7 +27,7 @@ class UsersProfileSeeder extends Seeder
                     'email' => $user->email,
                     'phone' => '1234567890', // replace with a valid phone number
                     'address' => '123 Street, City',
-                    'image' => 'default.jpg', // replace with a default image or set it to null
+                    'image' => '', // replace with a default image or set it to null
                     'created_at' => now(),
                     'updated_at' => now(),
                 ]);
