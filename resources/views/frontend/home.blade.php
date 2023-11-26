@@ -150,8 +150,12 @@ home
                        <span class=new-tag >New </span>
                        @endif
                        <div class=button>
-                           <a href=product-details.html class="btn mb-2"><i class="lni lni-cart"></i> Add to Cart</a>
-                       </div>
+                        <form action="{{route('cart.add',['id'=>$product->id])}}" method="post">
+                            @csrf
+                            <input type="hidden" value="1" name="qty">
+                           <button type="submit" class="btn mb-2"><i class="lni lni-cart"></i> Add to Cart</button>
+                        </form>
+                        </div>
                    </div>
                    <div class=product-info>
                        <span class=category> Category : {{$product->category->name}}</span>
@@ -606,9 +610,9 @@ home
                         </a>
                     </div>
                     <div class=blog-content>
-                        <a class=category href="javascript:void(0)">{{$blog->BlogCategory->name}}</a>
+                        <a class=category >{{$blog->BlogCategory->name}}</a>
                         <h4>
-                            <a href=blog-single-sidebar.html>{{$blog->heading}}</a>
+                            <a href="{{route('blog.details',['id'=>$blog->id])}}">{{$blog->heading}}</a>
                         </h4>
                         <p>{!!Str::limit($blog->content, 150)!!}</p>
                         <div class=button>

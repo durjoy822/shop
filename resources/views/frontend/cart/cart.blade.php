@@ -128,14 +128,15 @@
               <div class="col-lg-4 col-md-6 col-12">
                 <div class=right>
                   <ul>
-                    <li>Cart Subtotal<span>$2560.00</span></li>
-                    <li>Shipping<span>Free</span></li>
-                    <li>You Save<span>$29.00</span></li>
-                    <li class=last>You Pay<span>$2531.00</span></li>
+                    <li>Cart Subtotal<span>{{number_format($sum)}} Tk</span></li>
+                    <li>Shipping total<span>{{number_format($shipping)}} Tk</span></li>
+                    <li>Tax <span>{{number_format($tax)}} Tk</span></li>
+                    <hr>
+                    <li class=last>Total payable<span>{{number_format($totalPayable)}} Tk</span></li>
                   </ul>
                   <div class=button>
-                    <a href=checkout.html class=btn>Checkout</a>
-                    <a href=product-grids.html class="btn btn-alt">Continue shopping</a>
+                    <a href="{{route('checkout')}}" class=btn>Checkout</a>
+                    <a href="{{route('home')}}" class="btn btn-alt">Continue shopping</a>
                   </div>
                 </div>
               </div>

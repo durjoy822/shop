@@ -210,7 +210,11 @@ shop product list
                         <span class=new-tag>New</span>
                         @endif
                         <div class=button>
-                          <a href=product-details.html class=btn><i class="lni lni-cart"></i> Add to Cart</a>
+                            <form action="{{route('cart.add',['id'=>$product->id])}}" method="post">
+                                @csrf
+                                <input type="hidden" value="1" name="qty">
+                                <button  type="submit" class=btn><i class="lni lni-cart"></i> Add to Cart</button>
+                            </form>
                         </div>
                       </div>
                       <div class=product-info>
@@ -218,14 +222,6 @@ shop product list
                         <h4 class=title>
                           <a href="{{route('product.details',['id'=>$product->id])}}">{{$product->name}}</a>
                         </h4>
-                        <ul class=review>
-                          <li><i class="lni lni-star-filled"></i></li>
-                          <li><i class="lni lni-star-filled"></i></li>
-                          <li><i class="lni lni-star-filled"></i></li>
-                          <li><i class="lni lni-star-filled"></i></li>
-                          <li><i class="lni lni-star-filled"></i></li>
-                          <li><span>5.0 Review(s)</span></li>
-                        </ul>
                         <div class=price>
                           <span>{{$product->selling_price}} Tk</span>
                           <span class=discount-price>{{$product->regular_price}}</span>
@@ -272,8 +268,11 @@ shop product list
                               <span class=new-tag>New</span>
                               @endif
                               <div class=button>
-                                <a href=product-details.html class=btn><i class="lni lni-cart"></i> Add to
-                                  Cart</a>
+                                <form action="{{route('cart.add',['id'=>$product->id])}}" method="post">
+                                    @csrf
+                                    <input type="hidden" value="1" name="qty">
+                                    <button  type="submit" class=btn><i class="lni lni-cart"></i> Add to Cart</button>
+                                </form>
                               </div>
                             </div>
                           </div>
@@ -283,14 +282,6 @@ shop product list
                               <h4 class=title>
                                 <a href="{{route('product.details',['id'=> $product->id])}}">{{$product->name}}</a>
                               </h4>
-                              <ul class=review>
-                                <li><i class="lni lni-star-filled"></i></li>
-                                <li><i class="lni lni-star-filled"></i></li>
-                                <li><i class="lni lni-star-filled"></i></li>
-                                <li><i class="lni lni-star-filled"></i></li>
-                                <li><i class="lni lni-star-filled"></i></li>
-                                <li><span>5.0 Review(s)</span></li>
-                              </ul>
                               <div class=price>
                                 <span>{{$product->selling_price}} Tk</span>
                                 <span class=discount-price>{{$product->regular_price}} Tk</span>

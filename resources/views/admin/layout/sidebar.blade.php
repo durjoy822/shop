@@ -74,6 +74,12 @@
         <span>Spacial Product</span>
       </a>
     </li>
+    <li class="nav-item">
+      <a class="nav-link" href="">
+        <i class="fas fa-clipboard-check"></i>
+        <span>Cupon</span>
+      </a>
+    </li>
     </li>
     <hr class="sidebar-divider">
     <div class="sidebar-heading">
@@ -87,7 +93,7 @@
       </li>
     <hr class="sidebar-divider">
     <div class="sidebar-heading">
-    Blogs
+        Website
     </div>
     <li class="nav-item">
         <a class="nav-link" href="{{route('blogscategories.index')}}">
@@ -95,10 +101,22 @@
           <span>Blogs categories</span>
         </a>
       </li>
-    <li class="nav-item">
+      <li class="nav-item">
         <a class="nav-link" href="{{route('blogs.index')}}">
             <i class="fas fa-th"></i>
           <span>Blogs</span>
+        </a>
+      </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{{route('teams.index')}}">
+            <i class="fas fa-users"></i>
+          <span>Teams</span>
+        </a>
+      </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{{route('about_us.index')}}">
+            <i class="fas fa-users"></i>
+          <span>About_us</span>
         </a>
       </li>
     <hr class="sidebar-divider">
@@ -119,22 +137,6 @@
         <a class="nav-link" href="{{route('reviews.index')}}">
             <i class="fab fa-diaspora"></i>
           <span>Preview</span>
-        </a>
-      </li>
-    <hr class="sidebar-divider">
-    <div class="sidebar-heading">
-   Website
-    </div>
-    <li class="nav-item">
-        <a class="nav-link" href="{{route('teams.index')}}">
-            <i class="fas fa-users"></i>
-          <span>Teams</span>
-        </a>
-      </li>
-    <li class="nav-item">
-        <a class="nav-link" href="{{route('about_us.index')}}">
-            <i class="fas fa-users"></i>
-          <span>About_us</span>
         </a>
       </li>
     <hr class="sidebar-divider">
