@@ -121,7 +121,7 @@
       </li>
     <hr class="sidebar-divider">
     <div class="sidebar-heading">
-     Email Management /email sent 
+     Email Management /email sent
     </div>
     <li class="nav-item">
         <a class="nav-link" href="{{route('email.index')}}">
@@ -168,3 +168,5 @@
       </a>
     </li>
     <hr class="sidebar-divider">
+</ul>
+
