@@ -36,13 +36,16 @@
                                     aria-controls=collapseThree>Your Personal Details </h6>
                                 <section class="checkout-steps-form-content collapse show" id=collapseThree
                                     aria-labelledby=headingThree data-bs-parent="#accordionExample">
+                                    <form action="{{route('confirm.order')}}" method="post">
+                                        @csrf
+                                        <input type="hidden" name="customer_id" value="{{\Auth::guard('customer')->user()->id}}">
                                     <div class=row>
                                         <div class=col-md-12>
                                             <div class="single-form form-default">
                                                 <label>Full Name</label>
                                                 <div class=row>
                                                     <div class="col-md-12 form-input form">
-                                                        <input type=text name="name" placeholder="Inter your full name">
+                                                        <input type=text name="name" value="{{$customerDetails->name}}" placeholder="Enter your full name">
                                                     </div>
                                                 </div>
                                             </div>
@@ -51,7 +54,7 @@
                                             <div class="single-form form-default">
                                                 <label>Email Address</label>
                                                 <div class="form-input form">
-                                                    <input type="email" name="email" placeholder="Email Address">
+                                                    <input type="email" value="{{$customerDetails->email}}"  name="email" placeholder="Email Address">
                                                 </div>
                                             </div>
                                         </div>
@@ -63,19 +66,27 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class=col-md-12>
+                                        <div class=col-md-6>
                                             <div class="single-form form-default">
-                                                <label>Mailing Address</label>
+                                                <label>NID </label>
                                                 <div class="form-input form">
-                                                    <input type=text placeholder="Mailing Address">
+                                                    <input type=text name="nid" placeholder="NID">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class=col-md-6>
+                                            <div class="single-form form-default">
+                                                <label> State </label>
+                                                <div class="form-input form">
+                                                    <input type=text name="state" value="Bangladesh " placeholder="State">
                                                 </div>
                                             </div>
                                         </div>
                                         <div class=col-md-12>
-                                            <div class="single-form form-default">
+                                            <div class="single-form form-default" >
                                                 <label>Delevary Address</label>
                                                 <div class="form-input form">
-                                                   <textarea  class="form-control py-2" name="delivery_address" placeholder="Delevary Address" cols="5" rows="5"></textarea>
+                                                   <textarea  class="form-control py-2" name="delivery_address" placeholder="Delevary Address" cols="3" rows="3"></textarea>
                                                 </div>
                                             </div>
                                         </div>
@@ -83,20 +94,35 @@
                                         <!--payment method-->
                                         <div class="col-md-12 mt-3">
                                             <h6 class="text-info">Payment Method</h6>
-                                            <div class="mt-3">
-                                                <label class="mb-2"><input type="radio" name="payment_method" checked value="1"> Cash on Delivery payment</label><br>
-                                                <label><input type="radio" name="payment_method" checked value="2"> Online payment</label>
-                                            </div>
 
+                                        <div class=col-md-12>
+                                            <div class="checkout-payment-option mt-1">
+                                              <div class=payment-option-wrapper>
+                                                <div class=single-payment-option>
+                                                  <input type=radio name="payment_method" checked value="cod" id=shipping-1>
+                                                  <label for=shipping-1>
+                                                    <img src="https://png.pngtree.com/png-clipart/20210523/original/pngtree-cash-on-delivery-payment-vector-with-simple-style-png-image_6328180.png" alt="payemt method" style="height: 100px">
+                                                    {{-- <p>Standerd Shipping</p> --}}
+                                                  </label>
+                                                </div>
+                                                <div class=single-payment-option>
+                                                  <input type=radio name="payment_method" value="online" id=shipping-2>
+                                                  <label for=shipping-2>
+                                                    <img src="https://static.vecteezy.com/system/resources/thumbnails/011/060/258/small/pay-online-button-speech-bubbles-pay-online-text-colorful-web-template-illustration-vector.jpg" alt="payemt method" style="height: 100px">
+                                                    {{-- <p>Standerd Shipping</p> --}}
+                                                  </label>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
                                         </div>
                                         <div class=col-md-12>
                                             <div class="single-form button">
-                                                <button class=btn data-bs-toggle=collapse data-bs-target="#collapseFour"
-                                                    aria-expanded=false aria-controls=collapseFour>next
-                                                    step</button>
+                                                <button type="submit"  class="btn btn info">Confirm order </button>
                                             </div>
                                         </div>
                                     </div>
+                                </form>
                                 </section>
                             </li>
                         </ul>
@@ -148,12 +174,11 @@
                                     <p class=price>{{number_format($totalPayable)}} Tk</p>
                                 </div>
                             </div>
-                            <div class="price-table-btn button">
-                                <a href="javascript:void(0)" class="btn btn-alt">Checkout</a>
-                            </div>
                         </div>
+
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
