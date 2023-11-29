@@ -46,6 +46,7 @@
                                                 <div class=row>
                                                     <div class="col-md-12 form-input form">
                                                         <input type=text name="name" value="{{$customerDetails->name}}" placeholder="Enter your full name">
+                                                      <div class="text-danger"> @error('name'){{$message}}@enderror</div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -55,6 +56,7 @@
                                                 <label>Email Address</label>
                                                 <div class="form-input form">
                                                     <input type="email" value="{{$customerDetails->email}}"  name="email" placeholder="Email Address">
+                                                    <div class="text-danger"> @error('email'){{$message}}@enderror</div>
                                                 </div>
                                             </div>
                                         </div>
@@ -63,6 +65,7 @@
                                                 <label>Phone Number</label>
                                                 <div class="form-input form">
                                                     <input type="number" name="phone" placeholder="Phone Number">
+                                                    <div class="text-danger"> @error('phone'){{$message}}@enderror</div>
                                                 </div>
                                             </div>
                                         </div>
@@ -71,6 +74,7 @@
                                                 <label>NID </label>
                                                 <div class="form-input form">
                                                     <input type=text name="nid" placeholder="NID">
+                                                    <div class="text-danger"> @error('nid'){{$message}}@enderror</div>
                                                 </div>
                                             </div>
                                         </div>
@@ -79,6 +83,7 @@
                                                 <label> State </label>
                                                 <div class="form-input form">
                                                     <input type=text name="state" value="Bangladesh " placeholder="State">
+                                                    <div class="text-danger"> @error('state'){{$message}}@enderror</div>
                                                 </div>
                                             </div>
                                         </div>
@@ -87,6 +92,7 @@
                                                 <label>Delevary Address</label>
                                                 <div class="form-input form">
                                                    <textarea  class="form-control py-2" name="delivery_address" placeholder="Delevary Address" cols="3" rows="3"></textarea>
+                                                   <div class="text-danger"> @error('delivery_address'){{$message}}@enderror</div>
                                                 </div>
                                             </div>
                                         </div>
@@ -172,6 +178,9 @@
                                 <div class=payable-price>
                                     <p class=value>Total payable:</p>
                                     <p class=price>{{number_format($totalPayable)}} Tk</p>
+                                    @php(Session::put('totalPayable', $totalPayable))
+                                    @php(Session::put('shipping', $shipping))
+                                    @php(Session::put('tax', $tax))
                                 </div>
                             </div>
                         </div>

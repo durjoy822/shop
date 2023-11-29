@@ -59,5 +59,6 @@ Route::controller(CartController::class)->group(function () {
 Route::controller(CheckoutController::class)->group(function () {
     Route::get('/shop/checkout', 'checkout')->name('checkout');
     Route::post('/shop/confirm/order', 'confirmOrder')->name('confirm.order');
+    Route::get('/shop/complete/order', 'completeOrder')->name('complete.order');
 
 });
