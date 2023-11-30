@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\EmailsentsController;
 use App\Http\Controllers\Admin\ForgotPasswordController;
+use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\ReviewController;
 use App\Http\Controllers\Admin\SpacialProductController;
@@ -44,10 +45,16 @@ Route::controller(AuthController::class)->group(function () {
     Route::post('/login/check', 'loginCheck')->name('login.check');
 
 });
+
 Route::controller(EmailsentsController::class)->group(function () {
     Route::get('/email/index', 'index')->name('email.index');
     Route::get('/email/create/{id}', 'create')->name('email.create');
     Route::post('/email/sent', 'emailSent')->name('email.sent');
+
+});
+
+Route::controller(OrderController::class)->group(function () {
+    Route::get('order/index', 'orderIndex')->name('order.index');
 
 });
 
