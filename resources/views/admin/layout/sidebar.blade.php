@@ -86,7 +86,7 @@
     Order
     </div>
     <li class="nav-item">
-        <a class="nav-link" href="">
+        <a class="nav-link" href="{{route('order.index')}}">
             <i class="fas fa-th-list"></i>
           <span>Order</span>
         </a>
