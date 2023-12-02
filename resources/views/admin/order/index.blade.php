@@ -28,9 +28,6 @@ orders
             <div class="m-0 h6 font-weight-bold text-primary">
                Orders Data
             </div>
-            {{-- <div>
-                <a href="{{route('subcategories.create')}}"><button class="btn btn-info">Create sub-category</button></a>
-            </div> --}}
         </div>
       <div class="table-responsive p-3">
         <table class="table align-items-center table-flush table-hover" id="dataTableHover">
@@ -67,15 +64,15 @@ orders
                 <td>{{$order->order_date}}</td>
                 <td>{{$order->order_status}}</td>
                 <td >
-                  <a href=""><i class="far fa-edit"></i></a>&nbsp;
-                  <a href=""><i class="fas fa-print" style="color: #22d8c3;"></i></a>&nbsp;
-                  <a href=""><i class="fas fa-download" style="color: #bbd11a;"></i></a>&nbsp;
-                  <a href=""><i class="fas fa-eye"></i></a>&nbsp;
-                  <form action="" method="post" class="d-inline">
+                  <a href="{{route('order.details', ['id'=>$order->id])}}"  title="Show order details" class="btn btn-dark mt-1"><i class="fas fa-eye"></i></a>&nbsp;
+                  <a href="{{route('order.edit', ['id'=>$order->id])}}" title="Edit order info" class="btn btn-primary mt-1"><i class="far fa-edit"></i></a>&nbsp;
+                  <a href="{{route('order.invoice', ['id'=>$order->id])}}"  title="View order invoice" class="btn btn-info mt-1"> <i class="fas fa-print"></i></a>&nbsp;
+                  <a href="{{route('invoice.download', ['id'=>$order->id])}}"  title="Download order invoice" class="btn btn-warning mt-1 mb-1"><i class="fas fa-download" ></i></a>&nbsp;
+                  <form action="{{route('order.delete', ['id'=>$order->id])}}" method="post" class="d-inline">
                     @csrf
                     @method('DELETE')
-                    <button type="submit" style="border: none; background-color: transparent;">
-                        <i class="far fa-trash-alt text-danger"></i>
+                    <button type="submit" class="btn btn-danger "  title="Delete order" style="border: none;">
+                        <i class="far fa-trash-alt "></i>
                     </button>
                   </form>
                 </td>
