@@ -32,7 +32,7 @@ class AppServiceProvider extends ServiceProvider
             $view->with('blogCategories',Blogcategory::all());
         });
 
-        view::composer(['frontend.cart.cart','frontend.cart.checkout'] ,function($view){
+        view::composer(['frontend.cart.cart','frontend.cart.checkout',] ,function($view){
             $cartProducts=Cart::getContent();
             $sum=0;
             foreach($cartProducts as $cartProduct)

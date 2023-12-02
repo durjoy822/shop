@@ -55,6 +55,11 @@ Route::controller(EmailsentsController::class)->group(function () {
 
 Route::controller(OrderController::class)->group(function () {
     Route::get('order/index', 'orderIndex')->name('order.index');
+    Route::get('order/details/{id}', 'orderDetails')->name('order.details');
+    Route::get('order/edit/{id}', 'orderEdit')->name('order.edit');
+    Route::get('order/invoice/{id}', 'orderInvoice')->name('order.invoice');
+    Route::get('order/invoice/download/{id}', 'invoiceDownload')->name('invoice.download');
+    Route::get('order/delete/{id}', 'orderDelete')->name('order.delete');
 
 });
 
