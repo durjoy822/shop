@@ -42,7 +42,10 @@ Route::controller(HomeController::class)->group(function () {
 
     // -----customer dashboard-------
 Route::controller(CustomerDashboardController::class)->group(function () {
-    Route::get('/shop/dashboard', 'customerDashboard')->name('customer.dashboard');
+    Route::get('/shop/dashboard', 'customerDashboard')->name('customer.profile');
+    Route::get('/shop/order', 'customerOrder')->name('customer.order');
+    Route::get('/shop/wishlist', 'customerWishlist')->name('customer.wishlist');
+    Route::get('/shop/change/password', 'customerPassword')->name('customer.password');
 
 
 });

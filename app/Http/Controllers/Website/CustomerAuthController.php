@@ -52,7 +52,7 @@ class CustomerAuthController extends Controller
             'role'=>$request->role,
         ],$request->has('remember_token'))){
             Session::flash('message','login Successfully');
-            return redirect()->route('customer.dashboard');
+            return redirect()->route('customer.profile');
         }else{
             Session::flash('message','Give a right Information');
             return back();
