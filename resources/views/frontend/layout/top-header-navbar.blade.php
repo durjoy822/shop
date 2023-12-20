@@ -39,7 +39,7 @@
             <div class=user>
               <i class="lni lni-user"></i>
               Hello &nbsp;  &nbsp;
-              <a class=user href="{{route('customer.dashboard')}}"> {{Auth::guard('customer')->user()->name}}   &nbsp;  Dashboard </a>
+              <a class=user href="{{route('customer.profile')}}"> {{Auth::guard('customer')->user()->name}}   &nbsp;  Dashboard </a>
               <a href="{{route('customer.logout')}}" data-toggle="modal" data-target="#logoutModal" class="text-danger">Logout</a>
 
             </div>
