@@ -17,6 +17,7 @@ class CheckoutController extends Controller
     public function checkout(){
         return view('frontend.cart.checkout',[
             'customerDetails' => User::where('id', Auth::guard('customer')->user()->id)->first(),
+            // 'customer' => Customer::where('user_i?d', Auth::guard('customer')->user()->id)->first(),
         ]);
     }
 

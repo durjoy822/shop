@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
 use App\Models\Order;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use PDF;
 
 class OrderController extends Controller
 {
@@ -30,10 +31,19 @@ class OrderController extends Controller
         ]);
     }
     public function invoiceDownload($id){
-        return view('admin.order.index',[
-            'orders'=>Order::latest()->get(),
-        ]);
-    }
+        // public function invoiceDownload($id){
+            // Assuming you want to pass the $id variable to the view
+            // return view('admin.order.download_invoice', ['id' => $id]);
+            $pdf = PDF::loadHTML('admin.order.download_invoice',$id)
+                ->setPaper('a4', 'landscape')
+                ->setWarnings(false)
+                ->save('myfile.pdf');
+
+            // Instead of saving the PDF, you can use 'stream' directly
+            return $pdf->stream();
+        }
+
+    // }
     public function orderDelete($id){
 
     }
