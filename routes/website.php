@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\CheckoutController;
 use App\Http\Controllers\Website\CustomerAuthController;
 use App\Http\Controllers\Website\CustomerDashboardController;
 use App\Http\Controllers\Website\HomeController;
+use App\Http\Controllers\Website\WishlistController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -44,11 +45,20 @@ Route::controller(HomeController::class)->group(function () {
 Route::controller(CustomerDashboardController::class)->group(function () {
     Route::get('/shop/dashboard', 'customerDashboard')->name('customer.profile');
     Route::get('/shop/order', 'customerOrder')->name('customer.order');
-    Route::get('/shop/wishlist', 'customerWishlist')->name('customer.wishlist');
+    Route::get('/shop/account/wishlist', 'customerWishlist')->name('customer.wishlist');
     Route::get('/shop/change/password', 'customerPassword')->name('customer.password');
 
 
 });
+    // -----Wishlist -------
+Route::controller(WishlistController::class)->group(function () {
+    Route::get('/shop/wishlist', 'wishlist')->name('wishlist');
+    Route::post('/shop/wishlist/add', 'wishlistAdd')->name('wishlist.add');
+    Route::get('/shop/wishlist/delete/{id}', 'wishlistDelete')->name('wishlist.delete');
+
+
+});
+
     // -----Cart -------
 Route::controller(CartController::class)->group(function () {
     Route::get('/shop/cart', 'cart')->name('cart');

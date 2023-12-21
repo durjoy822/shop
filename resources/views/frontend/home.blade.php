@@ -159,7 +159,7 @@ home
                    </div>
                    <div class=product-info>
                        <span class=category> Category : {{$product->category->name}}</span>
-                       <span class=category>Brand : {{$product->brand->name}}</span>
+                       {{-- <span class=category>Brand : {{$product->brand->name}}</span> --}}
                        <h4 class=title>
                            <a href="{{route('product.details',['id'=>$product->id])}}">{{$product->name}}</a>
                        </h4>
