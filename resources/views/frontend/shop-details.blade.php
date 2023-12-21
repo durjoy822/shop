@@ -75,9 +75,16 @@
                                     </div>
                                     </form>
                                     <div class="col-lg-4 col-md-4 col-12">
+                                        <form action="{{route('wishlist.add')}}" method="post">@csrf
+                                            <input type="hidden" name="product_id" value="{{$product->id}}">
+                                            @if (Auth::guard('customer')->check())
+                                            <input type="hidden" name="user_id" value="{{ Auth::guard('customer')->user()->id }}">
+                                            @endif
+
                                         <div class=wish-button>
                                             <button class=btn><i class="lni lni-heart"></i> To Wishlist</button>
                                         </div>
+                                    </form>
                                     </div>
                                 </div>
                             </div>

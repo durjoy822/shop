@@ -109,9 +109,9 @@
                   <!--wishlist-->
                     <div class=navbar-cart>
                         <div class=wishlist>
-                            <a href="javascript:void(0)">
+                            <a href="{{route('wishlist')}}">
                                 <i class="lni lni-heart"></i>
-                                <span class=total-items>0</span>
+                                <span class="total-items">{{ Auth::guard('customer')->check() ? $wishlistCount : '0' }}</span>
                             </a>
                         </div>
                         <!--cart-->

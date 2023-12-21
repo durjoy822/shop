@@ -2,12 +2,14 @@
 
 namespace App\Providers;
 
-use App\Models\Blogcategory;
-use App\Models\Category;
-use Illuminate\Support\ServiceProvider;
-use Illuminate\Pagination\Paginator;
-use Illuminate\Support\Facades\View;
 use Cart;
+use App\Models\Category;
+use App\Models\Wishlist;
+use App\Models\Blogcategory;
+use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\View;
+use Illuminate\Support\ServiceProvider;
 
 
 class AppServiceProvider extends ServiceProvider
@@ -30,6 +32,10 @@ class AppServiceProvider extends ServiceProvider
         view::composer('*' ,function($view){
             $view->with('categories',Category::all());
             $view->with('blogCategories',Blogcategory::all());
+            if(Auth::guard('customer')->check()){
+                $view->with('wishlistCount',Wishlist::where('user_id', Auth::guard('customer')->user()->id)->count());
+            }
+
         });
 
         view::composer(['frontend.cart.cart','frontend.cart.checkout',] ,function($view){

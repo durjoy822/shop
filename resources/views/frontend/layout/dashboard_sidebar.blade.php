@@ -20,7 +20,7 @@
         <div class="px-3 mt-3">
             <i class="fa-solid fa-heart"></i>&nbsp; &nbsp;
              <a href="{{route('customer.wishlist')}}" class="text-dark"> Wishlist</a>
-            <span class="badge bg-primary rounded-pill">14</span>
+            <span class="badge bg-primary rounded-pill">{{ Auth::guard('customer')->check() ? $wishlistCount : '0' }}</span>
         </div>
 
         <div class="px-3 mt-3">
