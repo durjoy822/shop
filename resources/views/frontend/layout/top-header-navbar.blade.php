@@ -39,8 +39,17 @@
             <div class=user>
               <i class="lni lni-user"></i>
               Hello &nbsp;  &nbsp;
-              <a class=user href="{{route('customer.profile')}}"> {{Auth::guard('customer')->user()->name}}   &nbsp;  Dashboard </a>
-              <a href="{{route('customer.logout')}}" data-toggle="modal" data-target="#logoutModal" class="text-danger">Logout</a>
+              <a class=user href="{{route('customer.profile')}}">
+                @if (!$customerProfile->name)
+                {{Auth::guard('customer')->user()->name}}
+                &nbsp;  Dashboard
+                @else
+                 {{$customerProfile->name}} &nbsp;  <i title="Dashboard" class="fa-solid fa-house-signal text-warning"></i>
+                @endif
+                </a>
+              <a href="{{route('customer.logout')}}" data-toggle="modal" data-target="#logoutModal" >
+                <i title="Logout" class="fa-solid fa-right-from-bracket text-danger"></i>
+            </a>
 
             </div>
             @else

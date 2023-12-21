@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Website;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\CustomerProfile;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Hash as FacadesHash;
@@ -34,9 +35,18 @@ class CustomerAuthController extends Controller
             $customer->password=FacadesHash::make($request->password);
         }
         $customer->save();
+
+        // customer information  update for saving data
+        $customerProfile=new CustomerProfile();
+        $customerProfile->user_id=$customer->id;
+        $customerProfile->name=$request->name;
+        $customerProfile->email=$request->email;
+        $customerProfile->save();
+
+
         Auth::guard('customer')->login($customer);
         Session::flash('message','Customer Register Successfully.');
-        return redirect()->route('customer.dashboard');
+        return redirect()->route('customer.profile');
 
     }
 

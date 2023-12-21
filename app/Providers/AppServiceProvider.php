@@ -6,6 +6,7 @@ use Cart;
 use App\Models\Category;
 use App\Models\Wishlist;
 use App\Models\Blogcategory;
+use App\Models\CustomerProfile;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\View;
@@ -34,6 +35,7 @@ class AppServiceProvider extends ServiceProvider
             $view->with('blogCategories',Blogcategory::all());
             if(Auth::guard('customer')->check()){
                 $view->with('wishlistCount',Wishlist::where('user_id', Auth::guard('customer')->user()->id)->count());
+                $view->with('customerProfile',CustomerProfile::where('user_id', Auth::guard('customer')->user()->id)->first());
             }
 
         });
