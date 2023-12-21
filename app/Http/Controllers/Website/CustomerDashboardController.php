@@ -5,12 +5,15 @@ namespace App\Http\Controllers\Website;
 use App\Models\Wishlist;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\CustomerProfile;
 use Illuminate\Support\Facades\Auth;
 
 class CustomerDashboardController extends Controller
 {
-    public function customerDashboard(){
-        return view('frontend.customerDashboard.profile');
+    public function customerProfile(){
+        return view('frontend.customerDashboard.profile',[
+            'customerProfile'=>CustomerProfile::where('user_id',Auth::guard('customer')->user()->id)->first()
+        ]);
     }
 
     public function customerOrder(){

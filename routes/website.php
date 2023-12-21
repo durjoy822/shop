@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\CartController;
 use App\Http\Controllers\Admin\CheckoutController;
 use App\Http\Controllers\Website\CustomerAuthController;
 use App\Http\Controllers\Website\CustomerDashboardController;
+use App\Http\Controllers\Website\CustomerProfileController;
 use App\Http\Controllers\Website\HomeController;
 use App\Http\Controllers\Website\WishlistController;
 use Illuminate\Support\Facades\Route;
@@ -43,10 +44,18 @@ Route::controller(HomeController::class)->group(function () {
 
     // -----customer dashboard-------
 Route::controller(CustomerDashboardController::class)->group(function () {
-    Route::get('/shop/dashboard', 'customerDashboard')->name('customer.profile');
-    Route::get('/shop/order', 'customerOrder')->name('customer.order');
+    Route::get('/shop/customer/profile', 'customerProfile')->name('customer.profile');
+    Route::get('/shop/customer/order', 'customerOrder')->name('customer.order');
     Route::get('/shop/account/wishlist', 'customerWishlist')->name('customer.wishlist');
     Route::get('/shop/change/password', 'customerPassword')->name('customer.password');
+
+
+});
+
+    // -----customer profile-------
+Route::controller(CustomerProfileController::class)->group(function () {
+    Route::post('/customer/profile/update/{id}', 'customerProfileUpdate')->name('customerProfile.update');
+
 
 
 });
