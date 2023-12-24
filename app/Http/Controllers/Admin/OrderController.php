@@ -31,10 +31,7 @@ class OrderController extends Controller
         ]);
     }
     public function invoiceDownload($id){
-        // public function invoiceDownload($id){
-            // Assuming you want to pass the $id variable to the view
-            // return view('admin.order.download_invoice', ['id' => $id]);
-            $pdf = PDF::loadHTML('admin.order.download_invoice',$id)
+            $pdf = PDF::loadHTML('admin.order.download_invoice')
                 ->setPaper('a4', 'landscape')
                 ->setWarnings(false)
                 ->save('myfile.pdf');
