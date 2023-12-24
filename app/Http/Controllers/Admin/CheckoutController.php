@@ -32,6 +32,7 @@ class CheckoutController extends Controller
         ]);
 
         $customer=new Customer();
+        $customer->customer_id=Auth::guard('customer')->user()->id;
         $customer->name=$request->name;
         $customer->email=$request->email;
         $customer->mobile=$request->phone;
@@ -43,6 +44,8 @@ class CheckoutController extends Controller
 
         $order=new Order();
         $order->customer_id=$customer->id;
+        $order->customer_id=$customer->id;
+
         $order->order_total=Session::get('totalPayable');
         $order->tax_total=Session::get('tax');
         $order->shipping_total=Session::get('shipping');

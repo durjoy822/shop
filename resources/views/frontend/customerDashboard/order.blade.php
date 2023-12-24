@@ -43,6 +43,7 @@
                                     <th>Qty</th>
                                     <th>Product total</th>
                                 </tr>
+                                @if ($customerOrders->count()>0)
                                 <tr>
                                     <td>1 </td>
                                     <td> Digital watch</td>
@@ -50,13 +51,9 @@
                                     <td> 4</td>
                                     <td> 1200 tk</td>
                                 </tr>
-                                <tr>
-                                    <td>2 </td>
-                                    <td> Samsung s22 ultra</td>
-                                    <td>120000 tk </td>
-                                    <td> 1</td>
-                                    <td> 120000 tk</td>
-                                </tr>
+                                @else
+                                <div class="text-danger text-center"><p>Order is empty! please shopping first</p></div>
+                                @endif
                             </table>
                     </div>
                 </div>

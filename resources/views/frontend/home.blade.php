@@ -91,8 +91,6 @@ home
             <div class=col-12>
                 <div class=section-title>
                     <h2>Featured Categories</h2>
-                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have
-                        suffered alteration in some form.</p>
                 </div>
             </div>
         </div>
@@ -132,8 +130,6 @@ home
             <div class=col-12>
                 <div class=section-title>
                     <h2>Trending Product</h2>
-                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have
-                        suffered alteration in some form.</p>
                 </div>
             </div>
         </div>
@@ -216,8 +212,6 @@ home
             <div class=col-12>
                 <div class=section-title>
                     <h2>Special Offer</h2>
-                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have
-                        suffered alteration in some form.</p>
                 </div>
             </div>
         </div>
@@ -508,56 +502,21 @@ home
             </div>
             <div class="col-lg-4 col-md-4 col-12">
                 <h4 class=list-title>Top Rated</h4>
-
+                @foreach ($reviews as $review )
                 <div class=single-list>
                     <div class=list-image>
-                        <a href=product-grids.html><img
-                                data-pagespeed-lazy-src="{{ asset('website') }}/assets/images/home-product-list/x07.jpg.pagespeed.ic.LRQsjgfm_s.jpg"
-                                alt="#" src="../../pagespeed_static/1.JiBnMqyl6S.gif"
-                                onload="pagespeed.lazyLoadImages.loadIfVisibleAndMaybeBeacon(this);"
-                                onerror="this.onerror=null;pagespeed.lazyLoadImages.loadIfVisibleAndMaybeBeacon(this);"></a>
+                        <a href="{{route('product.details',['id'=>$review->product->id])}}">
+                            <img alt="#" src="{{asset($review->product->image)}}">
+                        </a>
                     </div>
                     <div class=list-info>
                         <h3>
-                            <a href=product-grids.html>Samsung Gear 360 VR Camera</a>
+                            <a href="{{route('product.details',['id'=>$review->product->id])}}">{{$review->Product->name}}</a>
                         </h3>
-                        <span>$68.00</span>
+                        <span>{{$review->Product->selling_price}} Tk</span>
                     </div>
                 </div>
-
-
-                <div class=single-list>
-                    <div class=list-image>
-                        <a href=product-grids.html><img
-                                data-pagespeed-lazy-src="{{ asset('website') }}/assets/images/home-product-list/x08.jpg.pagespeed.ic.HuloKYFnZS.jpg"
-                                alt="#" src="../../pagespeed_static/1.JiBnMqyl6S.gif"
-                                onload="pagespeed.lazyLoadImages.loadIfVisibleAndMaybeBeacon(this);"
-                                onerror="this.onerror=null;pagespeed.lazyLoadImages.loadIfVisibleAndMaybeBeacon(this);"></a>
-                    </div>
-                    <div class=list-info>
-                        <h3>
-                            <a href=product-grids.html>Samsung Galaxy S9+ 64 GB</a>
-                        </h3>
-                        <span>$840.00</span>
-                    </div>
-                </div>
-
-
-                <div class=single-list>
-                    <div class=list-image>
-                        <a href=product-grids.html><img
-                                data-pagespeed-lazy-src="{{ asset('website') }}/assets/images/home-product-list/x09.jpg.pagespeed.ic.wWVNAXGYMB.jpg"
-                                alt="#" src="../../pagespeed_static/1.JiBnMqyl6S.gif"
-                                onload="pagespeed.lazyLoadImages.loadIfVisibleAndMaybeBeacon(this);"
-                                onerror="this.onerror=null;pagespeed.lazyLoadImages.loadIfVisibleAndMaybeBeacon(this);"></a>
-                    </div>
-                    <div class=list-info>
-                        <h3>
-                            <a href=product-grids.html>Zeus Bluetooth Headphones</a>
-                        </h3>
-                        <span>$28.00</span>
-                    </div>
-                </div>
+                @endforeach
 
             </div>
         </div>
@@ -594,8 +553,6 @@ home
             <div class=col-12>
                 <div class=section-title>
                     <h2>Our Latest Blog</h2>
-                    <p>There are many variations of passages of Lorem
-                        Ipsum available, but the majority have suffered alteration in some form.</p>
                 </div>
             </div>
         </div>

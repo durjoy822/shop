@@ -13,6 +13,7 @@ use App\Models\Blogcategory;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\AboutUs;
+use App\Models\CustomerProfile;
 
 class HomeController extends Controller
 {
@@ -22,7 +23,9 @@ class HomeController extends Controller
             'subCategories'=>Subcategory::get(),
             'products' => Product::take(8)->get(),
             'brands' => Brand::all(),
-            'blogs' => Blog::inRandomOrder()->take(3)->get()
+            'blogs' => Blog::inRandomOrder()->take(3)->get(),
+            'reviews'=>Review::where('rating',5)->inRandomOrder()->take(3)->get(),
+
         ]);
     }
 
