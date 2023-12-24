@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
 use App\Models\Order;
+// use Barryvdh\DomPDF\PDF;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Barryvdh\DomPDF\Facade as PDF;
 
 class OrderController extends Controller
 {
@@ -30,10 +32,9 @@ class OrderController extends Controller
         ]);
     }
     public function invoiceDownload($id){
-        return view('admin.order.index',[
-            'orders'=>Order::latest()->get(),
-        ]);
+        
     }
+
     public function orderDelete($id){
 
     }
