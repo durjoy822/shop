@@ -32,7 +32,6 @@ class CheckoutController extends Controller
         ]);
 
         $customer=new Customer();
-        $customer->customer_id=Auth::guard('customer')->user()->id;
         $customer->name=$request->name;
         $customer->email=$request->email;
         $customer->mobile=$request->phone;

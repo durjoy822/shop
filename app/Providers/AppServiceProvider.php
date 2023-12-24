@@ -35,7 +35,7 @@ class AppServiceProvider extends ServiceProvider
             $view->with('blogCategories',Blogcategory::all());
             if(Auth::guard('customer')->check()){
                 $view->with('wishlistCount',Wishlist::where('user_id', Auth::guard('customer')->user()->id)->count());
-                $view->with('customerProfile',CustomerProfile::where('user_id', Auth::guard('customer')->user()->id)->first());
+                $view->with('customerProfile',CustomerProfile::where('customer_id', Auth::guard('customer')->user()->id)->first());
             }
 
         });

@@ -79,8 +79,8 @@
                               </div>
                               @endforeach
                               @else
-                              <h4 class="text-danger text-center">Wishlist is empty !</h4>
-                                @endif
+                              <div class="text-danger text-center"><p>Wishlist is empty!</p></div>
+                              @endif
 
                             </div>
                             <div class="row mt-2">

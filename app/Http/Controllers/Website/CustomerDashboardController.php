@@ -13,7 +13,7 @@ class CustomerDashboardController extends Controller
 {
     public function customerProfile(){
         return view('frontend.customerDashboard.profile',[
-            'customerProfile'=>CustomerProfile::where('user_id',Auth::guard('customer')->user()->id)->first(),
+            'customerProfile'=>CustomerProfile::where('customer_id',Auth::guard('customer')->user()->id)->first(),
         ]);
     }
 
