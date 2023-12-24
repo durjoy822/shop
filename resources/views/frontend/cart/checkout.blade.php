@@ -105,14 +105,14 @@
                                             <div class="checkout-payment-option mt-1">
                                               <div class=payment-option-wrapper>
                                                 <div class=single-payment-option>
-                                                  <input type=radio name="payment_method" checked value="cod" id=shipping-1>
+                                                  <input type=radio name="payment_method"  checked value="cod" id=shipping-1>
                                                   <label for=shipping-1>
                                                     <img src="https://png.pngtree.com/png-clipart/20210523/original/pngtree-cash-on-delivery-payment-vector-with-simple-style-png-image_6328180.png" alt="payemt method" style="height: 100px">
                                                     {{-- <p>Standerd Shipping</p> --}}
                                                   </label>
                                                 </div>
                                                 <div class=single-payment-option>
-                                                  <input type=radio name="payment_method" value="online" id=shipping-2>
+                                                  <input type=radio name="payment_method"  value="online" id=shipping-2>
                                                   <label for=shipping-2>
                                                     <img src="https://static.vecteezy.com/system/resources/thumbnails/011/060/258/small/pay-online-button-speech-bubbles-pay-online-text-colorful-web-template-illustration-vector.jpg" alt="payemt method" style="height: 100px">
                                                     {{-- <p>Standerd Shipping</p> --}}

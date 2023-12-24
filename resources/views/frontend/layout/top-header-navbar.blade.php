@@ -40,12 +40,12 @@
               <i class="lni lni-user"></i>
               Hello &nbsp;  &nbsp;
               <a class=user href="{{route('customer.profile')}}">
-                @if (!$customerProfile->name)
+                {{-- @if (!$customerProfile->name)
                 {{Auth::guard('customer')->user()->name}}
                 &nbsp;  Dashboard
-                @else
+                @else --}}
                  {{$customerProfile->name}} &nbsp;  <i title="Dashboard" class="fa-solid fa-house-signal text-warning"></i>
-                @endif
+                {{-- @endif --}}
                 </a>
               <a href="{{route('customer.logout')}}" data-toggle="modal" data-target="#logoutModal" >
                 <i title="Logout" class="fa-solid fa-right-from-bracket text-danger"></i>
