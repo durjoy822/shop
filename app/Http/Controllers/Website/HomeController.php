@@ -14,6 +14,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\AboutUs;
 use App\Models\CustomerProfile;
+use App\Models\SpacialProduct;
 
 class HomeController extends Controller
 {
@@ -25,6 +26,8 @@ class HomeController extends Controller
             'brands' => Brand::all(),
             'blogs' => Blog::inRandomOrder()->take(3)->get(),
             'reviews'=>Review::where('rating',5)->inRandomOrder()->take(3)->get(),
+            'spacial_products'=>SpacialProduct::where('status','published')->take(6)->get(),
+            'T_spacialProduct'=>SpacialProduct::where('status','published')->inRandomOrder()->take(1)->get(),
 
         ]);
     }
