@@ -35,16 +35,19 @@
                         <div class="order">
                         <div class="text-center"><h5>Change password</h5></div>
                         <hr>
-                           <form>
+                           <form action="{{route('cus_password.update',$customer->id)}}" method="post">
+                            @csrf
 
                             <label class="mt-3" for="old_password">Old password</label>
-                            <input class="form-control mt-2" type="text" name="old_password">
+                            <input class="form-control mt-2" type="text"  value="{{$customer->password}}" name="old_password">
 
                             <label class="mt-3" for="new_password">New password</label>
                             <input class="form-control mt-2" type="text" name="new_password">
+                            <div class="text-danger"> @error('new_password') {{$message}} @enderror</div>
 
                             <label class="mt-3" for="confirm_password">Confirm password</label>
                             <input class="form-control mt-2" type="text" name="confirm_password">
+                            <div class="text-danger"> @error('confirm_password') {{$message}} @enderror</div>
 
                             <div class="mt-3">
                                 <input type="submit" class="btn btn-info">

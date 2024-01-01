@@ -53,14 +53,17 @@
                                       <div class=product-image>
                                         <img src="{{$wishlist->product->image}}" alt="#">
                                         <div class=button>
-                                          <a href=product-details.html class=btn><i class="lni lni-cart"></i> Add to
-                                            Cart</a>
+                                            <form action="{{route('cart.add',['id'=>$wishlist->product_id])}}" method="post">
+                                                @csrf
+                                                <input type="hidden" value="1" name="qty">
+                                                <button  type="submit" class=btn><i class="lni lni-cart"></i> Add to Cart</button>
+                                            </form>
                                         </div>
                                       </div>
                                     </div>
                                     <div class="col-lg-8 col-md-8 col-12">
                                       <div class=product-info>
-                                        <span class=category>Category name</span>
+                                        <span class=category>{{$wishlist->product->category->name}}</span>
                                         <h4 class=title>
                                           <a href=product-grids.html>{{$wishlist->product->name}}</a>
                                         </h4>
