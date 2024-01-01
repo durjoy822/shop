@@ -36,27 +36,54 @@ spacial-product
         <table class="table align-items-center table-flush table-hover" id="dataTableHover">
           <thead class="thead-light">
             <tr>
-              <th>Sno</th>
-              <th>Unit Name</th>
-              <th>Action</th>
+                <th>Sno</th>
+                <th>Image</th>
+                <th>Product Name</th>
+                <th>Spacial offer name</th>
+                <th>Selling Price</th>
+                <th>Starting date/time</th>
+                <th>Ending date/time</th>
+                <th>Status</th>
+                <th>Action</th>
             </tr>
           </thead>
           <tfoot>
             <tr>
                 <th>Sno</th>
-              <th>Unit Name</th>
-              <th>Action</th>
-            </tr>
+                <th>Image</th>
+                <th>Product Name</th>
+                <th>Spacial offer name</th>
+                <th>Selling Price</th>
+                <th>Starting date/time</th>
+                <th>Ending date/time</th>
+                <th>Status</th>
+                <th>Action</th>
+              </tr>
           </tfoot>
           <tbody>
-            {{-- @if ($units->count())
-            @foreach ($units  as $index=>$unit )
+            @if ($spacialProducts->count())
+            @foreach ($spacialProducts  as $index=>$spacialProduct )
             <tr>
                 <td>{{$index + 1}}</td>
-                <td>{{$unit->name}}</td>
                 <td>
-                  <a href="{{route('units.edit',$unit->id)}}"><i class="far fa-edit"></i></a>&nbsp;
-                  <form action="{{route('units.destroy',$unit->id)}}" method="post" class="d-inline">
+                    <a href=""><img src="{{asset($spacialProduct->product->image)}}" style="border-radius: 100%;width:100px"></a>
+                </td>
+                <td>{{$spacialProduct->product->name}}</td>
+                <td>{{$spacialProduct->offer_name}}</td>
+                <td>{{$spacialProduct->selling_price}} Tk</td>
+                <td>{{$spacialProduct->starting_time}}</td>
+                <td>{{$spacialProduct->ending_time}}</td>
+                <td>
+                    @if ($spacialProduct->status=='published')
+                        <button class="btn btn-sm btn-info">Published</button>
+                        @else
+                        <button class=" btn btn-sm btn-danger">Unpublished</button>
+
+                    @endif
+            </td>
+                <td>
+                  <a href="{{route('spacial_products.edit',$spacialProduct->id)}}"><i class="far fa-edit"></i></a>&nbsp;
+                  <form action="{{route('spacial_products.destroy',$spacialProduct->id)}}" method="post" class="d-inline">
                     @csrf
                     @method('DELETE')
                     <button type="submit" style="border: none; background-color: transparent;">
@@ -68,9 +95,9 @@ spacial-product
             @endforeach
             @else
             <tr>
-                <td colspan="4" class="text-primary "> Units not found!</td>
+                <td colspan="4" class="text-primary ">Spacial product not found!</td>
             </tr>
-            @endif --}}
+            @endif
           </tbody>
         </table>
       </div>

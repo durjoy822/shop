@@ -3,7 +3,12 @@
 home
 @endsection
 @section('content')
-
+<style>
+    .product-image img{
+        height: 200px;
+        width: 100%;
+    }
+</style>
 <!--Hero slaider section-->
 
 <section class=hero-area>
@@ -139,7 +144,7 @@ home
 
                <div class=single-product>
                    <div class=product-image>
-                       <img  alt="#" src="{{asset($product->image)}}" style="height: 250px">
+                       <img  alt="#" src="{{asset($product->image)}}" >
                        @if ($product->discount)
                        <span class=sale-tag>{{$product->discount}}%</span>
                        @else
@@ -216,107 +221,33 @@ home
             </div>
         </div>
         <div class=row>
+            @if ($spacial_products->count()>0)
             <div class="col-lg-8 col-md-12 col-12">
                 <div class=row>
+                    @foreach ( $spacial_products as $spacial_product)
                     <div class="col-lg-4 col-md-4 col-12">
 
                         <div class=single-product>
                             <div class=product-image>
-                                <img data-pagespeed-lazy-src="{{ asset('website') }}/assets/images/products/xproduct-3.jpg.pagespeed.ic.vRmHjPpu2i.jpg"
-                                    alt="#" src="../../pagespeed_static/1.JiBnMqyl6S.gif"
-                                    onload="pagespeed.lazyLoadImages.loadIfVisibleAndMaybeBeacon(this);"
-                                    onerror="this.onerror=null;pagespeed.lazyLoadImages.loadIfVisibleAndMaybeBeacon(this);">
+                                <img  alt="spacial-product" src="{{asset($spacial_product->product->image)}}">
                                 <div class=button>
                                     <a href=product-details.html class=btn><i class="lni lni-cart"></i> Add to
                                         Cart</a>
                                 </div>
                             </div>
                             <div class=product-info>
-                                <span class=category>Camera</span>
+                                <span class=category>{{$spacial_product->product->category->name}}</span>
                                 <h4 class=title>
-                                    <a href=product-grids.html>WiFi Security Camera</a>
+                                    <a href={{route('product.details',['id'=>$spacial_product->product_id])}}>{{$spacial_product->product->name}}</a>
                                 </h4>
-                                <ul class=review>
-                                    <li><i class="lni lni-star-filled"></i></li>
-                                    <li><i class="lni lni-star-filled"></i></li>
-                                    <li><i class="lni lni-star-filled"></i></li>
-                                    <li><i class="lni lni-star-filled"></i></li>
-                                    <li><i class="lni lni-star-filled"></i></li>
-                                    <li><span>5.0 Review(s)</span></li>
-                                </ul>
                                 <div class=price>
-                                    <span>$399.00</span>
+                                    <span>{{$spacial_product->selling_price}} Tk</span>
                                 </div>
                             </div>
                         </div>
 
                     </div>
-                    <div class="col-lg-4 col-md-4 col-12">
-
-                        <div class=single-product>
-                            <div class=product-image>
-                                <img data-pagespeed-lazy-src="{{ asset('website') }}/assets/images/products/xproduct-8.jpg.pagespeed.ic.DLVHLzRhsg.jpg"
-                                    alt="#" src="../../pagespeed_static/1.JiBnMqyl6S.gif"
-                                    onload="pagespeed.lazyLoadImages.loadIfVisibleAndMaybeBeacon(this);"
-                                    onerror="this.onerror=null;pagespeed.lazyLoadImages.loadIfVisibleAndMaybeBeacon(this);">
-                                <div class=button>
-                                    <a href=product-details.html class=btn><i class="lni lni-cart"></i> Add to
-                                        Cart</a>
-                                </div>
-                            </div>
-                            <div class=product-info>
-                                <span class=category>Laptop</span>
-                                <h4 class=title>
-                                    <a href=product-grids.html>Apple MacBook Air</a>
-                                </h4>
-                                <ul class=review>
-                                    <li><i class="lni lni-star-filled"></i></li>
-                                    <li><i class="lni lni-star-filled"></i></li>
-                                    <li><i class="lni lni-star-filled"></i></li>
-                                    <li><i class="lni lni-star-filled"></i></li>
-                                    <li><i class="lni lni-star-filled"></i></li>
-                                    <li><span>5.0 Review(s)</span></li>
-                                </ul>
-                                <div class=price>
-                                    <span>$899.00</span>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="col-lg-4 col-md-4 col-12">
-
-                        <div class=single-product>
-                            <div class=product-image>
-                                <img data-pagespeed-lazy-src="{{ asset('website') }}/assets/images/products/xproduct-6.jpg.pagespeed.ic.GGb3AeLttK.jpg"
-                                    alt="#" src="../../pagespeed_static/1.JiBnMqyl6S.gif"
-                                    onload="pagespeed.lazyLoadImages.loadIfVisibleAndMaybeBeacon(this);"
-                                    onerror="this.onerror=null;pagespeed.lazyLoadImages.loadIfVisibleAndMaybeBeacon(this);">
-                                <div class=button>
-                                    <a href=product-details.html class=btn><i class="lni lni-cart"></i> Add to
-                                        Cart</a>
-                                </div>
-                            </div>
-                            <div class=product-info>
-                                <span class=category>Speaker</span>
-                                <h4 class=title>
-                                    <a href=product-grids.html>Bluetooth Speaker</a>
-                                </h4>
-                                <ul class=review>
-                                    <li><i class="lni lni-star-filled"></i></li>
-                                    <li><i class="lni lni-star-filled"></i></li>
-                                    <li><i class="lni lni-star-filled"></i></li>
-                                    <li><i class="lni lni-star-filled"></i></li>
-                                    <li><i class="lni lni-star"></i></li>
-                                    <li><span>4.0 Review(s)</span></li>
-                                </ul>
-                                <div class=price>
-                                    <span>$70.00</span>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
+                    @endforeach
                 </div>
 
                 <div class="single-banner right"
@@ -336,32 +267,21 @@ home
 
             </div>
             <div class="col-lg-4 col-md-12 col-12">
+                @foreach ($T_spacialProduct as $spacial_product )
                 <div class=offer-content>
                     <div class=image>
-                        <img data-pagespeed-lazy-src="{{ asset('website') }}/assets/images/offer/xoffer-image.jpg.pagespeed.ic.-7hl7Bh4pH.jpg"
-                            alt="#" src="../../pagespeed_static/1.JiBnMqyl6S.gif"
-                            onload="pagespeed.lazyLoadImages.loadIfVisibleAndMaybeBeacon(this);"
-                            onerror="this.onerror=null;pagespeed.lazyLoadImages.loadIfVisibleAndMaybeBeacon(this);">
+                        <img alt="#" src="{{asset($spacial_product->product->image)}}">
                         <span class=sale-tag>-50%</span>
                     </div>
                     <div class=text>
-                        <h2><a href=product-grids.html>Bluetooth Headphone</a></h2>
-                        <ul class=review>
-                            <li><i class="lni lni-star-filled"></i></li>
-                            <li><i class="lni lni-star-filled"></i></li>
-                            <li><i class="lni lni-star-filled"></i></li>
-                            <li><i class="lni lni-star-filled"></i></li>
-                            <li><i class="lni lni-star-filled"></i></li>
-                            <li><span>5.0 Review(s)</span></li>
-                        </ul>
+                        <h2><a href=product-grids.html>{{$spacial_product->product->name}}</a></h2>
                         <div class=price>
-                            <span>$200.00</span>
-                            <span class=discount-price>$400.00</span>
+                            <span>{{$spacial_product->selling_price}} Tk</span>
+                            <span class=discount-price>{{$spacial_product->product->regular_price}} Tk</span>
                         </div>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry incididunt ut
-                            eiusmod tempor labores.</p>
+                        <h4 class="text-center text-warning">Eid offer</h4>
                     </div>
-                    <div class=box-head>
+                    {{-- <div class=box-head>
                         <div class=box>
                             <h1 id=days>000</h1>
                             <h2 id=daystxt>Days</h2>
@@ -378,12 +298,21 @@ home
                             <h1 id=seconds>00</h1>
                             <h2 id=secondstxt>Secondes</h2>
                         </div>
+                    </div> --}}
+                    <div class=box-head>
+                       <div>Starting date time:{{$spacial_product->starting_time}}</div>
+                       <div> Ending date time: {{$spacial_product->ending_time}}</div>
+
                     </div>
                     <div style="background: rgb(204, 24, 24);" class=alert>
                         <h1 style="padding: 50px 80px;color: white;">We are sorry, Event ended ! </h1>
                     </div>
                 </div>
+                @endforeach
             </div>
+            @else
+            <p class="text-danger text-center"> Spacial product comming soon. </p>
+            @endif
         </div>
     </div>
 </section>
