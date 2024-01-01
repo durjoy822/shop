@@ -221,6 +221,10 @@
                             <li class=nav-item>
                                 <a href="{{route('home')}}"  aria-label="Toggle navigation">Home</a>
                             </li>
+                            <!--spacial  product-->
+                            <li class=nav-item>
+                                <a href="#"  aria-label="Toggle navigation">Spacial product</a>
+                            </li>
                             <!--blog-->
                             <li class=nav-item>
                                 <a class="dd-menu collapsed" href="javascript:void(0)" data-bs-toggle=collapse

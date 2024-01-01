@@ -2,12 +2,16 @@
 
 namespace App\Http\Controllers\Website;
 
+use App\Models\User;
+use App\Models\Order;
 use App\Models\Wishlist;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use App\Models\CustomerProfile;
-use App\Models\Order;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Hash as FacadesHash;
+
 
 class CustomerDashboardController extends Controller
 {
@@ -30,7 +34,31 @@ class CustomerDashboardController extends Controller
 
         ]);
     }
+
     public function customerPassword(){
-        return view('frontend.customerDashboard.change_password');
+            return view('frontend.customerDashboard.change_password',[
+                'customer' => User::where('role', 'customer')
+                ->where('id', Auth::guard('customer')->user()->id)
+                ->first(),
+
+            ]);
+    }
+    public function customerPasswordUpdate(Request $request, $id ){
+        // dd($request->all());
+        $request->validate([
+            'new_password'=>'required',
+            'confirm_password'=>'required',
+        ]);
+        $customer=User::find($id);
+        if($request->new_password==$request->confirm_password){
+            $customer->password = FacadesHash::make($request->new_password);
+        }else{
+            Session::flash('message','Enter a right password.');
+            return back();
+        }
+        $customer->save();
+        Session::flash('message','Customer password updated successfully.');
+        return back();
+
     }
 }

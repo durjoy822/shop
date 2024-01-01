@@ -48,6 +48,7 @@ Route::controller(CustomerDashboardController::class)->group(function () {
     Route::get('/shop/customer/order', 'customerOrder')->name('customer.order');
     Route::get('/shop/account/wishlist', 'customerWishlist')->name('customer.wishlist');
     Route::get('/shop/change/password', 'customerPassword')->name('customer.password');
+    Route::post('/shop/update/password/{id}', 'customerPasswordUpdate')->name('cus_password.update');
 
 
 });
