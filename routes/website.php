@@ -17,6 +17,23 @@ use Illuminate\Support\Facades\Route;
 Route::middleware(customer::class)->group(function () {
     Route::get('/shop/customer/logout',[CustomerAuthController::class,'customerLogout'])->name('customer.logout');
 
+// -----Wishlist -------
+Route::controller(WishlistController::class)->group(function () {
+    Route::get('/shop/wishlist', 'wishlist')->name('wishlist');
+    Route::post('/shop/wishlist/add', 'wishlistAdd')->name('wishlist.add');
+    Route::get('/shop/wishlist/delete/{id}', 'wishlistDelete')->name('wishlist.delete');
+});
+
+// -----Cart -------
+Route::controller(CartController::class)->group(function () {
+    Route::get('/shop/cart', 'cart')->name('cart');
+    Route::post('/shop/cart/add/{id}', 'cartAdd')->name('cart.add');
+    Route::get('/shop/cart/delete/{id}', 'cartDelete')->name('cart.delete');
+    Route::get('/shop/cart/all/remove', 'cartAllRemove')->name('cart.remove');
+    Route::post('/shop/cart/update/{id}', 'cartUpdate')->name('cart.update');
+
+});
+
 });
 Route::controller(CustomerAuthController::class)->group(function () {
     Route::get('/shop/login', 'customerLogin')->name('customer.login');
@@ -60,24 +77,9 @@ Route::controller(CustomerProfileController::class)->group(function () {
 
 
 });
-    // -----Wishlist -------
-Route::controller(WishlistController::class)->group(function () {
-    Route::get('/shop/wishlist', 'wishlist')->name('wishlist');
-    Route::post('/shop/wishlist/add', 'wishlistAdd')->name('wishlist.add');
-    Route::get('/shop/wishlist/delete/{id}', 'wishlistDelete')->name('wishlist.delete');
 
 
-});
 
-    // -----Cart -------
-Route::controller(CartController::class)->group(function () {
-    Route::get('/shop/cart', 'cart')->name('cart');
-    Route::post('/shop/cart/add/{id}', 'cartAdd')->name('cart.add');
-    Route::get('/shop/cart/delete/{id}', 'cartDelete')->name('cart.delete');
-    Route::get('/shop/cart/all/remove', 'cartAllRemove')->name('cart.remove');
-    Route::post('/shop/cart/update/{id}', 'cartUpdate')->name('cart.update');
-
-});
     // -----Checkout   -------
 Route::controller(CheckoutController::class)->group(function () {
     Route::get('/shop/checkout', 'checkout')->name('checkout');

@@ -54,33 +54,22 @@
                 </div>
                 @endforeach
                 @else
-                <div ><h3 class="text-danger">Blog not found. </h3> </div>
+                <div ><p class="text-danger text-center mt-5">Blog not found. </p> </div>
                 @endif
               </div>
               <!--paginate-->
               <div class="pagination left blog-grid-page">
-                <ul class=pagination-list>
-                  <li><a href="javascript:void(0)">Prev</a></li>
-                  <li class=active><a href="javascript:void(0)">2</a></li>
-                  <li><a href="javascript:void(0)">3</a></li>
-                  <li><a href="javascript:void(0)">4</a></li>
-                  <li><a href="javascript:void(0)">Next</a></li>
-                </ul>
+                   <!--styling pagination-->
+                   <div >
+                    {{ $blogs->links('frontend.layout.defaultPagination') }}
+                   </div>
+                   <!--styling pagination-->
               </div>
 
             </div>
             <!--Sidebar-->
             <aside class="col-lg-4 col-md-12 col-12">
               <div class="sidebar blog-grid-page">
-                <!--Search bar-->
-                <div class="widget search-widget">
-                  <h5 class=widget-title>Search This Site</h5>
-                  <form action="#">
-                    <input type=text placeholder="Search Here...">
-                    <button type=submit><i class="lni lni-search-alt"></i></button>
-                  </form>
-                </div>
-
                 <!--Featured Posts-->
                 <div class="widget popular-feeds">
                   <h5 class=widget-title>Featured Posts</h5>

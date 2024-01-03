@@ -46,12 +46,13 @@ class HomeController extends Controller
 
     public function productList($id){               //category wise product show
         return view('frontend.shoplist',[
-            'products'=> Product::where('category_id',$id)->get(),
+            'products'=> Product::where('category_id',$id)->paginate(10),
+            'categories'=>Category::all(),
         ]);
     }
     public function subCategory($id){               //sub category wise product show
         return view('frontend.shoplist',[
-            'products'=> Product::where('sub_category_id',$id)->get(),
+            'products'=> Product::where('sub_category_id',$id)->paginate(2),
         ]);
     }
     public function productDetails($id){
@@ -65,7 +66,7 @@ class HomeController extends Controller
 
     public function blogList($id){
         return view('frontend.blog.bloglist',[  //blog category wise blog show
-            'blogs'=>Blog::where('blog_category_id',$id)->get(),
+            'blogs'=>Blog::where('blog_category_id',$id)->paginate(2),
             'featuredBlogs'=>Blog::inRandomOrder()->take(3)->get(),
             'blogCategories'=>Blogcategory::inRandomOrder()->take(5)->get(),
         ]);
