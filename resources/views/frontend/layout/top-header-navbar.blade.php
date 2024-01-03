@@ -75,7 +75,8 @@
             <div class="col-lg-3 col-md-3 col-7">
 
                 <a class=navbar-brand href={{route('home')}}>
-                    <img src="{{ asset('website') }}/assets/images/logo/logo.svg" alt=Logo>
+                    {{-- <img src="{{ asset('website') }}/assets/images/logo/logo.svg" alt=Logo> --}}
+                    <img src="{{asset($setting->dark_logo)}}" alt=Logo>
                 </a>
 
             </div>
@@ -112,7 +113,7 @@
                     <div class=nav-hotline>
                         <i class="lni lni-phone"></i>
                         <h3>Hotline:
-                            <span>(+100) 123 456 7890</span>
+                            <span>{{$setting->phone}}</span>
                         </h3>
                     </div>
                   <!--wishlist-->
@@ -129,12 +130,13 @@
                                 <i class="lni lni-cart"></i>
                                 <span class=total-items>{{count(Cart::getContent())}}</span>
                             </a>
-
                             <div class=shopping-item>
+                                @if (Auth::guard('customer')->check())
                                 <div class=dropdown-cart-header>
                                     <span>{{count(Cart::getContent())}} Items</span>
                                     <a href="{{route('cart')}}">View Cart</a>
                                 </div>
+
                                 <ul class=shopping-list>
                                     @foreach ( Cart::getContent() as $cartProduct )
                                     <li>
@@ -169,6 +171,14 @@
                                         <a href="{{route('checkout')}}" class="btn animate">Checkout</a>
                                     </div>
                                 </div>
+                                @else
+                                <ul class=shopping-list>
+                                    <li>
+                                     <div class="text-danger h6 text-center">please <a href="{{route('customer.login')}}">SIGN IN</a> first !</div>
+                                    </li>
+
+                                </ul>
+                                @endif
                             </div>
 
                         </div>

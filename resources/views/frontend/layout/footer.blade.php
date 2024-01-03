@@ -5,7 +5,8 @@
                 <div class="col-lg-3 col-md-4 col-12">
                     <div class=footer-logo>
                         <a href=index.html>
-                            <img src="{{ asset('website') }}/assets/images/logo/logo.svg">
+                            {{-- <img src="{{ asset('website') }}/assets/images/logo/logo.svg"> --}}
+                            <img src="{{ asset($setting->light_logo) }}">
                         </a>
                     </div>
                 </div>
@@ -35,25 +36,18 @@
     <div class=container>
         <div class=bottom-inner>
             <div class=row>
-                <div class="col-lg-3 col-md-6 col-12">
+                <div class="col-lg-4 col-md-6 col-12">
 
                     <div class="single-footer f-contact">
                         <h3>Get In Touch With Us</h3>
-                        <p class=phone>Phone: +1 (900) 33 169 7720</p>
+                        <p class=phone>Phone: {{$setting->phone}}</p>
                         <ul>
-                            <li><span>Monday-Friday: </span> 9.00 am - 8.00 pm</li>
-                            <li><span>Saturday: </span> 10.00 am - 6.00 pm</li>
+                            <li><span>{{$setting->opening_day}}-{{$setting->closeing_day}}: </span> {{$setting->opening_time}} - {{$setting->closeing_time}}</li>
                         </ul>
-                        <p class=mail>
-                            <a
-                                href="https://demo.graygrids.com/cdn-cgi/l/email-protection#b9caccc9c9d6cbcdf9cad1d6c9decbd0ddca97dad6d4"><span
-                                    class="__cf_email__"
-                                    data-cfemail="b5c6c0c5c5dac7c1f5c6dddac5d2c7dcd1c69bd6dad8">[email&#160;protected]</span></a>
-                        </p>
                     </div>
 
                 </div>
-                <div class="col-lg-3 col-md-6 col-12">
+                <div class="col-lg-4 col-md-6 col-12">
 
                     <div class="single-footer our-app">
                         <h3>Our Mobile App</h3>
@@ -76,34 +70,18 @@
                     </div>
 
                 </div>
-                <div class="col-lg-3 col-md-6 col-12">
+                <div class="col-lg-4 col-md-6 col-12">
 
                     <div class="single-footer f-link">
                         <h3>Information</h3>
                         <ul>
-                            <li><a href="javascript:void(0)">About Us</a></li>
-                            <li><a href="javascript:void(0)">Contact Us</a></li>
-                            <li><a href="javascript:void(0)">Downloads</a></li>
-                            <li><a href="javascript:void(0)">Sitemap</a></li>
-                            <li><a href="javascript:void(0)">FAQs Page</a></li>
+                            <li><a href="{{route('about.us')}}">About Us</a></li>
+                            <li><a href="{{route('contact.us')}}">Contact Us</a></li>
                         </ul>
                     </div>
 
                 </div>
-                <div class="col-lg-3 col-md-6 col-12">
 
-                    <div class="single-footer f-link">
-                        <h3>Shop Departments</h3>
-                        <ul>
-                            <li><a href="javascript:void(0)">Computers & Accessories</a></li>
-                            <li><a href="javascript:void(0)">Smartphones & Tablets</a></li>
-                            <li><a href="javascript:void(0)">TV, Video & Audio</a></li>
-                            <li><a href="javascript:void(0)">Cameras, Photo & Video</a></li>
-                            <li><a href="javascript:void(0)">Headphones</a></li>
-                        </ul>
-                    </div>
-
-                </div>
             </div>
         </div>
     </div>
@@ -124,8 +102,7 @@
                 </div>
                 <div class="col-lg-4 col-12">
                     <div class=copyright>
-                        <p>Designed and Developed by<a href="https://graygrids.com/" rel=nofollow
-                                target=_blank>GrayGrids</a></p>
+                        <p>Designed and Developed by: {{$setting->design_develop}}</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-12">

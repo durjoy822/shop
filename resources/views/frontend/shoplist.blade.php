@@ -30,40 +30,15 @@ shop product list
         <div class="col-lg-3 col-12">
 
           <div class=product-sidebar>
-
-            <div class="single-widget search">
-              <h3>Search Product</h3>
-              <form action="#">
-                <input type=text placeholder="Search Here...">
-                <button type=submit><i class="lni lni-search-alt"></i></button>
-              </form>
-            </div>
-
-
             <div class=single-widget>
               <h3>All Categories</h3>
               <ul class=list>
+                @foreach ($categories as $category)
                 <li>
-                  <a href=product-grids.html>Computers & Accessories </a><span>(1138)</span>
+                  <a href=" {{route('product.list',['id'=>$category->id])}}">{{$category->name}} </a><span>(2)</span>
                 </li>
-                <li>
-                  <a href=product-grids.html>Smartphones & Tablets</a><span>(2356)</span>
-                </li>
-                <li>
-                  <a href=product-grids.html>TV, Video & Audio</a><span>(420)</span>
-                </li>
-                <li>
-                  <a href=product-grids.html>Cameras, Photo & Video</a><span>(874)</span>
-                </li>
-                <li>
-                  <a href=product-grids.html>Headphones</a><span>(1239)</span>
-                </li>
-                <li>
-                  <a href=product-grids.html>Wearable Electronics</a><span>(340)</span>
-                </li>
-                <li>
-                  <a href=product-grids.html>Printers & Ink</a><span>(512)</span>
-                </li>
+                @endforeach
+
               </ul>
             </div>
 
@@ -168,18 +143,14 @@ shop product list
             <div class=product-grid-topbar>
               <div class="row align-items-center">
                 <div class="col-lg-7 col-md-8 col-12">
-                  <div class=product-sorting>
-                    <label for=sorting>Sort by:</label>
-                    <select class=form-control id=sorting>
-                      <option>Popularity</option>
-                      <option>Low - High Price</option>
-                      <option>High - Low Price</option>
-                      <option>Average Rating</option>
-                      <option>A - Z Order</option>
-                      <option>Z - A Order</option>
-                    </select>
-                    <h3 class=total-show-product>Showing: <span>1 - 12 items</span></h3>
-                  </div>
+                  <form action="#">
+                    <div class="d-flex">
+                        <label>Product Search:</label>
+                        <input class="form-control" type=text placeholder="Search Here...">
+                        <button class="btn btn-info" type=submit><i class="lni lni-search-alt"></i></button>
+                    </div>
+
+                  </form>
                 </div>
                 <div class="col-lg-5 col-md-4 col-12">
                   <nav>
@@ -196,6 +167,7 @@ shop product list
               </div>
             </div>
             <!--single product (coll-4) book view-->
+            @if ($products->count()>0)
             <div class=tab-content id=nav-tabContent>
               <div class="tab-pane fade" id=nav-grid role=tabpanel aria-labelledby=nav-grid-tab>
                 <div class=row>
@@ -236,13 +208,11 @@ shop product list
                 <div class=row>
                   <div class=col-12>
                     <div class="pagination left">
-                      <ul class=pagination-list>
-                        <li><a href="javascript:void(0)">1</a></li>
-                        <li class=active><a href="javascript:void(0)">2</a></li>
-                        <li><a href="javascript:void(0)">3</a></li>
-                        <li><a href="javascript:void(0)">4</a></li>
-                        <li><a href="javascript:void(0)"><i class="lni lni-chevron-right"></i></a></li>
-                      </ul>
+                         <!--styling pagination-->
+                     <div >
+                        {{ $products->links('frontend.layout.defaultPagination') }}
+                       </div>
+                       <!--styling pagination-->
                     </div>
 
                   </div>
@@ -296,21 +266,21 @@ shop product list
 
                 </div>
                 <!--pagination-->
-                <div class=row>
+                <div class="row mt-3">
                   <div class=col-12>
-                    <div class="pagination left">
-                      <ul class=pagination-list>
-                        <li><a href="javascript:void(0)">1</a></li>
-                        <li class=active><a href="javascript:void(0)">2</a></li>
-                        <li><a href="javascript:void(0)">3</a></li>
-                        <li><a href="javascript:void(0)">4</a></li>
-                        <li><a href="javascript:void(0)"><i class="lni lni-chevron-right"></i></a></li>
-                      </ul>
-                    </div>
+                     <!--styling pagination-->
+                     <div >
+                        {{ $products->links('frontend.layout.defaultPagination') }}
+                       </div>
+                       <!--styling pagination-->
+                   </div>
                   </div>
                 </div>
               </div>
             </div>
+            @else
+            <p class="text-danger text-center mt-4 "> Product not found! </p>
+            @endif
           </div>
         </div>
       </div>

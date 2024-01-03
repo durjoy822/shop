@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\Wishlist;
 use App\Models\Blogcategory;
 use App\Models\CustomerProfile;
+use App\Models\Setting;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\View;
@@ -33,6 +34,7 @@ class AppServiceProvider extends ServiceProvider
         view::composer('*' ,function($view){
             $view->with('categories',Category::all());
             $view->with('blogCategories',Blogcategory::all());
+            $view->with('setting',Setting::first());
             if(Auth::guard('customer')->check()){
                 $view->with('wishlistCount',Wishlist::where('user_id', Auth::guard('customer')->user()->id)->count());
                 $view->with('customerProfile',CustomerProfile::where('customer_id', Auth::guard('customer')->user()->id)->first());
