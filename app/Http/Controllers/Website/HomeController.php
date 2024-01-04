@@ -48,11 +48,14 @@ class HomeController extends Controller
         return view('frontend.shoplist',[
             'products'=> Product::where('category_id',$id)->paginate(10),
             'categories'=>Category::all(),
+            'brands'=>Brand::all(),
         ]);
     }
+
     public function subCategory($id){               //sub category wise product show
         return view('frontend.shoplist',[
             'products'=> Product::where('sub_category_id',$id)->paginate(2),
+            'brands'=>Brand::all(),
         ]);
     }
     public function productDetails($id){
