@@ -115,8 +115,14 @@
       </li>
     <li class="nav-item">
         <a class="nav-link" href="{{route('about_us.index')}}">
-            <i class="fas fa-users"></i>
+            <i class="fas fa-address-card"></i>
           <span>About_us</span>
+        </a>
+      </li>
+    <li class="nav-item">
+        <a class="nav-link" href="">
+            <i class="fas fa-image"></i>
+          <span>Banner</span>
         </a>
       </li>
     <hr class="sidebar-divider">

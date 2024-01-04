@@ -6,6 +6,7 @@ use App\Http\Controllers\Website\CustomerAuthController;
 use App\Http\Controllers\Website\CustomerDashboardController;
 use App\Http\Controllers\Website\CustomerProfileController;
 use App\Http\Controllers\Website\HomeController;
+use App\Http\Controllers\Website\SearchController;
 use App\Http\Controllers\Website\WishlistController;
 use Illuminate\Support\Facades\Route;
 
@@ -54,6 +55,8 @@ Route::controller(HomeController::class)->group(function () {
     // -----blog-------
     Route::get('/shop/blog-list/{id}', 'blogList')->name('blog.list');
     Route::get('/shop/blog-details/{id}', 'blogDetails')->name('blog.details');
+    //----brand filter--
+    Route::get('/shop/brand/filter', 'brandFilter')->name('brand.filter');
 
 
 });
@@ -74,16 +77,18 @@ Route::controller(CustomerDashboardController::class)->group(function () {
 Route::controller(CustomerProfileController::class)->group(function () {
     Route::post('/customer/profile/update/{id}', 'customerProfileUpdate')->name('customerProfile.update');
 
-
-
 });
-
-
 
     // -----Checkout   -------
 Route::controller(CheckoutController::class)->group(function () {
     Route::get('/shop/checkout', 'checkout')->name('checkout');
     Route::post('/shop/confirm/order', 'confirmOrder')->name('confirm.order');
     Route::get('/shop/complete/order', 'completeOrder')->name('complete.order');
+
+});
+    // ----- products Search   -------
+Route::controller(SearchController::class)->group(function () {
+    Route::post('product/search', 'search')->name('search');
+    Route::post('category/product/search', 'categoryProduct')->name('categoryProduct.search');
 
 });

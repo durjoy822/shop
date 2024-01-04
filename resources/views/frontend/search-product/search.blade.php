@@ -1,6 +1,6 @@
 @extends('frontend.layout.master')
 @section('title')
-shop product list
+Product searching
 @endsection
 @section('content')
 <!--breadcrumbs-->
@@ -35,7 +35,7 @@ shop product list
               <ul class=list>
                 @foreach ($categories as $category)
                 <li>
-                  <a href=" {{route('product.list',['id'=>$category->id])}}">{{$category->name}} </a><span>({{$category->product->count()}})</span>
+                  <a href=" {{route('product.list',['id'=>$category->id])}}">{{$category->name}} </a><span></span>
                 </li>
                 @endforeach
 
@@ -70,28 +70,19 @@ shop product list
               </div>
             </div>
 
-            <!-- Filter by Brand -->
-            <form action="{{URL::current()}}" method="GET">
+
             <div class="single-widget condition">
-                <div >
-                    <h3 >Filter by Brand <button style="float: right; " class="btn btn-sm btn-info ">Filter</button></h3>
-                </div>
-              @foreach ($brands as  $brand)
-              @php
-                $checked=[];
-                if(isset($_GET['filterbrand'])){
-                    $checked=$_GET['filterbrand'];
-                }
-              @endphp
-              <div class="form-check">
-                <input class=form-check-input type=checkbox value="{{$brand->id}}" name="filterbrand[]" id={{$brand->id}} @if(in_array($brand->id,$checked)) checked @endif>
-                <label class=form-check-label for={{$brand->id}}>
-                  {{$brand->name}} <span>({{$brand->product->count()}})</span>
+              <h3>Filter by Brand</h3>
+              @foreach ($brands as $brand )
+
+              <div class=form-check>
+                <input class=form-check-input type=checkbox value="" id=flexCheckDefault11>
+                <label class=form-check-label for=flexCheckDefault11>
+                {{ $brand->name}}
                 </label>
               </div>
               @endforeach
             </div>
-            </form>
           </div>
 
         </div>
@@ -99,15 +90,15 @@ shop product list
           <div class=product-grids-head>
             <div class=product-grid-topbar>
               <div class="row align-items-center">
-                <!--product search-->
                 <div class="col-lg-7 col-md-8 col-12">
                   <form action="{{route('search')}}" method="post">
                     @csrf
                     <div class="d-flex">
                         <label>Product Search:</label>
                         <input class="form-control" name="search" type=text placeholder="Search Here...">
-                        <button class="btn btn-info" type=submit ><i class="lni lni-search-alt"></i></button>
+                        <button class="btn btn-info" type=submit><i class="lni lni-search-alt"></i></button>
                     </div>
+
                   </form>
                 </div>
                 <div class="col-lg-5 col-md-4 col-12">
@@ -237,7 +228,7 @@ shop product list
               </div>
             </div>
             @else
-            <p class="text-danger text-center mt-4 "> Product not found! </p>
+            <p class="text-danger text-center mt-4 "> Searching product not found! </p>
             @endif
           </div>
         </div>

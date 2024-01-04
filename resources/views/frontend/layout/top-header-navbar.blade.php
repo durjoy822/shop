@@ -83,27 +83,27 @@
             <div class="col-lg-5 col-md-7 d-xs-none">
 
                 <div class=main-menu-search>
-
+                    <form action="{{route('categoryProduct.search')}}" method="post">
+                        @csrf
                     <div class="navbar-search search-style-5">
                         <div class=search-select>
                             <div class=select-position>
-                                <select id=select1>
-                                    <option selected>All</option>
-                                    <option value=1>option 01</option>
-                                    <option value=2>option 02</option>
-                                    <option value=3>option 03</option>
-                                    <option value=4>option 04</option>
-                                    <option value=5>option 05</option>
+                                <select id="select1" name="category">
+                                    <option  value="all" {{request('category')=="all"?"selected":''}}>All Categories</option>
+                                    @foreach ($categories as  $category)
+                                    <option value="{{$category->id}}"  {{request('category')== $category->id ?"selected":''}}>{{$category->name}}</option>
+                                    @endforeach
                                 </select>
                             </div>
                         </div>
                         <div class=search-input>
-                            <input type=text placeholder=Search>
+                            <input type=text name="search" placeholder=Search>
                         </div>
                         <div class=search-btn>
-                            <button><i class="lni lni-search-alt"></i></button>
+                            <button type="submit"><i class="lni lni-search-alt"></i></button>
                         </div>
                     </div>
+                    </form>
 
                 </div>
 
@@ -172,7 +172,7 @@
                                     </div>
                                 </div>
                                 @else
-                                <ul class=shopping-list>
+                                <ul >
                                     <li>
                                      <div class="text-danger h6 text-center">please <a href="{{route('customer.login')}}">SIGN IN</a> first !</div>
                                     </li>
