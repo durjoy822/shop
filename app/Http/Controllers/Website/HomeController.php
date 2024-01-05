@@ -5,16 +5,18 @@ namespace App\Http\Controllers\Website;
 use App\Models\Blog;
 use App\Models\Team;
 use App\Models\Brand;
+use App\Models\Banner;
 use App\Models\Review;
+use App\Models\AboutUs;
 use App\Models\Product;
 use App\Models\Category;
 use App\Models\Subcategory;
 use App\Models\Blogcategory;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use App\Models\AboutUs;
-use App\Models\CustomerProfile;
 use App\Models\SpacialProduct;
+use App\Models\CustomerProfile;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -28,6 +30,8 @@ class HomeController extends Controller
             'reviews'=>Review::where('rating',5)->inRandomOrder()->take(3)->get(),
             'spacial_products'=>SpacialProduct::where('status','published')->take(6)->get(),
             'T_spacialProduct'=>SpacialProduct::where('status','published')->inRandomOrder()->take(1)->get(),
+            'banners'=>Banner::inRandomOrder()->take(2)->get(),
+            'singleBanners'=>Banner::inRandomOrder()->take(1)->get(),
 
         ]);
     }
@@ -62,6 +66,7 @@ class HomeController extends Controller
         return view('frontend.shop-details',[
             'product'=>Product::find($id),
             'reviews'=>Review::where('product_id',$id)->paginate(4),
+            'customerImages'=>CustomerProfile::all(),
         ]);
 
     }

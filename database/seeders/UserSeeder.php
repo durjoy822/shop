@@ -35,12 +35,14 @@ class UserSeeder extends Seeder
         User::create([
             'name' => 'Faisal',
             'email' => 'faisal@gmail.com',
+            'role' => 'customer',
             'password' => bcrypt('12345678'),
             'remember_token' =>Str::random(10),
         ]);
         User::create([
             'name' => 'Noyon',
             'email' => 'noyon@gmail.com',
+            'role' => 'customer',
             'password' => bcrypt('12345678'),
             'remember_token' =>Str::random(10),
         ]);
@@ -61,6 +63,27 @@ class UserSeeder extends Seeder
         User::create([
             'name' => 'Akash',
             'email' => 'akash@gmail.com',
+            'role' => 'customer',
+            'password' => bcrypt('12345678'),
+            'remember_token' =>Str::random(10),
+        ]);
+        User::create([
+            'name' => 'Jamal',
+            'email' => 'jamal@gmail.com',
+            'role' => 'customer',
+            'password' => bcrypt('12345678'),
+            'remember_token' =>Str::random(10),
+        ]);
+        User::create([
+            'name' => 'Polash',
+            'email' => 'polash@gmail.com',
+            'role' => 'customer',
+            'password' => bcrypt('12345678'),
+            'remember_token' =>Str::random(10),
+        ]);
+        User::create([
+            'name' => 'Karim',
+            'email' => 'karim@gmail.com',
             'role' => 'customer',
             'password' => bcrypt('12345678'),
             'remember_token' =>Str::random(10),

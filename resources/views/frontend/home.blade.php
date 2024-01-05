@@ -18,71 +18,42 @@ home
                 <div class=slider-head>
 
                     <div class=hero-slider>
-
+                        @foreach ($banners as  $banner)
                         <div class=single-slider
-                            style="background-image:url({{ asset('website') }}/assets/images/hero/xslider-bg1.jpg.pagespeed.ic.QB-k7UuPjB.jpg)">
+                            style="background-image:url({{ asset($banner->product->image) }})">
                             <div class=content>
-                                <h2><span>No restocking fee ($35 savings)</span>
-                                    M75 Sport Watch
+                                <h2>
+                                   {{$banner->product->name}}
                                 </h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur elit, sed do eiusmod tempor incididunt ut
-                                    labore dolore magna aliqua.</p>
-                                <h3><span>Now Only</span> $320.99</h3>
+                                <p>{!!$banner->product->short_description!!}</p>
+                                <h3><span>Now Only</span> {{$banner->product->selling_price}} Tk</h3>
                                 <div class=button>
-                                    <a href=product-grids.html class=btn>Shop Now</a>
+                                    <a href="{{route('product.details',['id'=>$banner->product->id])}}" class=btn>Shop Now</a>
                                 </div>
                             </div>
                         </div>
-
-
-                        <div class=single-slider
-                            style="background-image:url({{ asset('website') }}/assets/images/hero/xslider-bg2.jpg.pagespeed.ic.nEcfNovovG.jpg)">
-                            <div class=content>
-                                <h2><span>Big Sale Offer</span>
-                                    Get the Best Deal on CCTV Camera
-                                </h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur elit, sed do eiusmod tempor incididunt ut
-                                    labore dolore magna aliqua.</p>
-                                <h3><span>Combo Only:</span> $590.00</h3>
-                                <div class=button>
-                                    <a href=product-grids.html class=btn>Shop Now</a>
-                                </div>
-                            </div>
-                        </div>
-
+                        @endforeach
                     </div>
 
                 </div>
             </div>
             <div class="col-lg-4 col-12">
                 <div class=row>
-                    <div class="col-lg-12 col-md-6 col-12 md-custom-padding">
+                    @foreach ($banners as $banner )
+                    <div class="col-lg-12 col-md-6 col-12 md-custom-padding mt-2">
 
                         <div class=hero-small-banner
-                            style="background-image:url({{ asset('website') }}/assets/images/hero/xslider-bnr.jpg.pagespeed.ic.71c5Z3kdJp.jpg)">
+                            style="background-image:url({{ asset($banner->product->image) }})">
                             <div class=content>
                                 <h2>
-                                    <span>New line required</span>
-                                    iPhone 12 Pro Max
+                                    {{$banner->product->name}}
                                 </h2>
-                                <h3>$259.99</h3>
+                                <h3>{{$banner->product->selling_price}} Tk</h3>
                             </div>
                         </div>
 
                     </div>
-                    <div class="col-lg-12 col-md-6 col-12">
-
-                        <div class="hero-small-banner style2">
-                            <div class=content>
-                                <h2>Weekly Sale!</h2>
-                                <p>Saving up to 50% off all online store items this week.</p>
-                                <div class=button>
-                                    <a class=btn href=product-grids.html>Shop Now</a>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -178,22 +149,24 @@ home
 </section>
 
 <!--Banner section-->
-<section class="banner section">
+<section class="banner section ">
     <div class=container>
         <div class=row>
+            @foreach ($banners as $banner )
             <div class="col-lg-6 col-md-6 col-12">
-                <div class=single-banner
-                    style="background-image:url({{ asset('website') }}/assets/images/banner/xbanner-1-bg.jpg.pagespeed.ic.o5kkJh_gbP.jpg)">
+                <div class="single-banner"
+                    style="background-image:url({{ asset($banner->product->image) }})">
                     <div class=content>
-                        <h2>Smart Watch 2.0</h2>
-                        <p>Space Gray Aluminum Case with <br>Black/Volt Real Sport Band </p>
+                        <h2>{{$banner->product->name}}</h2>
+                        <p>{!!$banner->product->short_description!!}</p>
                         <div class=button>
-                            <a href=product-grids.html class=btn>View Details</a>
+                            <a href="{{route('product.details',['id'=>$banner->product->id])}}" class=btn>View Details</a>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6 col-md-6 col-12">
+            @endforeach
+            {{-- <div class="col-lg-6 col-md-6 col-12">
                 <div class="single-banner custom-responsive-margin"
                     style="background-image:url({{ asset('website') }}/assets/images/banner/xbanner-2-bg.jpg.pagespeed.ic.VbAquGFVe0.jpg)">
                     <div class=content>
@@ -205,7 +178,7 @@ home
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
         </div>
     </div>
 </section>
@@ -250,20 +223,22 @@ home
                     @endforeach
                 </div>
 
-                <div class="single-banner right"
-                    style="background-image:url({{ asset('website') }}/assets/images/banner/xbanner-3-bg.jpg.pagespeed.ic.tC7s97FGJm.jpg);margin-top:30px">
+                @foreach ($singleBanners as $singleBanner )
+
+                <div class="single-banner right mt-2"
+                    style="background-image:url({{ asset($singleBanner->product->image) }}">
                     <div class=content>
-                        <h2>Samsung Notebook 9 </h2>
-                        <p>Lorem ipsum dolor sit amet, <br>eiusmod tempor
-                            incididunt ut labore.</p>
+                        <h2>{{$singleBanner->product->name}}</h2>
+                        <p>{{$singleBanner->product->short_description}}</p>
                         <div class=price>
-                            <span>$590.00</span>
+                            <span>{{$singleBanner->product->selling_price}}Tk</span>
                         </div>
                         <div class=button>
-                            <a href=product-grids.html class=btn>Shop Now</a>
+                            <a href="{{route('product.details',['id'=>$singleBanner->product->id])}}" class=btn>Shop Now</a>
                         </div>
                     </div>
                 </div>
+                @endforeach
 
             </div>
             <div class="col-lg-4 col-md-12 col-12">

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AboutUsController;
 use App\Http\Controllers\Admin\AuthController;
+use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\BlogCategoryController;
 use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\BrandController;
@@ -77,3 +78,4 @@ Route::resource('/spacial_products',SpacialProductController::class);
 Route::resource('/reviews',ReviewController::class);
 Route::resource('/teams',TeamController::class);
 Route::resource('/about_us',AboutUsController::class);
+Route::resource('/banners',BannerController::class);
