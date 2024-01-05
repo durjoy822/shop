@@ -183,8 +183,12 @@
 
                                 @foreach ($reviews as $review)
                                     <div class=single-review>
-                                        <img src="{{ asset('website') }}/assets/images/blog/xcomment2.jpg.pagespeed.ic.P3c5pVzEa7.jpg"
+                                        @foreach ( $customerImages as $customerImage)
+                                        <img src="{{ asset($customerImage->image) }}"
                                             alt="#">
+                                        {{-- <img src="{{ asset('website') }}/assets/images/blog/xcomment2.jpg.pagespeed.ic.P3c5pVzEa7.jpg"
+                                            alt="#"> --}}
+                                        @endforeach
                                         <div class='review-info pt-1'>
                                             <h4>
                                                 <span>{{ $review->customer_name }}</span>

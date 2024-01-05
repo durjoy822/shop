@@ -18,18 +18,38 @@ class ReviewFactory extends Factory
      *
      * @return array<string, mixed>
      */
+
     public function definition(): array
     {
+        $name = [
+            'Anik',
+            'Akash',
+            'Jamal',
+            'Polash',
+            'Karim',
+            'Noyon',
+            'Faisal',
+        ];
+        $email = [
+            'anik@gmail.com',
+            'akash@gmail.com',
+            'jamal@gmail.com',
+            'polash@gmail.com',
+            'karim@gmail.com',
+            'noyon@gmail.com',
+            'faisal@gmail.com',
+        ];
+
         return [
             'product_id' => $this->faker->numberBetween(1, 10),
-            'customer_id' => $this->faker->numberBetween(1, 10), // Use Str::uuid() to generate a UUID
-            'customer_name' => $this->faker->name, // Use $this->faker instead of $faker
-            'customer_email' => $this->faker->unique()->safeEmail,
-            'rating' => $this->faker->numberBetween(1, 5), // Remove quotes around numbers
+            'customer_id' => $this->faker->numberBetween(1, 7), // Use Str::uuid() to generate a UUID
+            'customer_name' => $this->faker->randomElement($name),
+            'customer_email' => $this->faker->randomElement($email),
+            'rating' => $this->faker->numberBetween(1, 5),
             'review' => $this->faker->paragraph,
             'created_at' => now(),
             'updated_at' => now(),
         ];
-
     }
+
 }

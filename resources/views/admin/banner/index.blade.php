@@ -26,10 +26,10 @@ banner
     <div class="card mb-4">
         <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
             <div class="m-0 h6 font-weight-bold text-primary">
-                Blogs Data
+               Banner info
             </div>
             <div>
-                <a href="{{route('blogs.create')}}"><button class="btn btn-info">Create Banner</button></a>
+                <a href="{{route('banners.create')}}"><button class="btn btn-info">Create Banner</button></a>
             </div>
         </div>
       <div class="table-responsive p-3">
@@ -37,41 +37,26 @@ banner
           <thead class="thead-light">
             <tr>
                 <th>Sno</th>
-                <th>Image</th>
-                <th>Blog Category</th>
-                <th>Heading</th>
-                <th>creator</th>
-                <th>creating time</th>
+                <th>Banner product name</th>
                 <th>Action</th>
             </tr>
           </thead>
           <tfoot>
             <tr>
                 <th>Sno</th>
-                <th>Image</th>
-                <th>Blog Category</th>
-                <th>Heading</th>
-                <th>creator</th>
-                <th>creating time</th>
+                <th>Banner product name</th>
                 <th>Action</th>
             </tr>
           </tfoot>
           <tbody>
-            {{-- @if ($blogs->count())
-            @foreach ($blogs  as $index=>$blog )
+            @if ($banners->count())
+            @foreach ($banners  as $index=>$banner )
             <tr>
                 <td>{{$index + 1}}</td>
-                <td>
-                  <a href="{{route('blogs.show',$blog->id)}}" ><img src="{{asset($blog->image)}}" style="border-radius: 100%;width:100px"></a>
-                </td>
-                <td>{{$blog->BlogCategory->name}}</td>
-                <td>{{$blog->heading}}</td>
-                <td>{{$blog->creator}}</td>
-                <td>{{$blog->created_at->format("F j, Y")}}</td>
+                <td>{{$banner->product->name}}</td>
                 <td >
-                  <a href="{{route('blogs.edit',$blog->id)}}"><i class="far fa-edit"></i></a>;
-                  <a href="{{route('blogs.show',$blog->id)}}"><i class="far fa-eye text-warning"></i></a>;
-                  <form action="{{route('blogs.destroy',$blog->id)}}" method="post" class="d-inline">
+                  <a href="{{route('banners.edit',$banner->id)}}"><i class="far fa-edit"></i></a>
+                  <form action="{{route('banners.destroy',$banner->id)}}" method="post" class="d-inline">
                     @csrf
                     @method('DELETE')
                     <button type="submit" style="border: none; background-color: transparent;">
@@ -83,9 +68,9 @@ banner
             @endforeach
             @else
             <tr>
-                <td colspan="4" class="text-primary "> Blog not found!</td>
+                <td colspan="4" class="text-primary ">Banners not found!</td>
             </tr>
-            @endif --}}
+            @endif
 
 
           </tbody>

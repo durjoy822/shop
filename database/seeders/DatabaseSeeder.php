@@ -31,6 +31,7 @@ class DatabaseSeeder extends Seeder
             AboutUsSeeder::class,
             CustomerProfileSeeder::class,
             SpacialProductSeeder::class,
+            BannerSeeder::class,
 
         ]);
 
